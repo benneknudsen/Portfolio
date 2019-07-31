@@ -8,14 +8,20 @@ body {
     background-color: #fff;
      width: 100%;
     height: 100%;
+    display: block;
 }
 
-.navbar {
-    
-}
-
-
-.profil {
-    width: 30%;
+.crop {
     text-align: center;
 }
+
+.profil {
+    width: 17%;
+    border-radius: 50%;
+}
+
+
+.navbar {
+
+}
+
