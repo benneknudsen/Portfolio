@@ -62,6 +62,16 @@ body {
     font-family: Lato, sans-serif;
 }
 
+.undertitelh3 {
+       font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    margin-top: 0;
+     color: #4fa0ff;
+    font-family: Lato, sans-serif;
+}
+
+
 .arrow {
   text-align: center;
   margin: 8% 0;
