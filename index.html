@@ -17,9 +17,9 @@
 
 
 <body>
-
+  <section id="home" class="titel">
     <nav class="navbar">
-        <a href="#home" onclick="showPage('home')">Forside</a>
+        <a href="#home" class="active" onclick="showPage('home')">Forside</a>
         <a href="#about" onclick="showPage('about')">Projekter</a>
         <a href="#clients" onclick="showPage('clients')">CV</a>
         <a href="#contact" onclick="showPage('contact')">Kontakt</a>
@@ -28,8 +28,7 @@
     </nav>
 
 
-    <section id="home" class="titel">
-        
+        <div class="fill">
             <img src="Billeder/FlotFyr1.jpg" class="profil" alt="Logo">
             <h1 class="titeltekst">Benjamin Schou Knudsen</h1>
             <h2 class="undertitel">Studerende ved Erhvervsakademi Aarhus med fokus på frontend</h2>
@@ -39,36 +38,33 @@
             <div class="arrow bounce">
                 <i class="fas fa-chevron-circle-down" style="font-size: 35px; color: #4fa0ff"></i>
             </div>
-       
+       </div>
+      <div class="storrelse">
+      
+      <div class="streg"></div>
 
-        <div class="storrelse">
-    
-            <div class="kolonne chunk">
-                <br>
-                <div>
-                    <h2>hej med dig</h2>
-                    <p>hejhejejejsjadasjdjas</p>
-                    <p>hejhejejejsjadasjdjas</p>
-                    <p>hejhejejejsjadasjdjas</p>
-                </div>
-                <div>
-                    <h2>hej med dig</h2>
-                    <p>hejhejejejsjadasjdjas</p>
-                    <p>hejhejejejsjadasjdjas</p>
-                    <p>hejhejejejsjadasjdjas</p>
-                </div>
-
-
-            </div>
-
-
-
-        </div>
-
+       <div class='parent flex-parent'>
+  <div class='child flex-child'>
+      <h2 class="sidetitel">Hvem er jeg?</h2>
+      <p>Jeg er mega <b>autist</b> hehe</p>
+           </div>
+  <div class='child flex-child'>
+            <h2 class="sidetitel">Hvad kan jeg?</h2>
+           </div>
+</div>
+          </div>
     </section>
 
     
         <section id="about" class="titel">
+             <nav class="navbar">
+        <a href="#home" onclick="showPage('home')">Forside</a>
+        <a href="#about" class="active" onclick="showPage('about')">Projekter</a>
+        <a href="#clients" onclick="showPage('clients')">CV</a>
+        <a href="#contact" onclick="showPage('contact')">Kontakt</a>
+
+
+    </nav>
        
             <img src="Billeder/FlotFyr.png" class="profil" alt="Logo">
             <h1 class="titeltekst">Benjamin Schou Knudsen</h1>
