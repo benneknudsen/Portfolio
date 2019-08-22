@@ -1,3 +1,5 @@
+"use strict";
+
 var TxtType = function(el, toRotate, period) {
         this.toRotate = toRotate;
         this.el = el;
@@ -55,16 +57,33 @@ var TxtType = function(el, toRotate, period) {
         document.body.appendChild(css);
     };
 
-// ===== Scroll to Top ==== 
-$(window).scroll(function() {
-    if ($(this).scrollTop() >= 50) {        // If page is scrolled more than 50px
-        $('#return-to-top').fadeIn(200);    // Fade in the arrow
-    } else {
-        $('#return-to-top').fadeOut(200);   // Else fade out the arrow
-    }
-});
-$('#return-to-top').click(function() {      // When arrow is clicked
-    $('body,html').animate({
-        scrollTop : 0                       // Scroll to top of body
-    }, 500);
-});
+// Single page
+
+
+// hide all pages
+function hideAllPages() {
+  let pages = document.querySelectorAll(".titel");
+  for (let page of pages) {
+    page.style.display = "none";
+  }
+}
+
+// show page or tab
+function showPage(pageId) {
+  hideAllPages();
+  document.querySelector(`#${pageId}`).style.display = "block";
+  location.href = `#${pageId}`;
+  setActiveTab(pageId);
+}
+
+
+// set default page
+function setDefaultPage() {
+  let page = "home";
+  if (location.hash) {
+    page = location.hash.slice(1);
+  }
+  showPage(page);
+}
+
+setDefaultPage();
