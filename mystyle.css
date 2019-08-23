@@ -6,7 +6,7 @@
 
 body {
     background-color: #f8f8f8;
-    width: 95%;
+    width: 100%;
     height: 100%;
     margin: auto;
 
@@ -14,7 +14,7 @@ body {
 
 p {
     text-align: left;
-    
+
 }
 
 b {
@@ -22,9 +22,12 @@ b {
 }
 
 .storrelse {
-    width: 68%;
+
+    background-color: #fff;
+    width: 100%;
     margin: auto;
     font-family: Lato, sans-serif;
+ box-shadow: 0 0 5px #333;
 }
 
 .titel {
@@ -68,6 +71,10 @@ b {
 
 .fill {
     height: 95vh;
+width: 95%;
+margin: auto;
+  filter: drop-shadow(0 0 220px #333);
+
 }
 
 .titeltekst {
@@ -81,7 +88,7 @@ b {
 }
 
 .sidetitel {
-    text-align: left;
+    text-align: center;
     margin-top: 3vh;
     margin-bottom: 10px;
     font-size: 2rem;
@@ -112,15 +119,29 @@ b {
 
 .flex-parent {
   display: flex;
+  width: 68%;
+  margin: auto;
 }
 .flex-child {
   flex: 2;
 }
 
+.pagetext {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-top: 3vh;
+  margin-bottom: 10px;
+  font-size: 3rem;
+  font-weight: 430;
+  color: #424242;
+  font-family: Lato, sans-serif;
+}
+
 
 .streg {
     border-bottom: 1px solid #d4d4d4;
-    padding-top: 2vh;
+    width: 79%;
+    margin: auto;
 }
 
 .arrow {
@@ -164,4 +185,3 @@ b {
     opacity: 1
   }
 }
-
