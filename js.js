@@ -86,3 +86,8 @@ function setDefaultPage() {
 }
 
 setDefaultPage();
+
+
+  AOS.init({
+    duration: 1000
+  });
