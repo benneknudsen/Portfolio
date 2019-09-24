@@ -4,6 +4,9 @@
 
 }
 
+
+
+
 @import url('https://fonts.googleapis.com/css?family=Exo:400,700');
 
 body {
@@ -16,11 +19,34 @@ body {
 
 p {
     text-align: left;
+    font-size: 18px;
+
 
 }
 
 b {
     color: #4fa0ff;
+}
+
+.fab {
+  font-size: 50px;
+    transition: transform .2s; /* Animation */
+}
+
+.fab:hover {
+  transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+
+.fas {
+  font-size: 40px;
+  color: #4fa0ff;
+  padding-top: 20px;
+}
+.hvad {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 40px;
 }
 
 .storrelse {
@@ -43,34 +69,20 @@ b {
 .profil {
     width: 280px;
     border-radius: 50%;
+    transition: transform .2s; /* Animation */
+}
+
+.profil:hover {
+  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
 
 .active {
     color: #fff!important
 }
 
-.navbar {
-    text-align: right;
-    padding-top: 20px;
-    padding-bottom: 50px;
-    margin: 2% 19%;
-    overflow: hidden;
-    z-index: 999;
-}
 
-.navbar a {
-    margin-right: 20px;
-    text-decoration: none;
-    color: #aaa;
-    font-weight: 200;
-    border: 0;
-    font-size: 1.17rem;
-    font-family: Lato, sans-serif;
-}
 
-.navbar a:hover {
-    color: #4fa0ff;
-}
+/* Kode fyld til forskellige regler i min HTML */
 
 .fill {
     height: 95vh;
@@ -90,10 +102,12 @@ margin: auto;
 
 }
 
+
+
 .sidetitel {
     text-align: center;
     margin-top: 3vh;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
     font-size: 2rem;
     font-weight: 450;
     color: #424242;
@@ -106,7 +120,7 @@ margin: auto;
     font-weight: 400;
     margin-bottom: 30px;
     margin-top: 0;
-    color: #cccccc;
+    color: #E5DFDF;
     font-family: Lato, sans-serif;
 }
 
@@ -116,7 +130,7 @@ margin: auto;
     text-decoration: none;
     margin-bottom: 30px;
     margin-top: 0;
-    color: #cccccc;
+    color: #E5DFDF;
     font-family: Lato, sans-serif;
 }
 
@@ -132,11 +146,12 @@ margin: auto;
 .pagetext {
   padding-top: 30px;
   padding-bottom: 30px;
-  margin-top: 3vh;
+  margin-top: 1vh;
   margin-bottom: 10px;
   font-size: 3rem;
   font-weight: 430;
   color: #424242;
+  text-align: center;
   font-family: Lato, sans-serif;
 }
 
@@ -146,6 +161,8 @@ margin: auto;
     width: 79%;
     margin: auto;
 }
+
+/* gør at min arrow bouncer */
 
 .arrow {
     text-align: center;
@@ -188,6 +205,8 @@ margin: auto;
     opacity: 1
   }
 }
+
+/* Animation i baggrund af startside */
 
 .area{
     background: #4e54c8;
@@ -295,7 +314,13 @@ margin: auto;
     animation-duration: 11s;
 }
 
+/* iPhone */
 
+
+
+
+
+/* Animation */
 
 @keyframes animate {
 
@@ -312,3 +337,141 @@ margin: auto;
     }
 
 }
+
+
+/* Mediequeries */
+
+@media screen and (min-width:690px) {
+
+  .navbar {
+      text-align: right;
+      padding-top: 20px;
+      padding-bottom: 50px;
+      margin: 2% 19%;
+      overflow: hidden;
+      z-index: 999;
+  }
+
+  .navbar a {
+      margin-right: 20px;
+      text-decoration: none;
+      color: #aaa;
+      font-weight: 370;
+      border: 0;
+      font-size: 1.17rem;
+      font-family: Lato, sans-serif;
+  }
+
+  .navbar a:hover {
+      color: #4fa0ff;
+  }
+  .praktisk {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      position: relative;
+  }
+
+  .praktisk_tekst {
+      position: relative;
+      max-width: 50%;
+      top: 10%;
+      left: 10%;
+      text-align: left;
+  }
+
+  .foodlii {
+      color: #FA7F48;
+      font-family: 'Yesteryear';
+      font-size: 60px;
+
+  }
+
+  .praktisk p {
+      color: black;
+      letter-spacing: 1px;
+      font-size: 20px;
+      font-family: Lato;
+      line-height: 40px;
+  }
+
+
+  .praktisk img {
+      position: absolute;
+      max-width: 33%;
+      right: 10%;
+      transition: transform .2s;
+  }
+
+  .praktisk img:hover {
+      transform: scale(1.05);
+  }
+
+
+
+  }
+
+
+
+
+
+@media screen and (max-width:690px) {
+
+  .navbar {
+      text-align: center;
+      padding-top: 20px;
+      padding-bottom: 50px;
+      overflow: hidden;
+      z-index: 999;
+  }
+
+  .navbar a {
+      margin-right: 20px;
+      text-decoration: none;
+      color: #aaa;
+      font-weight: 370;
+      border: 0;
+      font-size: 1.17rem;
+      font-family: Lato, sans-serif;
+  }
+
+  .navbar a:hover {
+      color: #4fa0ff;
+  }
+
+  .praktisk_tekst {
+    margin: 0 20px;
+      text-align: center;
+
+  }
+
+  .foodlii {
+      color: #FA7F48;
+      font-family: 'Yesteryear';
+      font-size: 50px;
+
+  }
+
+  .praktisk p {
+      color: black;
+
+      font-size: 20px;
+      font-family: Lato;
+      line-height: 40px;
+  }
+
+
+
+  .praktisk img {
+
+      max-width: 90%;
+      transition: transform .2s;
+  }
+
+  .praktisk img:hover {
+      transform: scale(1.05);
+  }
+
+
+
+  }
