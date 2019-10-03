@@ -633,9 +633,30 @@ button {
 
 
 .ikoner {
-  padding-left: 20px;
   padding-right: 20px;
   font-size: 70px;
+}
+
+.html5 {
+  color: #E44D26;
+}
+
+.css3 {
+  color: #264de4;
+}
+
+.java {
+  color: #f0db4f;
+}
+
+.picsprojekt {
+  padding-right: 20px;
+  width: 70px;
+    transition: transform .2s;
+}
+
+.picsprojekt:hover {
+    transform: scale(1.20);
 }
 
 /* Animation */
