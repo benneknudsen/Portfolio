@@ -77,6 +77,7 @@ function showPage(pageId) {
 }
 
 
+
 // set default page
 function setDefaultPage() {
   let page = "home";
@@ -87,6 +88,7 @@ function setDefaultPage() {
 }
 
 setDefaultPage();
+
 
 
   AOS.init({

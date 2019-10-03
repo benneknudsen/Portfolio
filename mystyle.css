@@ -112,7 +112,11 @@ b {
 
 
 /* Mine div classes */
-
+.projektside {
+  width: 79%;
+    margin: auto;
+    font-family: Lato,sans-serif;
+}
 
 .hvad {
   text-align: center;
@@ -120,11 +124,16 @@ b {
   padding-bottom: 40px;
 }
 
-
+.obs {
+  padding-top: 20px;
+  padding-bottom: 40px;
+  width: 60%;
+  margin: auto;
+}
 
 .storrelse {
 display: block;
-    background-color: # #f2f2f2;
+    background-color: #f2f2f2;
     width: 100%;
     margin: auto;
     font-family: Lato, sans-serif;
@@ -159,7 +168,11 @@ display: block;
 }
 
 .active {
-    color: #fff!important
+    color: #fff!important;
+}
+
+.active1 {
+  color: black!important;
 }
 
 
@@ -243,6 +256,7 @@ margin: auto;
     width: 79%;
     margin: auto;
 }
+
 
 /* gør at min arrow bouncer */
 
@@ -618,7 +632,11 @@ button {
 }
 
 
-
+.ikoner {
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 70px;
+}
 
 /* Animation */
 
@@ -637,6 +655,69 @@ button {
     }
 
 }
+
+/* Projektsiden CSS */
+
+.project-listing {
+  display: block;
+}
+
+.project {
+  overflow: hidden;
+  background-color: #ececec;
+}
+
+.projectx {
+  overflow: hidden;
+  background-color: #ddd;
+}
+
+.project__image {
+  padding: 20px 10px;
+  max-width: 86%; }
+  @media all and (min-width: 75em) {
+    .project__image {
+      margin-right: 60px;
+      float: right;
+      width: 48%;
+      padding-bottom: 130px; } }
+
+      .project__title {
+  padding: 50px 30px 0;
+  font-size: 1.728em;
+  font-weight: 400;
+  font-family: "Lato"; }
+
+  .project__info {
+  padding: 0 30px;
+  overflow: hidden; }
+  .project__info a {
+    color: inherit; }
+  @media all and (min-width: 75em) {
+    .project__info {
+      float: left;
+      width: 40%;
+      margin-top: 40px; } }
+
+      .info__label {
+          font-family: "Lato";
+          font-size: 1.44em;
+          font-weight: 400;
+          margin-bottom: 15px;
+      }
+
+      .info__text {
+        font-weight: 400;
+        font-family: "Rubik";
+    margin-bottom: 40px;
+    line-height: 1.9;
+}
+
+.project__tools {
+    clear: both;
+    margin-bottom: 20px;
+}
+
 
 
 /* Mediequeries */

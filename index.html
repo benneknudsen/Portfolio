@@ -10,8 +10,7 @@
   <meta name="description" content="Mit navn er Benjamin Schou Knudsen. Jeg studerer på Erhvervsakademi Aarhus som Mulitmediedesigner og specialisere mig som front end developer." />
   <meta name="author" content="Benjamin Schou Knudsen">
   <script src="https://kit.fontawesome.com/1cb7c201ad.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Yesteryear&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Yesteryear|Cormorant+Garamond|Rubik|Lato&display=swap" rel="stylesheet">
 
 
 
@@ -141,48 +140,48 @@
           Nu
         </p>
         <div class="timeline">
-          <div data-aos="fade-right">
           <div class="container left">
+            <div data-aos="fade-right">
             <div class="content">
               <h2>2017</h2>
               <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
             </div>
           </div>
         </div>
-        <div data-aos="fade-left">
           <div class="container right">
+              <div data-aos="fade-left">
             <div class="content">
               <h2>2016</h2>
               <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
             </div>
           </div>
         </div>
-        <div data-aos="fade-right">
           <div class="container left">
+            <div data-aos="fade-right">
             <div class="content">
               <h2>2015</h2>
               <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
             </div>
           </div>
         </div>
-        <div data-aos="fade-left">
           <div class="container right">
+              <div data-aos="fade-left">
             <div class="content">
               <h2>2012</h2>
               <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
             </div>
           </div>
         </div>
-        <div data-aos="fade-right">
           <div class="container left">
+            <div data-aos="fade-right">
             <div class="content">
               <h2>2011</h2>
               <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
             </div>
           </div>
         </div>
-        <div data-aos="fade-left">
           <div class="container right">
+            <div data-aos="fade-left">
             <div class="content">
               <h2>2007</h2>
               <p>Lorem ipsum dolor sit amet, quo ei simul congue exerci, ad nec admodum perfecto mnesarchum, vim ea mazim fierent detracto. Ea quis iuvaret expetendis his, te elit voluptua dignissim per, habeo iusto primis ea eam.</p>
@@ -198,7 +197,7 @@
     <div data-aos="fade-up">
       <div class="nytab">
         <div class="streg"></div>
-            <h2 class="pagetext">Kontakt mig</h2>
+            <h2 class="pagetext">Introducer dig selv</h2>
             <div data-aos="fade-up-right">
         <button class="card">
           <div class="row clearfix">
@@ -227,49 +226,100 @@
   <section id="about" class="titel">
     <nav class="navbar">
       <a href="#home" onclick="showPage('home')">Forside</a>
-      <a href="#about" class="active" onclick="showPage('about')">Projekter</a>
+      <a href="#about" class="active1" onclick="showPage('about')">Projekter</a>
       <a href="#clients" onclick="showPage('clients')">CV</a>
       <a href="#contact" onclick="showPage('contact')">Kontakt</a>
 
 
     </nav>
 
-    <img src="Billeder/FlotFyr.png" class="profil" alt="Logo">
-    <h1 class="titeltekst">Benjamin Schou Knudsen</h1>
-    <h2 class="undertitel">Studerende ved Erhvervsakademi Aarhus med fokus på frontend</h2>
-    <a href="" class="undertitelh3 typewrite" data-period="2000" data-type='[ "Hej, Jeg hedder Benjamin.", "Jeg er studerende.", "Jeg elsker design.", "Jeg elsker at kode" ]'>
-      <span class="wrap"></span>
-    </a>
-    <div class="arrow bounce">
-      <i class="fas fa-chevron-circle-down" style="font-size: 35px; color: #4fa0ff"></i>
-    </div>
+
+      <div class="storrelse">
+        <div class="projektside">
+        <h2 class="pagetext">Projekter</h2>
+          <div class="streg"></div>
+          <p class="obs">
+            This page lists my personal projects. Some include links to their use, which include websites, native applications, chrome extensions and tools. The source code for the majority of these can be found on my Github account - note that some of those are merely learning experiences and not production ready projects.
+          </p>
+</div>
+  </div>
+<section class="project-listing">
+           <article class="project">
+   <h3 class="project__title">Foodlii</h3>
+   <img class="project__image" src="billeder/foodlii.png">
+   <div class="project__info">
+       <h4 class="info__label">Projekt brief</h4>
+       <p class="info__text">Long term project to replace ageing internal command-line system with a modern web app using React to consume API data. Client is a US-based retirement fund manager with over $10B in assets. The Employee Portal is used by employees of the company to manage customer accounts, transactions, and related information</p>
+       <h4 class="info__label">Min rolle</h4>
+       <p class="info__text">Working closely with the rest of the front end team (2-6 others) and backend team to quickly deliver new features, refactor existing code, and keep the codebase under control and manageable as the project scales</p>
+       <h4 class="info__label">Links</h4>
+       <p class="info__text">
+         <a href="https://github.com/benneknudsen/Foodlii" target="_blank"><i class="fab fa-github"></i></a>
+         <a href="https://www.linkedin.com/in/benjamin-schou-knudsen-b8b685178/" target="_blank"><i class="fab fa-linkedin"></i></a>
+         <a href="mailto:mail@benjaminsknudsen.com"><i class="fas fa-envelope"></i></a>
+       </p>
+       <h4 class="info__label">Tools</h4>
+       <p class="info__text">
+         <i class="fab fa-html5 ikoner"></i>
+      <i class="fab fa-css3-alt ikoner"></i>
+         <i class="fab fa-js-square ikoner"></i>
+       </p>
+
+   </div>
+</article>
 
 
-    <div class="storrelse">
+           <article class="projectx">
+   <h3 class="project__title">IRA Services Trust Employee Portal</h3>
+   <img class="project__image" src="billeder/phone.png">
+   <div class="project__info">
+       <h4 class="info__label">Project brief</h4>
+       <p class="info__text">Long term project to replace ageing internal command-line system with a modern web app using React to consume API data. Client is a US-based retirement fund manager with over $10B in assets. The Employee Portal is used by employees of the company to manage customer accounts, transactions, and related information</p>
+       <h4 class="info__label">My role</h4>
+       <p class="info__text">Working closely with the rest of the front end team (2-6 others) and backend team to quickly deliver new features, refactor existing code, and keep the codebase under control and manageable as the project scales</p>
+       <h4 class="info__label">Browser support</h4>
+       <p class="info__text">Latest desktop browsers</p>
 
-      <div class="kolonne chunk">
-        <br>
-        <div>
-          <h2>hej med dig</h2>
-          <p>hejhejejejsjadasjdjas</p>
-          <p>hejhejejejsjadasjdjas</p>
-          <p>hejhejejejsjadasjdjas</p>
-        </div>
-        <div>
-          <h2>hej med dig</h2>
-          <p>hejhejejejsjadasjdjas</p>
-          <p>hejhejejejsjadasjdjas</p>
-          <p>hejhejejejsjadasjdjas</p>
-        </div>
-
-
-      </div>
+   </div>
+</article>
 
 
 
-    </div>
+
+
+</section>
+  </section>
+
+
+  <section id="clients" class="titel">
+    <nav class="navbar">
+      <a href="#home" onclick="showPage('home')">Forside</a>
+      <a href="#about"  onclick="showPage('about')">Projekter</a>
+      <a href="#clients" class="active1" onclick="showPage('clients')">CV</a>
+      <a href="#contact" onclick="showPage('contact')">Kontakt</a>
+
+
+    </nav>
+<div>
+<embed src="filer/CV.pdf" type="application/pdf" width="90%" height="760px" />
+</div>
 
   </section>
+
+  <section id="contact" class="titel">
+    <nav class="navbar">
+      <a href="#home" onclick="showPage('home')">Forside</a>
+      <a href="#about"  onclick="showPage('about')">Projekter</a>
+      <a href="#clients" onclick="showPage('clients')">CV</a>
+      <a href="#contact" class="active1" onclick="showPage('contact')">Kontakt</a>
+
+
+    </nav>
+
+
+
+  </section>
+
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="js.js"></script>
 
