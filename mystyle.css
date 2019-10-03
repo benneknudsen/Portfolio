@@ -182,8 +182,8 @@ display: block;
 /* Kode fyld til forskellige regler i min HTML */
 
 .fill {
-    height: 95vh;
-width: 95%;
+    height: 100%;
+width: 100%;
 margin: auto;
 
 
@@ -923,6 +923,62 @@ font-family: 'Euphoria Script', cursive;
 
 @media screen and (max-width:690px) {
 
+  .profil {
+      width: 210px;
+      border-radius: 50%;
+      transition: transform .2s; /* Animation */
+  }
+
+  .fill {
+      height: 100%;
+  width: 100%;
+  margin: auto;
+
+
+  }
+
+  .titeltekst {
+      margin-top: 3vh;
+      margin-bottom: 10px;
+      font-size: 1.9rem;
+      font-weight: 430;
+      color: #f2f2f2;
+      font-family: Lato, sans-serif;
+
+  }
+
+
+
+  .sidetitel {
+      text-align: center;
+      margin-top: 4  vh;
+      margin-bottom: 40px;
+      font-size: 1.5rem;
+      font-weight: 450;
+      color: #424242;
+      font-family: Lato, sans-serif;
+
+  }
+
+  .undertitel {
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 30px;
+      margin-top: 0;
+      color: #E5DFDF;
+      font-family: Lato, sans-serif;
+  }
+
+  .undertitelh3 {
+      font-size: 20px;
+      font-weight: 400;
+      text-decoration: none;
+      margin-bottom: 30px;
+      margin-top: 0;
+      color: #E5DFDF;
+      font-family: Lato, sans-serif;
+  }
+
   .timeline::after {
   left: 31px;
   }
@@ -1020,6 +1076,7 @@ font-family: 'Euphoria Script', cursive;
       background-color: #4fa0ff;
       transition: .2s;
   }
+
 
 
   }
