@@ -41,8 +41,8 @@ b {
   position: absolute;
   bottom: 0;
   left: 0;
-  margin-bottom: 5px;
-  margin-left: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
   opacity: 0.7;
 
 }
@@ -113,6 +113,14 @@ b {
 
 /* Mine div classes */
 
+.textfyld {
+  color: black;
+  letter-spacing: 1px;
+  font-size: 20px;
+  font-family: Lato;
+  line-height: 40px;
+}
+
 .projektside {
   width: 79%;
     margin: auto;
@@ -144,6 +152,7 @@ display: block;
 
 .nytab {
     padding-top: 180px;
+    padding-bottom: 60px;
     width: 100%;
     margin: auto;
     font-family: Lato, sans-serif;
@@ -160,14 +169,10 @@ display: block;
 }
 
 .profil {
-    width: 280px;
-    border-radius: 50%;
-    transition: transform .2s; /* Animation */
+    width: 240px;
 }
 
-.profil:hover {
-  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-}
+
 
 .active {
     color: #fff!important;
@@ -233,9 +238,10 @@ margin: auto;
 
 .flex-parent {
   display: flex;
-  width: 68%;
+  width: 80%;
   margin: auto;
 }
+
 .flex-child {
   flex: 2;
 }
@@ -264,7 +270,7 @@ margin: auto;
 
 .arrow {
     text-align: center;
-    margin: 8% 0;
+    margin: 5% 0;
 
 }
 
@@ -752,6 +758,7 @@ font-family: 'Euphoria Script', cursive;
     .project__info {
       float: left;
       width: 40%;
+      margin-left: 60px;
       margin-top: 40px; } }
 
       .info__label {
@@ -826,9 +833,101 @@ font-family: 'Euphoria Script', cursive;
   color: #4fa0ff;
 }
 
+.contact {
+  transition: all 0.25s ease;
+}
+
+.contact-wrapper {
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+  justify-content: center;
+}
+
+
+
+.contact-form-wrapper {
+  width: 600px;
+  padding-bottom: 300px;
+}
+
+.contact-form {
+  padding-top: 15px;
+  font-family: Roboto;
+}
+.contact-form input {
+  width: 100%;
+  height: 35px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(255,255,255,0.3);
+  background: transparent;
+  color: #fff;
+  font-family: Roboto;
+  letter-spacing: 1px;
+  font-size: 13px;
+}
+
+.contact-form input::placeholder {
+  font-family: Roboto;
+  letter-spacing: 3px;
+}
+
+.contact-form textarea {
+  width: 100%;
+  height: 150px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid rgba(255,255,255,0.3);
+  background: transparent;
+  color: #fff;
+  resize: none;
+  font-family: Open Sans, Arial;
+  letter-spacing: 1px;
+}
+.contact-form textarea::placeholder {
+  font-size: 13px;
+  text-transform: uppercase;
+  font-family: Roboto;
+  letter-spacing: 3px;
+}
+
+.contact-form button {
+  text-align: center;
+  float: right;
+  margin-right: -20px;
+  margin-top: 15px;
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 10px;
+  font-family: Roboto;
+  letter-spacing: 3px;
+}
+
+.contact-form button:hover {
+  color: #1b1b1b;
+  background-color: #fff;
+  cursor:pointer;
+}
+
+.contact-form p {
+  letter-spacing: 3px;
+  padding-top: 10px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.contact-form p span {
+  font-weight: lighter;
+  font-size: 14px;
+}
+
 /* Mediequeries */
 
-@media screen and (min-width:690px) {
+@media screen and (min-width:780px) {
 
   .navbar {
       text-align: right;
@@ -921,12 +1020,17 @@ font-family: 'Euphoria Script', cursive;
 
 }
 
-@media screen and (max-width:690px) {
+@media screen and (max-width: 780px) {
 
   .profil {
       width: 210px;
-      border-radius: 50%;
-      transition: transform .2s; /* Animation */
+
+  }
+
+  .flex-parent {
+    display: flex;
+    width: 80%;
+    margin: auto;
   }
 
   .fill {
