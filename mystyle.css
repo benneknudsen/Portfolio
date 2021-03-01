@@ -271,6 +271,7 @@ margin: auto;
 .arrow {
     text-align: center;
     margin: 5% 0;
+    pointer-events: none;
 
 }
 
@@ -658,6 +659,10 @@ button {
   color: #f0db4f;
 }
 
+.vue {
+  color: #41B883;
+}
+
 .picsprojekt {
   padding-right: 20px;
   width: 70px;
@@ -785,12 +790,13 @@ font-family: 'Euphoria Script', cursive;
 
 
 .kontakt {
+
   overflow: hidden;
 }
 
 .kontaktbillede {
   padding: 10px 20px;
-  max-width: 56%; }
+  max-width: 80%; }
   @media all and (min-width: 75em) {
     .kontaktbillede {
       margin-left: 360px;
