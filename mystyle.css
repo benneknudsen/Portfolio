@@ -655,6 +655,14 @@ button {
   color: #264de4;
 }
 
+.react {
+  color: #61dbfb;
+}
+
+.umbraco {
+  color: #3544b0;
+}
+
 .java {
   color: #f0db4f;
 }
@@ -932,6 +940,8 @@ font-family: 'Euphoria Script', cursive;
   font-size: 14px;
 }
 
+
+
 /* Mediequeries */
 
 @media screen and (min-width:780px) {
@@ -1187,7 +1197,6 @@ font-family: 'Euphoria Script', cursive;
       background-color: #4fa0ff;
       transition: .2s;
   }
-
 
 
   }
