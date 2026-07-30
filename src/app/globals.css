@@ -69,8 +69,28 @@ html {
   --font-jetbrains: 'JetBrains Mono', monospace;
 }
 
-html[data-theme="dark"] { 
-  color-scheme: dark; 
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+/* Lenis smooth scroll — structural helpers (no colors/transitions).
+   `.lenis-stopped` is what makes lenis.stop() actually freeze the page
+   for the mobile menu (see AGENTS.md convention #0). */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }
 
 /* Base — no color/background transitions on body or controls:
