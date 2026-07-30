@@ -126,3 +126,60 @@ a:hover {
   margin-inline: auto;
   padding-inline: var(--container-pad);
 }
+
+/* ============================================================
+   Reveal & word-reveal animations (A1, A2)
+   Scroll-triggered: IntersectionObserver adds `.visible` to `.rv`.
+   Only opacity/transform animate — never color/background, so the
+   theme switch stays safe (AGENTS.md convention #2).
+   ============================================================ */
+
+/* A1 — section reveal: fade in + rise 28px. */
+.rv {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity .9s var(--ease-out),
+    transform .9s var(--ease-out);
+}
+.rv.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* A word-reveal heading is itself the reveal trigger; the per-word rise is
+   the entrance, so the heading box stays put and only its words move. */
+.rv[data-split] {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+/* A2 — word reveal: each word rises out of an overflow-hidden mask,
+   staggered by --d (word index × 50ms). */
+.word-line {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+.word {
+  display: inline-block;
+  transform: translateY(115%);
+  transition: transform .9s var(--ease-out);
+  transition-delay: var(--d, 0s);
+}
+.rv.visible .word {
+  transform: translateY(0);
+}
+
+/* Reduced motion: everything visible, no transitions. */
+@media (prefers-reduced-motion: reduce) {
+  .rv,
+  .rv.visible,
+  .word,
+  .rv.visible .word {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
