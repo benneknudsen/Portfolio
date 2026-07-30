@@ -185,6 +185,192 @@ a:hover {
 }
 
 /* ============================================================
+   Hero (#6) — meta line, word-reveal h1 + em underline (A8), levitating
+   avatar (A6/A7), blob backdrop (A9), buttons and GlyphStrip (A5).
+   Keyframes mirror the tailwind config; only transform/opacity animate so the
+   theme switch stays safe (convention #2).
+   ============================================================ */
+
+@keyframes levitate {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-14px); }
+}
+@keyframes floorShadow {
+  0%, 100% { transform: scaleX(1); opacity: .9; }
+  50%      { transform: scaleX(.8); opacity: .5; }
+}
+@keyframes blob {
+  to { transform: translate(-70px, 60px) scale(1.18); }
+}
+@keyframes underline {
+  0%, 10%   { transform: scaleX(0); transform-origin: left; }
+  22%, 58%  { transform: scaleX(1); transform-origin: left; }
+  59%       { transform-origin: right; }
+  74%, 100% { transform: scaleX(0); transform-origin: right; }
+}
+
+/* Section: padding-top (not margin) is fine here — the hero is first and the
+   container only sets padding-inline, so nothing overrides it (convention #3). */
+.hero {
+  position: relative;
+  padding-top: clamp(72px, 12vh, 140px);
+}
+
+/* A9 — blob backdrop. `--blob` is the theme-aware tint token. */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 6%;
+  right: -4%;
+  width: clamp(280px, 36vw, 520px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--blob), transparent 65%);
+  animation: blob 16s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+.hero .meta {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-family: var(--mono);
+  font-size: 13.5px;
+  color: var(--dim);
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: clamp(28px, 5vh, 48px);
+}
+/* Location · clock · glyph strip stay on one line (convention #4). */
+.hero .meta > span:last-child {
+  white-space: nowrap;
+}
+
+.hero .top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(46px, 8vw, 112px);
+  line-height: 1.02;
+  letter-spacing: -.03em;
+  font-weight: 700;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.hero h1 em {
+  position: relative;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--accent);
+}
+/* A8 — the em's underline sweeps in and out on a 7s loop. */
+.hero h1 em::after {
+  content: "";
+  position: absolute;
+  left: 2%;
+  right: 5%;
+  bottom: .02em;
+  height: .07em;
+  background: var(--accent);
+  border-radius: 99px;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: underline 7s cubic-bezier(.6, 0, .2, 1) infinite 1.4s;
+}
+/* Descender room so the word masks don't clip the em underline as words rise. */
+.hero h1 .word-line {
+  padding-bottom: .12em;
+  margin-bottom: -.12em;
+}
+
+.hero .below {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-top: clamp(28px, 4.5vh, 48px);
+}
+.hero p {
+  margin: 0;
+  max-width: 46ch;
+  font-size: clamp(16px, 1.7vw, 19px);
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+.hero p b {
+  color: var(--ink);
+  font-weight: 600;
+}
+.btns {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* A6/A7 — avatar. The transparent memoji floats directly on the page (no
+   coloured bubble): image levitates, `::after` is the synced floor shadow. */
+.avatar {
+  position: relative;
+  width: clamp(110px, 12vw, 170px);
+  height: clamp(110px, 12vw, 170px);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+.avatar::after {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: -8px;
+  height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(20, 19, 16, .25), transparent 70%);
+  animation: floorShadow 9s ease-in-out infinite;
+}
+.avatar img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(var(--shadow-avatar));
+  animation: levitate 9s ease-in-out infinite;
+  transition: transform .5s var(--ease-spring);
+}
+.avatar:hover img {
+  transform: scale(1.07) rotate(-3deg);
+}
+
+/* A5 — GlyphStrip. Fixed 12ch width + vertical-align bottom prevent layout
+   shift as the glyphs flicker (convention #6). No colour transition: the
+   dim→accent swap on decode is instant, so the theme switch stays safe. */
+.glyphs {
+  display: inline-block;
+  width: 12ch;
+  overflow: hidden;
+  white-space: pre;
+  font-family: var(--mono);
+  font-size: inherit;
+  font-weight: inherit;
+  color: var(--dim);
+  vertical-align: bottom;
+  cursor: default;
+}
+.glyphs.open {
+  color: var(--accent);
+}
+
+/* ============================================================
    MobileMenu (#18) — burger (A17) + panel (A18). Shown < 820px.
    Only transform/opacity animate — never color/background (convention #2).
    ============================================================ */
@@ -337,6 +523,15 @@ body.menu-open {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  /* Hero: no levitation, floor shadow, blob or headline underline. The
+     GlyphStrip renders its message statically (handled in the component). */
+  .avatar img,
+  .avatar::after,
+  .hero::before,
+  .hero h1 em::after {
+    animation: none;
   }
 
   /* Menu switches instantly — no burger morph, no panel/link/footer animation. */
