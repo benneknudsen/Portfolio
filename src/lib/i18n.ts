@@ -32,6 +32,8 @@ export const copy = {
       langGroup: "Vælg sprog",
       themeToDark: "Skift til mørkt tema",
       themeToLight: "Skift til lyst tema",
+      menuOpen: "Åbn menu",
+      menuClose: "Luk menu",
     },
   },
   en: {
@@ -47,6 +49,8 @@ export const copy = {
       langGroup: "Select language",
       themeToDark: "Switch to dark theme",
       themeToLight: "Switch to light theme",
+      menuOpen: "Open menu",
+      menuClose: "Close menu",
     },
   },
 } as const;
