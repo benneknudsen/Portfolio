@@ -29,12 +29,14 @@ Design tokens are CSS custom properties in `src/app/globals.css` (light default,
 
 ## Critical Conventions
 
+0. **Mobilmenu og Lenis**: `body { overflow: hidden }` stopper ikke Lenis — panelet scroller bagved hvis du ikke også kalder `lenis.stop()` / `lenis.start()`. Gem instansen (fx `window.__lenis`) så menu-koden kan nå den.
 1. **Theme toggle uses `data-theme` attribute, NOT class.** `darkMode: ["class", '[data-theme="dark"]']`.
 2. **NO color/background transitions** on body, buttons, pills, or controls — they break the theme switch (text goes dark-on-dark). Transition only `transform` and `box-shadow`.
 3. **Section spacing uses `margin-top`**, not `padding-top` (padding gets overridden by container).
 4. **Pills and buttons need `white-space: nowrap`** or text breaks out of the pill shape.
 5. **Outline titles (`color: transparent; -webkit-text-stroke`) must be `color: var(--ink)` under 760px** — invisible on touch otherwise.
 6. **GlyphStrip needs `vertical-align: bottom` + fixed `width: 12ch`** to prevent layout shift.
+7. **Burger stack MUST be `flex-direction: column`** — NOT `display: grid; place-items: center`. Grid stretches rows to 34px, making the real gap ~12px instead of the 5.5px the translateY(±5.5px) animation expects — resulting in a chevron instead of an X.
 
 ## Fact-Check (MUST Respect)
 
@@ -62,3 +64,23 @@ public/
 - DA is default language, EN via toggle → `localStorage['bk-lang']`
 - Light is default theme, dark via toggle → `localStorage['bk-theme']`
 - On language change: headings with word-reveal must **re-split AND set `transform: none`** (otherwise words stay hidden below baseline).
+
+## Animationer (A1–A18)
+
+A1–A16: se `design_handoff_portfolio/README.md` §6.
+
+A17 (Burger → X): streg 1 `translateY(5.5px) rotate(45deg)`, streg 2 `opacity: 0`, streg 3 `translateY(-5.5px) rotate(-45deg)`, `.4s cubic-bezier(.2,.8,.2,1)`. Kun < 820px.
+
+A18 (MobileMenu ind/ud): panel `opacity 0→1` `.35s`, `translateY(-8px)→0` `.45s`; links stagger `translateY(14px)→0` `.5s` med delay `.06/.12/.18/.24s`; footer `opacity` `.5s` delay `.28s`. Lenis stoppes mens åben.
+
+`prefers-reduced-motion`: alle transitions → `none`. Panelet skifter øjeblikkeligt.
+
+## State
+
+| State | Default | Persistens | Effekt |
+|---|---|---|---|
+| `lang` | `'da'` | `localStorage['bk-lang']` | `<html lang>`, swapper copy |
+| `theme` | `'light'` | `localStorage['bk-theme']` | `<html data-theme="dark">` |
+| `copied` | `false` | — | Knap-label i 1.5s |
+| `peek` | `{visible, src, label, x, y}` | — | CursorPeek |
+| `menuOpen` | `false` | — | `#msheet.open`, `body.menu-open`, Lenis stoppet |
