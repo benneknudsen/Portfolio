@@ -1,7 +1,9 @@
+import { Hero } from "@/components/hero";
+
 export default function Home() {
   return (
     <main>
-      <h1>Portfolio — under construction</h1>
+      <Hero />
     </main>
   );
 }

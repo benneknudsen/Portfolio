@@ -28,6 +28,16 @@ export const copy = {
       about: "Om mig",
       contact: "Kontakt",
     },
+    hero: {
+      metaRole: "Frontend-udvikler · React & TypeScript",
+      metaLoc: "Silkeborg, Danmark",
+      pLead: "Hej, jeg er Benjamin.",
+      pRest: " Frontend-udvikler med baggrund som multimediedesigner — jeg omsætter visuelle idéer til færdige produkter i React og TypeScript.",
+      btnWrite: "Skriv til mig",
+      btnCopy: "Kopiér e-mail",
+      copied: "Kopieret ✓",
+      glyphLabel: "Open to work",
+    },
     aria: {
       langGroup: "Vælg sprog",
       themeToDark: "Skift til mørkt tema",
@@ -45,6 +55,16 @@ export const copy = {
       about: "About",
       contact: "Contact",
     },
+    hero: {
+      metaRole: "Frontend developer · React & TypeScript",
+      metaLoc: "Silkeborg, Denmark",
+      pLead: "Hi, I'm Benjamin.",
+      pRest: " Frontend developer with a background in multimedia design — I turn visual ideas into finished products in React and TypeScript.",
+      btnWrite: "Get in touch",
+      btnCopy: "Copy email",
+      copied: "Copied ✓",
+      glyphLabel: "Open to work",
+    },
     aria: {
       langGroup: "Select language",
       themeToDark: "Switch to dark theme",
@@ -54,6 +74,26 @@ export const copy = {
     },
   },
 } as const;
+
+/** A single token of the hero `h1`. `em` words render serif italic with the
+ *  animated underline (A8); a `br` token forces the two-line break. */
+export type HeroToken = { w: string; em?: boolean } | { br: true };
+
+/**
+ * Hero `h1`, tokenised per language for the word-reveal (A2). Split out of
+ * `copy` so the mixed-shape tuple stays a clean `HeroToken[]` (an `as const`
+ * heading would infer two divergent tuple types and break iteration).
+ */
+export const heroH1: Record<Lang, HeroToken[]> = {
+  da: [
+    { w: "Kode" }, { w: "med" }, { w: "sans", em: true }, { br: true },
+    { w: "for" }, { w: "det" }, { w: "visuelle." },
+  ],
+  en: [
+    { w: "Code" }, { w: "with" }, { w: "an" }, { w: "eye", em: true }, { br: true },
+    { w: "for" }, { w: "the" }, { w: "visual." },
+  ],
+};
 
 type LangContextValue = {
   lang: Lang;
