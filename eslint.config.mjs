@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Local design handoff material — gitignored, not project source
+    // (also excluded from tsconfig).
+    "design_handoff_portfolio/**",
   ]),
 ]);
 
