@@ -23,6 +23,8 @@ export const copy = {
     nav: {
       work: "Erfaring",
       projects: "Projekter",
+      method: "Arbejdsmetode",
+      xp: "Erfaring",
       about: "Om mig",
       contact: "Kontakt",
     },
@@ -36,6 +38,8 @@ export const copy = {
     nav: {
       work: "Experience",
       projects: "Projects",
+      method: "Method",
+      xp: "Experience",
       about: "About",
       contact: "Contact",
     },
