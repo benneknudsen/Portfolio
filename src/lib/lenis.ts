@@ -27,7 +27,14 @@ const ANCHOR_DURATION = 1.4;
 export function scrollToAnchor(target: string | HTMLElement | number): void {
   const lenis = typeof window !== "undefined" ? window.__lenis : undefined;
   if (lenis) {
-    lenis.scrollTo(target, { offset: ANCHOR_OFFSET, duration: ANCHOR_DURATION });
+    // `force: true` so a mobile-menu link can close the panel (which stops
+    // Lenis) and drive the scroll in the same tick — without it, scrollTo
+    // against a stopped instance is a no-op.
+    lenis.scrollTo(target, {
+      offset: ANCHOR_OFFSET,
+      duration: ANCHOR_DURATION,
+      force: true,
+    });
     return;
   }
   // Native fallback so anchor navigation still works without Lenis.

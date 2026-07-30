@@ -6,6 +6,7 @@ import { scrollToAnchor } from "@/lib/lenis";
 import { prefersReducedMotion } from "@/lib/animations";
 import { LangToggle } from "@/components/lang-toggle";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { MobileMenu } from "@/components/mobile-menu";
 
 /** Glyphs a character flickers through before it decodes (A4). */
 const SCRAMBLE_CHARS = "/\\-_=+|<>~:*";
@@ -18,8 +19,11 @@ function randomGlyph(): string {
   return SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
 }
 
-/** Nav anchor links, in order. `label` resolves through i18n at render. */
-const LINKS = [
+/**
+ * Nav anchor links, in order. `label` resolves through i18n at render.
+ * Shared with {@link MobileMenu} so the burger panel stays in sync.
+ */
+export const NAV_LINKS = [
   { key: "projects", href: "#projects" },
   { key: "method", href: "#method" },
   { key: "xp", href: "#experience" },
@@ -142,7 +146,7 @@ export function Nav() {
         </a>
 
         <nav aria-label="Primær" className="hidden items-center gap-7 md3:flex">
-          {LINKS.map((link) => (
+          {NAV_LINKS.map((link) => (
             <NavLink key={link.key} href={link.href} label={t.nav[link.key]} />
           ))}
         </nav>
@@ -150,6 +154,7 @@ export function Nav() {
         <div className="flex items-center gap-2.5">
           <LangToggle />
           <ThemeToggle />
+          <MobileMenu />
         </div>
       </div>
     </header>

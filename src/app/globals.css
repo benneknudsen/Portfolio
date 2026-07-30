@@ -184,6 +184,150 @@ a:hover {
   color: var(--dim);
 }
 
+/* ============================================================
+   MobileMenu (#18) — burger (A17) + panel (A18). Shown < 820px.
+   Only transform/opacity animate — never color/background (convention #2).
+   ============================================================ */
+
+/* ≥44px tappable area via an invisible centred overlay, so a 34px control
+   still meets the touch target minimum without changing its visual size.
+   The overlay is part of the button, so clicks route to it. */
+.tap-44 {
+  position: relative;
+}
+.tap-44::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 44px;
+  height: 44px;
+  transform: translate(-50%, -50%);
+}
+
+/* Burger stack — MUST be flex column (convention #7). Line height 2px with a
+   3.5px gap puts adjacent line centres 5.5px apart, which is exactly the
+   translateY the A17 X-morph expects. Grid would stretch the rows and give a
+   chevron instead of an X. */
+.burger {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3.5px;
+  width: 34px;
+  height: 34px;
+}
+.burger-line {
+  display: block;
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--ink);
+  transition:
+    transform 0.4s var(--ease-out),
+    opacity 0.4s var(--ease-out);
+}
+/* A17 — burger → X. */
+.burger[aria-expanded="true"] .burger-line:nth-child(1) {
+  transform: translateY(5.5px) rotate(45deg);
+}
+.burger[aria-expanded="true"] .burger-line:nth-child(2) {
+  opacity: 0;
+}
+.burger[aria-expanded="true"] .burger-line:nth-child(3) {
+  transform: translateY(-5.5px) rotate(-45deg);
+}
+
+/* Panel — fixed below the 68px nav, opaque so the page never shows through.
+   Portalled to <body> (a backdrop-filter ancestor would otherwise become the
+   containing block for this fixed element). Sits under the nav (z-19 < z-50)
+   so the burger + toggles stay tappable above it. */
+#msheet {
+  position: fixed;
+  inset: 68px 0 0;
+  z-index: 19;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+  padding: clamp(28px, 8vh, 64px) var(--container-pad) calc(var(--container-pad) + env(safe-area-inset-bottom));
+  background: var(--bg);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  /* A18 out — fade/rise reversed, then hide once the fade completes. */
+  opacity: 0;
+  transform: translateY(-8px);
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.35s var(--ease-out),
+    transform 0.45s var(--ease-out),
+    visibility 0s linear 0.45s;
+}
+/* A18 in. */
+#msheet.open {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+  pointer-events: auto;
+  transition:
+    opacity 0.35s var(--ease-out),
+    transform 0.45s var(--ease-out);
+}
+
+.msheet-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+/* Links stagger in — delay (index + 1) × .06s → .06/.12/.18/.24s. */
+.msheet-link {
+  display: inline-block;
+  width: max-content;
+  font-family: var(--serif);
+  font-size: clamp(34px, 11vw, 56px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 0.5s var(--ease-out),
+    transform 0.5s var(--ease-out);
+}
+#msheet.open .msheet-link {
+  opacity: 1;
+  transform: none;
+  transition-delay: calc((var(--i) + 1) * 0.06s);
+}
+
+/* Footer fades in last (A18). */
+.msheet-footer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-out);
+}
+#msheet.open .msheet-footer {
+  opacity: 1;
+  transition-delay: 0.28s;
+}
+
+/* Belt-and-suspenders: lenis.stop() freezes scroll when Lenis is running, but
+   under reduced motion Lenis never initialises, so lock the body directly. */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* The panel only exists below the burger breakpoint. */
+@media (min-width: 820px) {
+  #msheet {
+    display: none;
+  }
+}
+
 /* Reduced motion: everything visible, no transitions. */
 @media (prefers-reduced-motion: reduce) {
   .rv,
@@ -193,5 +337,20 @@ a:hover {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+
+  /* Menu switches instantly — no burger morph, no panel/link/footer animation. */
+  .burger-line,
+  #msheet,
+  #msheet.open,
+  .msheet-link,
+  #msheet.open .msheet-link,
+  .msheet-footer,
+  #msheet.open .msheet-footer {
+    transition: none;
+  }
+  #msheet.open .msheet-link {
+    opacity: 1;
+    transform: none;
   }
 }
