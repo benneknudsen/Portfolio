@@ -45,6 +45,17 @@ export const copy = {
       menuOpen: "Åbn menu",
       menuClose: "Luk menu",
     },
+    projects: {
+      sectionTitle: "Projekter",
+      stride: {
+        title: "Stride",
+        desc: "En løbe-app bygget med Next.js, TypeScript og Strava API. Tracker ruter, analyserer præstationer og visualiserer træningsdata med interaktive kort.",
+        facts: ["Next.js", "TypeScript", "Strava API", "Mapbox", "PostgreSQL"],
+        marquee:
+          "Rute-tracking · Præstationsanalyse · Træningsvisualisering · Strava-integration",
+        peekLabel: "Stride — løbe-app",
+      },
+    },
   },
   en: {
     nav: {
@@ -71,6 +82,17 @@ export const copy = {
       themeToLight: "Switch to light theme",
       menuOpen: "Open menu",
       menuClose: "Close menu",
+    },
+    projects: {
+      sectionTitle: "Projects",
+      stride: {
+        title: "Stride",
+        desc: "A running app built with Next.js, TypeScript and the Strava API. Tracks routes, analyses performance and visualises training data with interactive maps.",
+        facts: ["Next.js", "TypeScript", "Strava API", "Mapbox", "PostgreSQL"],
+        marquee:
+          "Route tracking · Performance analysis · Training visualization · Strava integration",
+        peekLabel: "Stride — running app",
+      },
     },
   },
 } as const;
