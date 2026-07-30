@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 /* ============================================================
    Portfolio — design tokens
    Light is default. Dark via <html data-theme="dark">.
@@ -29,9 +25,9 @@
   --blob:         rgba(45, 74, 62, .09);
 
   /* type */
-  --sans:  var(--font-hanken), sans-serif;
-  --serif: var(--font-instrument), serif;
-  --mono:  var(--font-jetbrains), monospace;
+  --sans:  'Hanken Grotesk', sans-serif;
+  --serif: 'Instrument Serif', serif;
+  --mono:  'JetBrains Mono', monospace;
 
   /* radii */
   --r-card: 18px;
@@ -61,17 +57,8 @@ html[data-theme="dark"] {
   --nav:         rgba(19, 18, 17, .92);
 }
 
-html { 
-  color-scheme: light; 
-  scroll-behavior: auto;
-  --font-hanken: 'Hanken Grotesk', sans-serif;
-  --font-instrument: 'Instrument Serif', serif;
-  --font-jetbrains: 'JetBrains Mono', monospace;
-}
-
-html[data-theme="dark"] { 
-  color-scheme: dark; 
-}
+html { color-scheme: light; scroll-behavior: auto; }
+html[data-theme="dark"] { color-scheme: dark; }
 
 /* Base — no color/background transitions on body or controls:
    they break the theme switch (text stays dark-on-dark). */
@@ -85,24 +72,6 @@ body {
   -webkit-font-smoothing: antialiased;
   overflow-x: clip;
 }
-
-a { 
-  color: var(--ink); 
-  text-decoration: none; 
-}
-
-a:hover { 
-  color: var(--accent); 
-}
-
-::selection { 
-  background: var(--ink); 
-  color: var(--bg); 
-}
-
-/* Container utility */
-.container {
-  max-width: var(--container-max);
-  margin-inline: auto;
-  padding-inline: var(--container-pad);
-}
+a { color: var(--ink); text-decoration: none; }
+a:hover { color: var(--accent); }
+::selection { background: var(--ink); color: var(--bg); }
