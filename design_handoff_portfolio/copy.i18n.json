@@ -1,0 +1,186 @@
+{
+  "navWork": {
+    "da": "Projekter",
+    "en": "Projects"
+  },
+  "navMethod": {
+    "da": "Arbejdsmetode",
+    "en": "How I work"
+  },
+  "navXp": {
+    "da": "Erfaring",
+    "en": "Experience"
+  },
+  "navContact": {
+    "da": "Kontakt",
+    "en": "Contact"
+  },
+  "metaRole": {
+    "da": "Frontend-udvikler · React & TypeScript",
+    "en": "Frontend developer · React & TypeScript"
+  },
+  "metaLoc": {
+    "da": "Silkeborg, Danmark",
+    "en": "Silkeborg, Denmark"
+  },
+  "h1": {
+    "da": "Kode med <em>sans</em><br>for det visuelle.",
+    "en": "Code with an <em>eye</em><br>for the visual."
+  },
+  "heroP": {
+    "da": "<b>Hej, jeg er Benjamin.</b> Frontend-udvikler med baggrund som multimediedesigner — jeg omsætter visuelle idéer til færdige produkter i React og TypeScript.",
+    "en": "<b>Hi, I'm Benjamin.</b> Frontend developer with a background in multimedia design — I turn visual ideas into finished products in React and TypeScript."
+  },
+  "btnWrite": {
+    "da": "Skriv til mig",
+    "en": "Get in touch"
+  },
+  "btnCopy": {
+    "da": "Kopiér e-mail",
+    "en": "Copy email"
+  },
+  "kWork": {
+    "da": "01 — Udvalgte projekter",
+    "en": "01 — Selected projects"
+  },
+  "hWork": {
+    "da": "Det jeg har <em>bygget</em>.",
+    "en": "What I've <em>built</em>."
+  },
+  "strideDesc": {
+    "da": "AI-drevet løbetræner bygget i Next.js 16. Forbinder til Strava, og AI'en svarer ikke med tekst men med rigtige React-komponenter — grafer, anbefalinger og indsigter, renderet direkte i dashboardet.",
+    "en": "AI-powered running coach built in Next.js 16. Connects to Strava, and the AI responds not with text but with real React components — charts, recommendations and insights rendered straight into the dashboard."
+  },
+  "strideFacts": {
+    "da": "<b>Next.js 16 · TypeScript</b><br>Webapp",
+    "en": "<b>Next.js 16 · TypeScript</b><br>Web app"
+  },
+  "kMethod": {
+    "da": "02 — Arbejdsmetode",
+    "en": "02 — How I work"
+  },
+  "hMethod": {
+    "da": "Jeg styrer.<br>Agenterne <em>leverer</em>.",
+    "en": "I direct.<br>The agents <em>deliver</em>."
+  },
+  "methodLead": {
+    "da": "Min udviklingspartner er <a href=\"https://hermes-agent.nousresearch.com/\" target=\"_blank\" rel=\"noopener\" style=\"border-bottom:1px solid var(--line)\">Hermes Agent ↗</a> — Nous Researchs open source-agent — som jeg har sat op og tunet til mit eget workflow på en Mac Mini M4. Jeg taler med den gennem Telegram; den håndterer pipelinen. Sådan er Stride blevet til.",
+    "en": "My development partner is <a href=\"https://hermes-agent.nousresearch.com/\" target=\"_blank\" rel=\"noopener\" style=\"border-bottom:1px solid var(--line)\">Hermes Agent ↗</a> — Nous Research's open source agent — which I've set up and tuned to my own workflow on a Mac Mini M4. I talk to it through Telegram; it runs the pipeline. That's how Stride came to be."
+  },
+  "s1no": {
+    "da": "#1 Husk<b>Persistent memory</b>",
+    "en": "#1 Remember<b>Persistent memory</b>"
+  },
+  "s1p": {
+    "da": "Jeg udnytter Hermes' Mnemosyne-memory med vector-søgning og knowledge graph — den husker mine projekter, præferencer og tidligere løsninger på tværs af sessioner, så jeg aldrig starter forfra.",
+    "en": "I use Hermes' Mnemosyne memory with vector search and a knowledge graph — it remembers my projects, preferences and past solutions across sessions, so I never start from scratch."
+  },
+  "s1sub": {
+    "da": "<span>vector + fuldtekst-søgning</span><span>knowledge graph</span><span>38 skills</span>",
+    "en": "<span>vector + full-text search</span><span>knowledge graph</span><span>38 skills</span>"
+  },
+  "s2no": {
+    "da": "#2 Deleger<b>Koden skrives aldrig af chefen</b>",
+    "en": "#2 Delegate<b>The boss never writes the code</b>"
+  },
+  "s2p": {
+    "da": "Jeg lader aldrig orchestratoren skrive kode selv. Alt implementeres af Claude Code i isolerede sessioner med hvert sit git-worktree — sådan har jeg sat flowet op, så flere opgaver kører parallelt uden konflikter.",
+    "en": "I never let the orchestrator write code itself. Everything is implemented by Claude Code in isolated sessions, each with its own git worktree — that's how I've set up the flow, so several tasks run in parallel without conflicts."
+  },
+  "s2sub": {
+    "da": "<span>Claude Code</span><span>isolerede sessioner</span><span>worktree per opgave</span>",
+    "en": "<span>Claude Code</span><span>isolated sessions</span><span>worktree per task</span>"
+  },
+  "s3no": {
+    "da": "#3 Verificer<b>Intet slipper igennem uden grønt</b>",
+    "en": "#3 Verify<b>Nothing ships without green</b>"
+  },
+  "s3p": {
+    "da": "Efter hver opgave kører min QA-gate: build → lint → typecheck → alle 938 tests. Kun ændringer, der består hele kæden, bliver committet — en regel, jeg har bygget ind i flowet. Ingen undtagelser.",
+    "en": "After every task my QA gate runs: build → lint → typecheck → all 938 tests. Only changes that pass the whole chain get committed — a rule I've built into the flow. No exceptions."
+  },
+  "s4no": {
+    "da": "#4 Lever<b>Fra issue til produktion</b>",
+    "en": "#4 Ship<b>From issue to production</b>"
+  },
+  "s4p": {
+    "da": "Hele flowet — læs issue, skriv brief, deleger, QA, commit, luk issue, deploy til Vercel — har jeg automatiseret fra ende til anden. Min rolle er arkitekt og sidste godkender: jeg definerer retningen, agenterne gør benarbejdet.",
+    "en": "The whole flow — read issue, write brief, delegate, QA, commit, close issue, deploy to Vercel — is automated end to end. My role is architect and final approver: I set the direction, the agents do the legwork."
+  },
+  "s4sub": {
+    "da": "<span>GitHub issues</span><span>conventional commits</span><span>auto-deploy</span>",
+    "en": "<span>GitHub issues</span><span>conventional commits</span><span>auto-deploy</span>"
+  },
+  "mstats": {
+    "da": "<div class=\"s\"><div class=\"v\">24/7</div><div class=\"k\">kører på Mac Mini M4</div></div><div class=\"s\"><div class=\"v\">182+</div><div class=\"k\">issues lukket i flowet</div></div><div class=\"s\"><div class=\"v\">938</div><div class=\"k\">tests i QA-gaten</div></div><div class=\"s\"><div class=\"v\">0</div><div class=\"k\">linjer kode skrevet af orchestratoren</div></div>",
+    "en": "<div class=\"s\"><div class=\"v\">24/7</div><div class=\"k\">running on a Mac Mini M4</div></div><div class=\"s\"><div class=\"v\">182+</div><div class=\"k\">issues closed in the flow</div></div><div class=\"s\"><div class=\"v\">938</div><div class=\"k\">tests in the QA gate</div></div><div class=\"s\"><div class=\"v\">0</div><div class=\"k\">lines of code written by the orchestrator</div></div>"
+  },
+  "kXp": {
+    "da": "03 — Erfaring",
+    "en": "03 — Experience"
+  },
+  "hXp": {
+    "da": "Hvor jeg har <em>arbejdet</em>.",
+    "en": "Where I've <em>worked</em>."
+  },
+  "xp": {
+    "da": "<div class=\"xp-row\"><span class=\"period\">2024 — nu</span><span><span class=\"role\">Frontend-udvikler</span> <span class=\"co\">· Minetilbud (Dayli)</span><span class=\"note\">Kom med i teamet, da Minetilbud opkøbte AVIOU. Bygger og vedligeholder Dayli Publisher — skabeloner, komponentbibliotek og løbende UX-forbedringer i React, TypeScript og Storybook.</span></span></div><div class=\"xp-row\"><span class=\"period\">2022 — 2024</span><span><span class=\"role\">Frontend-udvikler</span> <span class=\"co\">· AVIOU</span><span class=\"note\">Online katalogplatform i React og TypeScript — nye funktioner og forbedrede UI-komponenter, der optimerede kundernes arbejdsflow. Derudover webdesign og frontend-løsninger for en række kunder.</span></span></div><div class=\"xp-row\"><span class=\"period\">2021</span><span><span class=\"role\">Frontend-udvikler, praktik</span> <span class=\"co\">· Web2Media</span></span></div><div class=\"xp-row\"><span class=\"period\">2021</span><span><span class=\"role\">PBA i webudvikling</span> <span class=\"co\">· Erhvervsakademi Aarhus</span></span></div><div class=\"xp-row\"><span class=\"period\">2020</span><span><span class=\"role\">Multimediedesigner</span> <span class=\"co\">· Erhvervsakademi Aarhus</span></span></div>",
+    "en": "<div class=\"xp-row\"><span class=\"period\">2024 — now</span><span><span class=\"role\">Frontend developer</span> <span class=\"co\">· Minetilbud (Dayli)</span><span class=\"note\">Joined the team when Minetilbud acquired AVIOU. Building and maintaining Dayli Publisher — templates, component library and ongoing UX improvements in React, TypeScript and Storybook.</span></span></div><div class=\"xp-row\"><span class=\"period\">2022 — 2024</span><span><span class=\"role\">Frontend developer</span> <span class=\"co\">· AVIOU</span><span class=\"note\">Online catalogue platform in React and TypeScript — new features and improved UI components that streamlined customers' workflows. Plus web design and frontend work for a range of clients.</span></span></div><div class=\"xp-row\"><span class=\"period\">Aug — Oct 2021</span><span><span class=\"role\">Frontend developer, intern</span> <span class=\"co\">· Web2Media</span></span></div><div class=\"xp-row\"><span class=\"period\">2021</span><span><span class=\"role\">B.Sc. in web development</span> <span class=\"co\">· Business Academy Aarhus</span></span></div><div class=\"xp-row\"><span class=\"period\">2020</span><span><span class=\"role\">Multimedia designer</span> <span class=\"co\">· Business Academy Aarhus</span></span></div>"
+  },
+  "kContact": {
+    "da": "04 — Kontakt",
+    "en": "04 — Contact"
+  },
+  "hContact": {
+    "da": "Lad os <em>snakke</em>.",
+    "en": "Let's <em>talk</em>."
+  },
+  "navName": {
+    "da": "Benjamin Knudsen",
+    "en": "Benjamin Knudsen"
+  },
+  "email": {
+    "da": "benjaschou12@icloud.com",
+    "en": "benjaschou12@icloud.com"
+  },
+  "copied": {
+    "da": "Kopieret ✓",
+    "en": "Copied ✓"
+  },
+  "footerCopyright": {
+    "da": "© 2026 Benjamin Schou Knudsen",
+    "en": "© 2026 Benjamin Schou Knudsen"
+  },
+  "linkedin": {
+    "da": "LinkedIn",
+    "en": "LinkedIn"
+  },
+  "glyphMessage": {
+    "da": "OPEN TO WORK",
+    "en": "OPEN TO WORK"
+  },
+  "themeAria": {
+    "da": "Skift tema",
+    "en": "Toggle theme"
+  },
+  "langAria": {
+    "da": "Sprog",
+    "en": "Language"
+  },
+  "strideAria": {
+    "da": "Åbn Stride",
+    "en": "Open Stride"
+  },
+  "peekLabel": {
+    "da": "Stride · Live ↗",
+    "en": "Stride · Live ↗"
+  },
+  "strideMarquee": {
+    "da": "Next.js 16 · TypeScript · Generativ UI · Strava",
+    "en": "Next.js 16 · TypeScript · Generative UI · Strava"
+  },
+  "s3sub": {
+    "da": "<span>build</span><span>lint</span><span>typecheck</span><span>938 tests</span>",
+    "en": "<span>build</span><span>lint</span><span>typecheck</span><span>938 tests</span>"
+  }
+}
