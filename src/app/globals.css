@@ -172,6 +172,18 @@ a:hover {
   transform: translateY(0);
 }
 
+/* A3 — kicker: mono, uppercase, dim eyebrow label. The scramble-in decode is
+   JS-driven (swaps the text content), so no transition lives here; reduced
+   motion is handled in the component by rendering the final text at once. */
+.kicker {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
 /* Reduced motion: everything visible, no transitions. */
 @media (prefers-reduced-motion: reduce) {
   .rv,
