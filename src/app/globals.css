@@ -606,6 +606,7 @@ html, body {
   align-items: start;
   padding: clamp(28px, 5vh, 56px) 0;
   color: var(--ink);
+  cursor: pointer;
 }
 .prow-index {
   font-family: var(--mono);
@@ -1006,14 +1007,14 @@ html, body {
   background: var(--card);
   box-shadow: var(--shadow-peek);
   opacity: 0;
-  transform: scale(.9) rotate(-5deg);
+  transform: scale(.9);
   transition:
     opacity .3s var(--ease-out),
     transform .4s var(--ease-spring);
 }
 .peek.visible .peek-inner {
   opacity: 1;
-  transform: scale(1) rotate(-2deg);
+  transform: scale(1);
 }
 .peek-img {
   display: block;

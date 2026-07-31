@@ -19,7 +19,7 @@ export function ThemeToggle() {
       aria-pressed={isDark}
       aria-label={isDark ? t.aria.themeToLight : t.aria.themeToDark}
       className={[
-        "tap-44 inline-grid h-[34px] w-[34px] place-items-center rounded-full border border-line text-ink",
+        "tap-44 inline-grid h-[34px] w-[34px] cursor-pointer place-items-center rounded-full border border-line text-ink",
         "transition-transform duration-200 ease-out hover:-translate-y-0.5 active:scale-95 motion-reduce:transition-none",
       ].join(" ")}
     >

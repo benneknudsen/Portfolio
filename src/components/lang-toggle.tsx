@@ -27,7 +27,7 @@ export function LangToggle() {
             onClick={() => setLang(l)}
             aria-pressed={active}
             className={[
-              "whitespace-nowrap rounded-pill px-2.5 py-1 text-pill font-medium uppercase",
+              "cursor-pointer whitespace-nowrap rounded-pill px-2.5 py-1 text-pill font-medium uppercase",
               "transition-transform duration-200 ease-out active:scale-95 motion-reduce:transition-none",
               active ? "bg-ink text-bg" : "text-dim hover:text-ink",
             ].join(" ")}
