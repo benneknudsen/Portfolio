@@ -116,6 +116,15 @@ export const copy = {
         { period: "2020", role: "Multimediedesigner", company: "Erhvervsakademi Aarhus" },
       ],
     },
+    footer: {
+      kicker: "04 — Kontakt",
+      email: "benjaschou12@icloud.com",
+      copied: "Kopieret ✓",
+      copyright: "© 2026 Benjamin Schou Knudsen",
+      linkedin: "LinkedIn",
+      linkedinUrl:
+        "https://www.linkedin.com/in/benjamin-schou-knudsen-b8b685178/",
+    },
   },
   en: {
     nav: {
@@ -214,6 +223,15 @@ export const copy = {
         { period: "2020", role: "Multimedia designer", company: "Business Academy Aarhus" },
       ],
     },
+    footer: {
+      kicker: "04 — Contact",
+      email: "benjaschou12@icloud.com",
+      copied: "Copied ✓",
+      copyright: "© 2026 Benjamin Schou Knudsen",
+      linkedin: "LinkedIn",
+      linkedinUrl:
+        "https://www.linkedin.com/in/benjamin-schou-knudsen-b8b685178/",
+    },
   },
 } as const;
 
@@ -268,6 +286,21 @@ export const experienceH2: Record<Lang, HeroToken[]> = {
   ],
   en: [
     { w: "Where" }, { w: "I've" }, { w: "worked", em: true, tail: "." },
+  ],
+};
+
+/**
+ * Footer `h2`, tokenised per language for the word-reveal (A2). Same shape as
+ * {@link experienceH2}: the `em` word renders serif italic accent and `tail`
+ * carries the trailing period inside the same word mask. Source copy is
+ * `"Lad os <em>snakke</em>."` / `"Let's <em>talk</em>."`.
+ */
+export const footerH2: Record<Lang, HeroToken[]> = {
+  da: [
+    { w: "Lad" }, { w: "os" }, { w: "snakke", em: true, tail: "." },
+  ],
+  en: [
+    { w: "Let's" }, { w: "talk", em: true, tail: "." },
   ],
 };
 
