@@ -39,6 +39,8 @@ type RevealProps = {
   /** Element/tag to render as. Defaults to `div`. */
   as?: ElementType;
   className?: string;
+  /** Inline style — used to pass a `--d` stagger delay (A1). */
+  style?: CSSProperties;
   children: ReactNode;
 };
 
@@ -47,13 +49,19 @@ type RevealProps = {
  * time it scrolls near the viewport. Under `prefers-reduced-motion` the CSS
  * shows it immediately with no transition.
  */
-export function Reveal({ as: Tag = "div", className, children }: RevealProps) {
+export function Reveal({
+  as: Tag = "div",
+  className,
+  style,
+  children,
+}: RevealProps) {
   const ref = useRef<HTMLElement>(null);
   const visible = useRevealOnScroll(ref);
 
   return (
     <Tag
       ref={ref}
+      style={style}
       className={["rv", visible && "visible", className]
         .filter(Boolean)
         .join(" ")}

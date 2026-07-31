@@ -670,6 +670,192 @@ body.menu-open {
   }
 }
 
+/* ============================================================
+   Method (#02 — Arbejdsmetode) — head (kicker + word-reveal h2 + lead +
+   Hermes logo), four staggered step cards (A13) and a stats strip.
+   Only transform/opacity/box-shadow transition, so the theme switch stays
+   safe (convention #2).
+   ============================================================ */
+
+.method {
+  margin-top: var(--section-gap);
+}
+
+/* Head: heading block beside the Hermes logo. Collapses to one column on
+   narrow viewports. The block is a <Reveal>, so its own A1 entrance lives on
+   `.rv`; only layout is set here. */
+.method-head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 32px;
+  align-items: end;
+}
+.method-head-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.method-h2 {
+  margin: 14px 0 0;
+  font-size: clamp(34px, 5vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -.025em;
+  font-weight: 700;
+  color: var(--ink);
+}
+/* Em word: serif italic accent (no animated underline — that's hero-only). */
+.method-h2 em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--accent);
+}
+.method-lead {
+  margin: clamp(18px, 3vh, 28px) 0 0;
+  max-width: 62ch;
+  color: var(--body);
+  font-size: clamp(15px, 1.4vw, 17px);
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+/* Inline link carries its own border-bottom (from the copy); keep it ink. */
+.method-lead a {
+  color: var(--ink);
+}
+.method-logo {
+  width: clamp(56px, 6vw, 84px);
+  height: auto;
+  opacity: .9;
+  justify-self: end;
+}
+@media (max-width: 800px) {
+  .method-head {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Steps grid. Each child is a <Reveal>; the shared `--d` staggers the four
+   cards' entrances (0 / .08 / .16 / .24s). */
+.steps {
+  display: grid;
+  gap: 14px;
+  margin-top: clamp(40px, 7vh, 72px);
+}
+.steps > .rv {
+  transition-delay: var(--d, 0s);
+}
+
+/* A13 — step card. Lift + shadow on hover. Border colour snaps (not
+   transitioned): a border-color transition would animate on every theme
+   switch, so only transform + box-shadow ease (convention #2). */
+.method-step {
+  display: grid;
+  grid-template-columns: minmax(200px, 260px) 1fr;
+  gap: clamp(20px, 4vw, 64px);
+  padding: clamp(26px, 4vh, 40px) clamp(20px, 3vw, 36px);
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  background: var(--card);
+  transition:
+    transform .4s var(--ease-out),
+    box-shadow .4s var(--ease-out);
+}
+.method-step:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-step);
+  border-color: var(--step-hover-border);
+}
+.method-step-label {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  letter-spacing: .1em;
+  color: var(--dim);
+}
+.method-step-title {
+  display: block;
+  margin-top: 8px;
+  font-family: var(--sans);
+  font-size: clamp(22px, 2.6vw, 32px);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.method-step-p {
+  margin: 0;
+  max-width: 62ch;
+  color: var(--body);
+  font-size: clamp(15px, 1.4vw, 17px);
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+.method-step-p b {
+  color: var(--ink);
+  font-weight: 600;
+}
+.method-step-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+/* Pills need white-space: nowrap or text breaks out of the shape (#4). */
+.method-step-pill {
+  display: inline-block;
+  white-space: nowrap;
+  padding: 5px 11px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--dim);
+  border: 1px solid var(--line);
+  border-radius: 99px;
+}
+@media (max-width: 760px) {
+  .method-step {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+/* Stats strip — one bordered bar, cells split by divider lines. */
+.stats-strip {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  border: 1px solid var(--line);
+  border-radius: var(--r-card);
+  overflow: hidden;
+  background: var(--card);
+}
+.stats-cell {
+  padding: 20px 24px;
+  border-right: 1px solid var(--line);
+}
+.stats-cell:last-child {
+  border-right: 0;
+}
+.stats-value {
+  font-family: var(--mono);
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 500;
+  color: var(--ink);
+}
+.stats-label {
+  margin-top: 2px;
+  font-size: 13px;
+  color: var(--dim);
+}
+@media (max-width: 700px) {
+  .stats-cell {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .stats-cell:last-child {
+    border-bottom: 0;
+  }
+}
+
 /* A12 — CursorPeek. The outer element is positioned every frame by rAF (no
    transition there — it would lag the follow); the inner card handles the
    scale/rotate pop. Sits under the nav (z-40 < z-50) and never intercepts
@@ -775,5 +961,14 @@ body.menu-open {
   }
   .prow-marquee span {
     animation: none;
+  }
+
+  /* Method: no step-card lift or shadow on hover. */
+  .method-step {
+    transition: none;
+  }
+  .method-step:hover {
+    transform: none;
+    box-shadow: none;
   }
 }

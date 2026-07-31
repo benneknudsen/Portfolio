@@ -56,6 +56,46 @@ export const copy = {
         peekLabel: "Stride — løbe-app",
       },
     },
+    method: {
+      kicker: "02 — Arbejdsmetode",
+      lead: 'Min udviklingspartner er <a href="https://hermes-agent.nousresearch.com/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line)">Hermes Agent ↗</a> — Nous Researchs open source-agent — som jeg har sat op og tunet til mit eget workflow på en Mac Mini M4. Jeg taler med den gennem Telegram; den håndterer pipelinen. Sådan er Stride blevet til.',
+      steps: [
+        {
+          label: "#1 Husk",
+          title: "Persistent memory",
+          paragraph:
+            "Jeg udnytter Hermes' Mnemosyne-memory med vector-søgning og knowledge graph — den husker mine projekter, præferencer og tidligere løsninger på tværs af sessioner, så jeg aldrig starter forfra.",
+          pills: ["vector + fuldtekst-søgning", "knowledge graph", "38 skills"],
+        },
+        {
+          label: "#2 Deleger",
+          title: "Koden skrives aldrig af chefen",
+          paragraph:
+            "Jeg lader aldrig orchestratoren skrive kode selv. Alt implementeres af Claude Code i isolerede sessioner med hvert sit git-worktree — sådan har jeg sat flowet op, så flere opgaver kører parallelt uden konflikter.",
+          pills: ["Claude Code", "isolerede sessioner", "worktree per opgave"],
+        },
+        {
+          label: "#3 Verificer",
+          title: "Intet slipper igennem uden grønt",
+          paragraph:
+            "Efter hver opgave kører min QA-gate: build → lint → typecheck → alle 938 tests. Kun ændringer, der består hele kæden, bliver committet — en regel, jeg har bygget ind i flowet. Ingen undtagelser.",
+          pills: ["build", "lint", "typecheck", "938 tests"],
+        },
+        {
+          label: "#4 Lever",
+          title: "Fra issue til produktion",
+          paragraph:
+            "Hele flowet — læs issue, skriv brief, deleger, QA, commit, luk issue, deploy til Vercel — har jeg automatiseret fra ende til anden. Min rolle er arkitekt og sidste godkender: jeg definerer retningen, agenterne gør benarbejdet.",
+          pills: ["GitHub issues", "conventional commits", "auto-deploy"],
+        },
+      ],
+      stats: [
+        { value: "24/7", label: "kører på Mac Mini M4" },
+        { value: "182+", label: "issues lukket i flowet" },
+        { value: "938", label: "tests i QA-gaten" },
+        { value: "0", label: "linjer kode skrevet af orchestratoren" },
+      ],
+    },
   },
   en: {
     nav: {
@@ -94,12 +134,56 @@ export const copy = {
         peekLabel: "Stride — running app",
       },
     },
+    method: {
+      kicker: "02 — How I work",
+      lead: 'My development partner is <a href="https://hermes-agent.nousresearch.com/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line)">Hermes Agent ↗</a> — Nous Research\'s open source agent — which I\'ve set up and tuned to my own workflow on a Mac Mini M4. I talk to it through Telegram; it runs the pipeline. That\'s how Stride came to be.',
+      steps: [
+        {
+          label: "#1 Remember",
+          title: "Persistent memory",
+          paragraph:
+            "I use Hermes' Mnemosyne memory with vector search and a knowledge graph — it remembers my projects, preferences and past solutions across sessions, so I never start from scratch.",
+          pills: ["vector + full-text search", "knowledge graph", "38 skills"],
+        },
+        {
+          label: "#2 Delegate",
+          title: "The boss never writes the code",
+          paragraph:
+            "I never let the orchestrator write code itself. Everything is implemented by Claude Code in isolated sessions, each with its own git worktree — that's how I've set up the flow, so several tasks run in parallel without conflicts.",
+          pills: ["Claude Code", "isolated sessions", "worktree per task"],
+        },
+        {
+          label: "#3 Verify",
+          title: "Nothing ships without green",
+          paragraph:
+            "After every task my QA gate runs: build → lint → typecheck → all 938 tests. Only changes that pass the whole chain get committed — a rule I've built into the flow. No exceptions.",
+          pills: ["build", "lint", "typecheck", "938 tests"],
+        },
+        {
+          label: "#4 Ship",
+          title: "From issue to production",
+          paragraph:
+            "The whole flow — read issue, write brief, delegate, QA, commit, close issue, deploy to Vercel — is automated end to end. My role is architect and final approver: I set the direction, the agents do the legwork.",
+          pills: ["GitHub issues", "conventional commits", "auto-deploy"],
+        },
+      ],
+      stats: [
+        { value: "24/7", label: "running on a Mac Mini M4" },
+        { value: "182+", label: "issues closed in the flow" },
+        { value: "938", label: "tests in the QA gate" },
+        { value: "0", label: "lines of code written by the orchestrator" },
+      ],
+    },
   },
 } as const;
 
-/** A single token of the hero `h1`. `em` words render serif italic with the
- *  animated underline (A8); a `br` token forces the two-line break. */
-export type HeroToken = { w: string; em?: boolean } | { br: true };
+/** A single token of a word-reveal heading. `em` words render serif italic
+ *  (with the animated underline on the hero, A8); a `br` token forces a line
+ *  break; `tail` appends punctuation that rides inside the same word mask
+ *  (e.g. a period after an `em` word) so it rises with the word. */
+export type HeroToken =
+  | { w: string; em?: boolean; tail?: string }
+  | { br: true };
 
 /**
  * Hero `h1`, tokenised per language for the word-reveal (A2). Split out of
@@ -114,6 +198,22 @@ export const heroH1: Record<Lang, HeroToken[]> = {
   en: [
     { w: "Code" }, { w: "with" }, { w: "an" }, { w: "eye", em: true }, { br: true },
     { w: "for" }, { w: "the" }, { w: "visual." },
+  ],
+};
+
+/**
+ * Method `h2`, tokenised per language for the word-reveal (A2). Mirrors
+ * {@link heroH1}: the `em` word renders serif italic accent, `tail` carries the
+ * trailing period so it rises inside the same mask, `br` forces the line break.
+ */
+export const methodH2: Record<Lang, HeroToken[]> = {
+  da: [
+    { w: "Jeg" }, { w: "styrer." }, { br: true },
+    { w: "Agenterne" }, { w: "leverer", em: true, tail: "." },
+  ],
+  en: [
+    { w: "I" }, { w: "direct." }, { br: true },
+    { w: "The" }, { w: "agents" }, { w: "deliver", em: true, tail: "." },
   ],
 };
 
