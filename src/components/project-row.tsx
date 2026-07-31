@@ -66,6 +66,7 @@ export function ProjectRow({ index, id, peekSrc, href }: ProjectRowProps) {
           href={href}
           target="_blank"
           rel="noreferrer"
+          aria-label={p.peekLabel}
           data-peek={peekSrc}
           data-peek-label={p.peekLabel}
         >

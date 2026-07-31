@@ -44,6 +44,7 @@ export const copy = {
       themeToLight: "Skift til lyst tema",
       menuOpen: "Åbn menu",
       menuClose: "Luk menu",
+      skip: "Spring til indhold",
     },
     projects: {
       sectionTitle: "Projekter",
@@ -120,6 +121,7 @@ export const copy = {
       kicker: "04 — Kontakt",
       email: "benjaschou12@icloud.com",
       copied: "Kopieret ✓",
+      copyAria: "Kopiér e-mailadresse",
       copyright: "© 2026 Benjamin Schou Knudsen",
       linkedin: "LinkedIn",
       linkedinUrl:
@@ -151,6 +153,7 @@ export const copy = {
       themeToLight: "Switch to light theme",
       menuOpen: "Open menu",
       menuClose: "Close menu",
+      skip: "Skip to content",
     },
     projects: {
       sectionTitle: "Projects",
@@ -227,6 +230,7 @@ export const copy = {
       kicker: "04 — Contact",
       email: "benjaschou12@icloud.com",
       copied: "Copied ✓",
+      copyAria: "Copy email address",
       copyright: "© 2026 Benjamin Schou Knudsen",
       linkedin: "LinkedIn",
       linkedinUrl:

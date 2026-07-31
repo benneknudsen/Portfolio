@@ -7,7 +7,7 @@ import { CursorPeek } from "@/components/cursor-peek";
 
 export default function Home() {
   return (
-    <main>
+    <main id="main-content">
       <Hero />
       <Projects />
       <Method />

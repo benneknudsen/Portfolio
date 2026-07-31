@@ -95,7 +95,7 @@ export function Footer() {
           type="button"
           className="footer-copy"
           onClick={copyEmail}
-          aria-label={f.email}
+          aria-label={f.copyAria}
         >
           {copied ? f.copied : t.hero.btnCopy}
         </button>
@@ -103,7 +103,12 @@ export function Footer() {
 
       <div className="footer-meta">
         <span>{f.copyright}</span>
-        <a href={f.linkedinUrl} target="_blank" rel="noopener">
+        <a
+          href={f.linkedinUrl}
+          target="_blank"
+          rel="noopener"
+          aria-label={f.linkedin}
+        >
           {f.linkedin} ↗
         </a>
       </div>
