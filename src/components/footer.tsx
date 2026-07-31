@@ -109,7 +109,7 @@ export function Footer() {
           rel="noopener"
           aria-label={f.linkedin}
         >
-          {f.linkedin} ↗
+          {f.linkedin} {"↗\uFE0E"}
         </a>
       </div>
     </footer>

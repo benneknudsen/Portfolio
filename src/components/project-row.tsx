@@ -40,7 +40,7 @@ export function ProjectRow({ index, id, peekSrc, href }: ProjectRowProps) {
         <h3 className="prow-title">
           {p.title}
           <span className="prow-arrow" aria-hidden>
-            ↗
+            {"↗\uFE0E"}
           </span>
         </h3>
         <ul className="prow-facts">
