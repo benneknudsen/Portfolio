@@ -88,8 +88,8 @@ export const copy = {
           label: "#3 Verificer",
           title: "Intet slipper igennem uden grønt",
           paragraph:
-            "Efter hver opgave kører min QA-gate: build → lint → typecheck → alle 938 tests. Kun ændringer, der består hele kæden, bliver committet — en regel, jeg har bygget ind i flowet. Ingen undtagelser.",
-          pills: ["build", "lint", "typecheck", "938 tests"],
+            "Efter hver opgave kører min QA-gate: build → lint → typecheck → alle 1000+ tests. Kun ændringer, der består hele kæden, bliver committet — en regel, jeg har bygget ind i flowet. Ingen undtagelser.",
+          pills: ["build", "lint", "typecheck", "1000+ tests"],
         },
         {
           label: "#4 Lever",
@@ -101,8 +101,8 @@ export const copy = {
       ],
       stats: [
         { value: "24/7", label: "kører på Mac Mini M4" },
-        { value: "182+", label: "issues lukket i flowet" },
-        { value: "938", label: "tests i QA-gaten" },
+        { value: "200+", label: "issues lukket i flowet" },
+        { value: "1000+", label: "tests i QA-gaten" },
         { value: "100%", label: "TypeScript strict" },
       ],
     },
@@ -206,8 +206,8 @@ export const copy = {
           label: "#3 Verify",
           title: "Nothing ships without green",
           paragraph:
-            "After every task my QA gate runs: build → lint → typecheck → all 938 tests. Only changes that pass the whole chain get committed — a rule I've built into the flow. No exceptions.",
-          pills: ["build", "lint", "typecheck", "938 tests"],
+            "After every task my QA gate runs: build → lint → typecheck → all 1000+ tests. Only changes that pass the whole chain get committed — a rule I've built into the flow. No exceptions.",
+          pills: ["build", "lint", "typecheck", "1000+ tests"],
         },
         {
           label: "#4 Ship",
@@ -219,8 +219,8 @@ export const copy = {
       ],
       stats: [
         { value: "24/7", label: "running on a Mac Mini M4" },
-        { value: "182+", label: "issues closed in the flow" },
-        { value: "938", label: "tests in the QA gate" },
+        { value: "200+", label: "issues closed in the flow" },
+        { value: "1000+", label: "tests in the QA gate" },
         { value: "100%", label: "TypeScript strict" },
       ],
     },
