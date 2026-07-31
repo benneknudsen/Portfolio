@@ -68,7 +68,13 @@ export const copy = {
     },
     method: {
       kicker: "02 — Arbejdsmetode",
-      lead: 'Min udviklingspartner er <a href="https://hermes-agent.nousresearch.com/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line)">Hermes Agent ↗︎</a>, Nous Researchs open source-agent, som jeg har sat op og tunet til mit workflow på en Mac Mini M4. Den kører 24/7 via Telegram; Claude Code skriver koden, og Hermes orkestrerer hele flowet fra issue til deploy. Jeg har bygget denne portfolio med den.',
+      lead: {
+        before: "Min udviklingspartner er ",
+        linkHref: "https://hermes-agent.nousresearch.com/",
+        linkText: "Hermes Agent ↗︎",
+        after:
+          ", Nous Researchs open source-agent, som jeg har sat op og tunet til mit workflow på en Mac Mini M4. Den kører 24/7 via Telegram; Claude Code skriver koden, og Hermes orkestrerer hele flowet fra issue til deploy. Jeg har bygget denne portfolio med den.",
+      },
       steps: [
         {
           label: "#1 Husk",
@@ -186,7 +192,13 @@ export const copy = {
     },
     method: {
       kicker: "02 — How I work",
-      lead: 'My development partner is <a href="https://hermes-agent.nousresearch.com/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line)">Hermes Agent ↗︎</a>, Nous Research\'s open source agent, which I\'ve set up and tuned to my workflow on a Mac Mini M4. It runs 24/7 via Telegram; Claude Code writes the code and Hermes orchestrates everything from issue to deploy. I built this portfolio with it.',
+      lead: {
+        before: "My development partner is ",
+        linkHref: "https://hermes-agent.nousresearch.com/",
+        linkText: "Hermes Agent ↗︎",
+        after:
+          ", Nous Research's open source agent, which I've set up and tuned to my workflow on a Mac Mini M4. It runs 24/7 via Telegram; Claude Code writes the code and Hermes orchestrates everything from issue to deploy. I built this portfolio with it.",
+      },
       steps: [
         {
           label: "#1 Remember",

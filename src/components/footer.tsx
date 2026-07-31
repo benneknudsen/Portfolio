@@ -103,7 +103,7 @@ export function Footer() {
 
       <div className="footer-meta">
         <span>{f.copyright}</span>
-        <a href={f.linkedinUrl} target="_blank" rel="noopener">
+        <a href={f.linkedinUrl} target="_blank" rel="noopener noreferrer">
           {f.linkedin} <span aria-hidden="true">{"↗\uFE0E"}</span>
         </a>
       </div>

@@ -54,7 +54,7 @@ function MethodHeading() {
  * Method section (#02 — Arbejdsmetode). A head that pairs the kicker,
  * word-reveal heading and lead paragraph with the local Hermes logo, then four
  * staggered MethodStep cards and a StatsStrip. All copy comes from i18n; the
- * lead is injected as HTML because it carries an inline-styled link.
+ * lead renders its inline-styled Hermes link as real JSX (no innerHTML).
  */
 export function Method() {
   const { t } = useLang();
@@ -66,10 +66,18 @@ export function Method() {
         <div className="method-head-text">
           <span className="kicker">{m.kicker}</span>
           <MethodHeading />
-          <p
-            className="method-lead"
-            dangerouslySetInnerHTML={{ __html: m.lead }}
-          />
+          <p className="method-lead">
+            {m.lead.before}
+            <a
+              href={m.lead.linkHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ borderBottom: "1px solid var(--line)" }}
+            >
+              {m.lead.linkText}
+            </a>
+            {m.lead.after}
+          </p>
         </div>
         {/* Local SVG — never a CDN (AGENTS.md). */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
