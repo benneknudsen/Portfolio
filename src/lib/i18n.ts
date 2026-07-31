@@ -103,7 +103,7 @@ export const copy = {
         { value: "24/7", label: "kører på Mac Mini M4" },
         { value: "182+", label: "issues lukket i flowet" },
         { value: "938", label: "tests i QA-gaten" },
-        { value: "0", label: "linjer kode skrevet af mig" },
+        { value: "100%", label: "TypeScript strict" },
       ],
     },
     experience: {
@@ -221,7 +221,7 @@ export const copy = {
         { value: "24/7", label: "running on a Mac Mini M4" },
         { value: "182+", label: "issues closed in the flow" },
         { value: "938", label: "tests in the QA gate" },
-        { value: "0", label: "lines of code written by me" },
+        { value: "100%", label: "TypeScript strict" },
       ],
     },
     experience: {
