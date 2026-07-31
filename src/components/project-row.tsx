@@ -5,7 +5,7 @@ import { useLang } from "@/lib/i18n";
 import { Reveal } from "@/components/reveal";
 
 /** Keys of `t.projects` that hold an actual project (not the section title). */
-type ProjectId = "stride";
+type ProjectId = "stride" | "portfolio";
 
 type ProjectRowProps = {
   /** Ordinal shown at the row's left edge, e.g. "01". */
