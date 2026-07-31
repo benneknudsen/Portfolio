@@ -32,7 +32,7 @@ export const copy = {
       metaRole: "Frontend-udvikler · React & TypeScript",
       metaLoc: "Silkeborg, Danmark",
       pLead: "Hej, jeg er Benjamin.",
-      pRest: " Frontend-udvikler med baggrund som multimediedesigner — jeg omsætter visuelle idéer til færdige produkter i React og TypeScript.",
+      pRest: " Frontend-udvikler med baggrund som multimediedesigner — jeg bygger visuelle produkter i React og TypeScript, med AI-agenter som udviklingspartnere.",
       btnWrite: "Skriv til mig",
       btnCopy: "Kopiér e-mail",
       copied: "Kopieret ✓",
@@ -95,7 +95,7 @@ export const copy = {
           label: "#4 Lever",
           title: "Fra issue til produktion",
           paragraph:
-            "Hele flowet — læs issue, skriv brief, deleger, QA, commit, luk issue, deploy til Vercel — har jeg automatiseret fra ende til anden. Min rolle er arkitekt og sidste godkender: jeg definerer retningen, agenterne gør benarbejdet.",
+            "Fra issue til produktion på minutter, ikke dage. Hele flowet — læs, brief, deleger, QA, commit, deploy — er automatiseret. Min rolle er arkitekt og sidste godkender.",
           pills: ["GitHub issues", "conventional commits", "auto-deploy"],
         },
       ],
@@ -103,7 +103,7 @@ export const copy = {
         { value: "24/7", label: "kører på Mac Mini M4" },
         { value: "182+", label: "issues lukket i flowet" },
         { value: "938", label: "tests i QA-gaten" },
-        { value: "0", label: "linjer kode skrevet af orchestratoren" },
+        { value: "0", label: "linjer kode skrevet af mig" },
       ],
     },
     experience: {
@@ -150,7 +150,7 @@ export const copy = {
       metaRole: "Frontend developer · React & TypeScript",
       metaLoc: "Silkeborg, Denmark",
       pLead: "Hi, I'm Benjamin.",
-      pRest: " Frontend developer with a background in multimedia design — I turn visual ideas into finished products in React and TypeScript.",
+      pRest: " Frontend developer with a background in multimedia design — I build visual products in React and TypeScript, with AI agents as development partners.",
       btnWrite: "Get in touch",
       btnCopy: "Copy email",
       copied: "Copied ✓",
@@ -213,7 +213,7 @@ export const copy = {
           label: "#4 Ship",
           title: "From issue to production",
           paragraph:
-            "The whole flow — read issue, write brief, delegate, QA, commit, close issue, deploy to Vercel — is automated end to end. My role is architect and final approver: I set the direction, the agents do the legwork.",
+            "From issue to production in minutes, not days. The entire flow — read, brief, delegate, QA, commit, deploy — is automated. My role is architect and final approver.",
           pills: ["GitHub issues", "conventional commits", "auto-deploy"],
         },
       ],
@@ -221,7 +221,7 @@ export const copy = {
         { value: "24/7", label: "running on a Mac Mini M4" },
         { value: "182+", label: "issues closed in the flow" },
         { value: "938", label: "tests in the QA gate" },
-        { value: "0", label: "lines of code written by the orchestrator" },
+        { value: "0", label: "lines of code written by me" },
       ],
     },
     experience: {
