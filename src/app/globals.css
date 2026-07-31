@@ -13,7 +13,7 @@
   --bg:          #f7f5f1;
   --ink:         #141310;
   --body:        #41403c;
-  --dim:         #8a877f;
+  --dim:         #6e6b63;
   --line:        #e3e0d8;
   --card:        #ffffff;
   --accent:      #2d4a3e;
@@ -53,7 +53,7 @@ html[data-theme="dark"] {
   --bg:          #131211;
   --ink:         #f0ede6;
   --body:        #bdb9b0;
-  --dim:         #78746b;
+  --dim:         #928e84;
   --line:        #282622;
   --card:        #1b1a17;
   --accent:      #8fbfa4;
