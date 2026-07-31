@@ -44,3 +44,4 @@ next-env.d.ts
 design_handoff_portfolio/
 .env*
 .hermes/
+.cc-review/
