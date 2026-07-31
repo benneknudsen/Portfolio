@@ -739,7 +739,7 @@ html, body {
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 32px;
-  align-items: end;
+  align-items: start;
 }
 .method-head-text {
   display: flex;
@@ -767,6 +767,8 @@ html, body {
   max-width: 62ch;
   color: var(--body);
   font-size: clamp(15px, 1.4vw, 17px);
+  text-wrap: pretty;
+  overflow-wrap: break-word;
   line-height: 1.6;
   text-wrap: pretty;
 }
