@@ -192,6 +192,11 @@ a:hover {
   display: inline-block;
   overflow: hidden;
   vertical-align: top;
+  /* Descender room (g, p, y, j) + serif-italic overhang so the mask doesn't
+     clip tall/low glyphs as words rise. The negative margin cancels the layout
+     growth, so line spacing is unchanged. Hero overrides with its own value. */
+  padding-bottom: .16em;
+  margin-bottom: -.16em;
 }
 .word {
   display: inline-block;
@@ -782,6 +787,10 @@ html, body {
   height: auto;
   opacity: .9;
   justify-self: end;
+}
+/* The SVG is black on transparent — invert it so it stays visible on dark. */
+[data-theme="dark"] .method-logo {
+  filter: invert(1);
 }
 @media (max-width: 800px) {
   .method-head {
