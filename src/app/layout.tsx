@@ -13,7 +13,7 @@ const themeScript = `(function(){try{var t=localStorage.getItem('bk-theme');if(t
 const hanken = Hanken_Grotesk({
   variable: "--font-hanken",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
