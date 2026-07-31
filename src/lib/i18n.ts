@@ -60,14 +60,14 @@ export const copy = {
     },
     method: {
       kicker: "02 — Arbejdsmetode",
-      lead: 'Min udviklingspartner er <a href="https://hermes-agent.nousresearch.com/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line)">Hermes Agent ↗</a> — Nous Researchs open source-agent — som jeg har sat op og tunet til mit eget workflow på en Mac Mini M4. Jeg taler med den gennem Telegram; den håndterer pipelinen. Sådan er Stride blevet til.',
+      lead: 'Min udviklingspartner er <a href="https://hermes-agent.nousresearch.com/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line)">Hermes Agent ↗︎</a> — Nous Researchs open source-agent — som jeg har sat op og tunet til mit workflow på en Mac Mini M4. Den kører 24/7 via Telegram; Claude Code skriver koden, og Hermes orkestrerer hele flowet fra issue til deploy. Denne portfolio er bygget med den.',
       steps: [
         {
           label: "#1 Husk",
           title: "Persistent memory",
           paragraph:
-            "Jeg udnytter Hermes' Mnemosyne-memory med vector-søgning og knowledge graph — den husker mine projekter, præferencer og tidligere løsninger på tværs af sessioner, så jeg aldrig starter forfra.",
-          pills: ["vector + fuldtekst-søgning", "knowledge graph", "38 skills"],
+            "Hermes husker alt via mem0 — vector-søgning på tværs af sessioner, så den kender mine projekter, præferencer og tidligere løsninger. Jeg starter aldrig forfra.",
+          pills: ["mem0", "vector-søgning", "tværs af sessioner"],
         },
         {
           label: "#2 Deleger",
@@ -170,14 +170,14 @@ export const copy = {
     },
     method: {
       kicker: "02 — How I work",
-      lead: 'My development partner is <a href="https://hermes-agent.nousresearch.com/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line)">Hermes Agent ↗</a> — Nous Research\'s open source agent — which I\'ve set up and tuned to my own workflow on a Mac Mini M4. I talk to it through Telegram; it runs the pipeline. That\'s how Stride came to be.',
+      lead: 'My development partner is <a href="https://hermes-agent.nousresearch.com/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line)">Hermes Agent ↗︎</a> — Nous Research\'s open source agent — which I\'ve set up and tuned to my workflow on a Mac Mini M4. It runs 24/7 via Telegram; Claude Code writes the code and Hermes orchestrates the entire flow from issue to deploy. This portfolio was built with it.',
       steps: [
         {
           label: "#1 Remember",
           title: "Persistent memory",
           paragraph:
-            "I use Hermes' Mnemosyne memory with vector search and a knowledge graph — it remembers my projects, preferences and past solutions across sessions, so I never start from scratch.",
-          pills: ["vector + full-text search", "knowledge graph", "38 skills"],
+            "Hermes remembers everything via mem0 — vector search across sessions, so it knows my projects, preferences and past solutions. I never start from scratch.",
+          pills: ["mem0", "vector search", "cross-session"],
         },
         {
           label: "#2 Delegate",
