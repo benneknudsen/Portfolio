@@ -102,7 +102,7 @@ export function GlyphStrip({ label }: GlyphStripProps) {
   }, []);
 
   return (
-    <span ref={outerRef} className="glyphs" aria-label={label}>
+    <span ref={outerRef} className="glyphs" role="img" aria-label={label}>
       <span ref={textRef} aria-hidden="true">
         {PLACEHOLDER}
       </span>
