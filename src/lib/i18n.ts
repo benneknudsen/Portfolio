@@ -50,11 +50,11 @@ export const copy = {
       sectionTitle: "Projekter",
       stride: {
         title: "Stride",
-        desc: "En løbe-app bygget med Next.js, TypeScript og Strava API. Tracker ruter, analyserer præstationer og visualiserer træningsdata med interaktive kort.",
-        facts: ["Next.js", "TypeScript", "Strava API", "Mapbox", "PostgreSQL"],
+        desc: "AI-drevet løbetræner bygget i Next.js 16. Forbinder til Strava, og AI'en svarer ikke med tekst men med rigtige React-komponenter — grafer, anbefalinger og indsigter, renderet direkte i dashboardet.",
+        facts: ["Next.js 16", "TypeScript", "Generativ UI", "Strava", "Neon Postgres"],
         marquee:
-          "Rute-tracking · Præstationsanalyse · Træningsvisualisering · Strava-integration",
-        peekLabel: "Stride — løbe-app",
+          "AI-coach · Generativ UI · Strava-sync · Recharts · Drizzle ORM",
+        peekLabel: "Stride — AI løbetræner",
       },
     },
     method: {
@@ -159,11 +159,11 @@ export const copy = {
       sectionTitle: "Projects",
       stride: {
         title: "Stride",
-        desc: "A running app built with Next.js, TypeScript and the Strava API. Tracks routes, analyses performance and visualises training data with interactive maps.",
-        facts: ["Next.js", "TypeScript", "Strava API", "Mapbox", "PostgreSQL"],
+        desc: "AI-powered running coach built in Next.js 16. Connects to Strava, and the AI responds not with text but with real React components — charts, recommendations and insights rendered straight into the dashboard.",
+        facts: ["Next.js 16", "TypeScript", "Generative UI", "Strava", "Neon Postgres"],
         marquee:
-          "Route tracking · Performance analysis · Training visualization · Strava integration",
-        peekLabel: "Stride — running app",
+          "AI coach · Generative UI · Strava sync · Recharts · Drizzle ORM",
+        peekLabel: "Stride — AI running coach",
       },
     },
     method: {
