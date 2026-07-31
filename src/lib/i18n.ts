@@ -32,7 +32,7 @@ export const copy = {
       metaRole: "Frontend-udvikler · React & TypeScript",
       metaLoc: "Silkeborg, Danmark",
       pLead: "Hej, jeg er Benjamin.",
-      pRest: " Frontend-udvikler med baggrund som multimediedesigner — jeg bygger visuelle produkter i React og TypeScript, med AI-agenter som udviklingspartnere.",
+      pRest: " Frontend-udvikler med baggrund som multimediedesigner. Jeg bygger visuelle produkter i React og TypeScript, med AI-agenter som udviklingspartnere.",
       btnWrite: "Skriv til mig",
       btnCopy: "Kopiér e-mail",
       copied: "Kopieret ✓",
@@ -51,7 +51,7 @@ export const copy = {
       tapAgain: "Tryk igen for at åbne siden",
       stride: {
         title: "Stride",
-        desc: "AI-drevet løbetræner bygget i Next.js 16. Forbinder til Strava, og AI'en svarer ikke med tekst men med rigtige React-komponenter — grafer, anbefalinger og indsigter, renderet direkte i dashboardet.",
+        desc: "AI-drevet løbetræner bygget i Next.js 16. Forbinder til Strava, og AI'en svarer ikke med tekst men med React-komponenter: grafer, anbefalinger og indsigter, renderet direkte i dashboardet.",
         facts: ["Next.js 16", "TypeScript", "Generativ UI", "Strava", "Neon Postgres"],
         marquee:
           "AI-coach · Generativ UI · Strava-sync · Recharts · Drizzle ORM",
@@ -59,7 +59,7 @@ export const copy = {
       },
       portfolio: {
         title: "Portfolio",
-        desc: "Denne side er bygget med AI som makker — Claude Code skriver koden, Hermes orkestrerer, og Vercel deployer. Du kigger allerede på resultatet.",
+        desc: "Jeg har bygget denne side med AI som makker. Claude Code skriver koden, Hermes orkestrerer, Vercel deployer. Du kigger allerede på resultatet.",
         facts: ["Next.js 16", "TypeScript", "Tailwind CSS", "Vercel", "AI-agenter"],
         marquee:
           "AI-drevet · Design handoff · Claude Code · Hermes Agent · Vercel",
@@ -68,34 +68,34 @@ export const copy = {
     },
     method: {
       kicker: "02 — Arbejdsmetode",
-      lead: 'Min udviklingspartner er <a href="https://hermes-agent.nousresearch.com/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line)">Hermes Agent ↗︎</a> — Nous Researchs open source-agent — som jeg har sat op og tunet til mit workflow på en Mac Mini M4. Den kører 24/7 via Telegram; Claude Code skriver koden, og Hermes orkestrerer hele flowet fra issue til deploy. Denne portfolio er bygget med den.',
+      lead: 'Min udviklingspartner er <a href="https://hermes-agent.nousresearch.com/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line)">Hermes Agent ↗︎</a>, Nous Researchs open source-agent, som jeg har sat op og tunet til mit workflow på en Mac Mini M4. Den kører 24/7 via Telegram; Claude Code skriver koden, og Hermes orkestrerer hele flowet fra issue til deploy. Jeg har bygget denne portfolio med den.',
       steps: [
         {
           label: "#1 Husk",
           title: "Persistent memory",
           paragraph:
-            "Hermes husker alt via mem0 — vector-søgning på tværs af sessioner, så den kender mine projekter, præferencer og tidligere løsninger. Jeg starter aldrig forfra.",
+            "Hermes husker alt via mem0, med vector-søgning på tværs af sessioner, så den kender mine projekter, præferencer og tidligere løsninger. Jeg starter aldrig forfra.",
           pills: ["mem0", "vector-søgning", "tværs af sessioner"],
         },
         {
           label: "#2 Deleger",
           title: "Koden skrives aldrig af chefen",
           paragraph:
-            "Jeg lader aldrig orchestratoren skrive kode selv. Alt implementeres af Claude Code i isolerede sessioner med hvert sit git-worktree — sådan har jeg sat flowet op, så flere opgaver kører parallelt uden konflikter.",
+            "Jeg lader aldrig orchestratoren skrive kode selv. Claude Code implementerer alt i isolerede sessioner med hvert sit git-worktree. Sådan har jeg sat flowet op, så flere opgaver kører parallelt uden konflikter.",
           pills: ["Claude Code", "isolerede sessioner", "worktree per opgave"],
         },
         {
           label: "#3 Verificer",
           title: "Intet slipper igennem uden grønt",
           paragraph:
-            "Efter hver opgave kører min QA-gate: build → lint → typecheck → alle 1000+ tests. Kun ændringer, der består hele kæden, bliver committet — en regel, jeg har bygget ind i flowet. Ingen undtagelser.",
+            "Efter hver opgave kører min QA-gate: build → lint → typecheck → alle 1000+ tests. Kun ændringer, der består hele kæden, bliver committet. Den regel har jeg bygget ind i flowet. Ingen undtagelser.",
           pills: ["build", "lint", "typecheck", "1000+ tests"],
         },
         {
           label: "#4 Lever",
           title: "Fra issue til produktion",
           paragraph:
-            "Fra issue til produktion på minutter, ikke dage. Hele flowet — læs, brief, deleger, QA, commit, deploy — er automatiseret. Min rolle er arkitekt og sidste godkender.",
+            "Fra issue til produktion på minutter, ikke dage. Hele flowet (læs, brief, deleger, QA, commit, deploy) er automatiseret. Min rolle er arkitekt og sidste godkender.",
           pills: ["GitHub issues", "conventional commits", "auto-deploy"],
         },
       ],
@@ -113,13 +113,13 @@ export const copy = {
           period: "2024 — nu",
           role: "Frontend-udvikler",
           company: "Minetilbud (Dayli)",
-          note: "Kom med i teamet, da Minetilbud opkøbte AVIOU. Bygger og vedligeholder Dayli Publisher — skabeloner, komponentbibliotek og løbende UX-forbedringer i React, TypeScript og Storybook.",
+          note: "Kom med i teamet, da Minetilbud opkøbte AVIOU. Bygger og vedligeholder Dayli Publisher: skabeloner, komponentbibliotek og løbende UX-arbejde i React, TypeScript og Storybook.",
         },
         {
           period: "2022 — 2024",
           role: "Frontend-udvikler",
           company: "AVIOU",
-          note: "Online katalogplatform i React og TypeScript — nye funktioner og forbedrede UI-komponenter, der optimerede kundernes arbejdsflow. Derudover webdesign og frontend-løsninger for en række kunder.",
+          note: "Online katalogplatform i React og TypeScript. Byggede nye funktioner og forbedrede UI-komponenter, der gjorde kundernes arbejdsflow hurtigere. Derudover webdesign og frontend-løsninger for en række kunder.",
         },
         { period: "2021", role: "Frontend-udvikler, praktik", company: "Web2Media" },
         { period: "2021", role: "PBA i webudvikling", company: "Erhvervsakademi Aarhus" },
@@ -150,7 +150,7 @@ export const copy = {
       metaRole: "Frontend developer · React & TypeScript",
       metaLoc: "Silkeborg, Denmark",
       pLead: "Hi, I'm Benjamin.",
-      pRest: " Frontend developer with a background in multimedia design — I build visual products in React and TypeScript, with AI agents as development partners.",
+      pRest: " Frontend developer with a background in multimedia design. I build visual products in React and TypeScript, with AI agents as development partners.",
       btnWrite: "Get in touch",
       btnCopy: "Copy email",
       copied: "Copied ✓",
@@ -169,7 +169,7 @@ export const copy = {
       tapAgain: "Tap again to visit",
       stride: {
         title: "Stride",
-        desc: "AI-powered running coach built in Next.js 16. Connects to Strava, and the AI responds not with text but with real React components — charts, recommendations and insights rendered straight into the dashboard.",
+        desc: "AI-powered running coach built in Next.js 16. Connects to Strava, and the AI answers not in text but in React components: charts, recommendations and insights rendered straight into the dashboard.",
         facts: ["Next.js 16", "TypeScript", "Generative UI", "Strava", "Neon Postgres"],
         marquee:
           "AI coach · Generative UI · Strava sync · Recharts · Drizzle ORM",
@@ -177,7 +177,7 @@ export const copy = {
       },
       portfolio: {
         title: "Portfolio",
-        desc: "This site was built with AI as my coding partner — Claude Code writes the code, Hermes orchestrates, and Vercel deploys. You're already looking at the result.",
+        desc: "I built this site with AI as my coding partner. Claude Code writes the code, Hermes orchestrates, Vercel deploys. You're already looking at the result.",
         facts: ["Next.js 16", "TypeScript", "Tailwind CSS", "Vercel", "AI agents"],
         marquee:
           "AI-driven · Design handoff · Claude Code · Hermes Agent · Vercel",
@@ -186,34 +186,34 @@ export const copy = {
     },
     method: {
       kicker: "02 — How I work",
-      lead: 'My development partner is <a href="https://hermes-agent.nousresearch.com/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line)">Hermes Agent ↗︎</a> — Nous Research\'s open source agent — which I\'ve set up and tuned to my workflow on a Mac Mini M4. It runs 24/7 via Telegram; Claude Code writes the code and Hermes orchestrates the entire flow from issue to deploy. This portfolio was built with it.',
+      lead: 'My development partner is <a href="https://hermes-agent.nousresearch.com/" target="_blank" rel="noopener" style="border-bottom:1px solid var(--line)">Hermes Agent ↗︎</a>, Nous Research\'s open source agent, which I\'ve set up and tuned to my workflow on a Mac Mini M4. It runs 24/7 via Telegram; Claude Code writes the code and Hermes orchestrates everything from issue to deploy. I built this portfolio with it.',
       steps: [
         {
           label: "#1 Remember",
           title: "Persistent memory",
           paragraph:
-            "Hermes remembers everything via mem0 — vector search across sessions, so it knows my projects, preferences and past solutions. I never start from scratch.",
+            "Hermes remembers everything via mem0, with vector search across sessions, so it knows my projects, preferences and past solutions. I never start from scratch.",
           pills: ["mem0", "vector search", "cross-session"],
         },
         {
           label: "#2 Delegate",
           title: "The boss never writes the code",
           paragraph:
-            "I never let the orchestrator write code itself. Everything is implemented by Claude Code in isolated sessions, each with its own git worktree — that's how I've set up the flow, so several tasks run in parallel without conflicts.",
+            "I never let the orchestrator write code itself. Claude Code implements everything in isolated sessions, each with its own git worktree. That's how I set up the flow, so several tasks run in parallel without conflicts.",
           pills: ["Claude Code", "isolated sessions", "worktree per task"],
         },
         {
           label: "#3 Verify",
           title: "Nothing ships without green",
           paragraph:
-            "After every task my QA gate runs: build → lint → typecheck → all 1000+ tests. Only changes that pass the whole chain get committed — a rule I've built into the flow. No exceptions.",
+            "After every task my QA gate runs: build → lint → typecheck → all 1000+ tests. Only changes that pass the whole chain get committed. I built that rule into the flow. No exceptions.",
           pills: ["build", "lint", "typecheck", "1000+ tests"],
         },
         {
           label: "#4 Ship",
           title: "From issue to production",
           paragraph:
-            "From issue to production in minutes, not days. The entire flow — read, brief, delegate, QA, commit, deploy — is automated. My role is architect and final approver.",
+            "From issue to production in minutes, not days. The whole flow (read, brief, delegate, QA, commit, deploy) is automated. My role is architect and final approver.",
           pills: ["GitHub issues", "conventional commits", "auto-deploy"],
         },
       ],
@@ -231,13 +231,13 @@ export const copy = {
           period: "2024 — now",
           role: "Frontend developer",
           company: "Minetilbud (Dayli)",
-          note: "Joined the team when Minetilbud acquired AVIOU. Building and maintaining Dayli Publisher — templates, component library and ongoing UX improvements in React, TypeScript and Storybook.",
+          note: "Joined the team when Minetilbud acquired AVIOU. I build and maintain Dayli Publisher: templates, a component library and ongoing UX work in React, TypeScript and Storybook.",
         },
         {
           period: "2022 — 2024",
           role: "Frontend developer",
           company: "AVIOU",
-          note: "Online catalogue platform in React and TypeScript — new features and improved UI components that streamlined customers' workflows. Plus web design and frontend work for a range of clients.",
+          note: "Online catalogue platform in React and TypeScript. Built new features and improved UI components that made customers' workflows faster. Plus web design and frontend work for a range of clients.",
         },
         { period: "Aug — Oct 2021", role: "Frontend developer, intern", company: "Web2Media" },
         { period: "2021", role: "B.Sc. in web development", company: "Business Academy Aarhus" },
