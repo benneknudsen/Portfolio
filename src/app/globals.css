@@ -1032,7 +1032,7 @@ body.menu-open {
 .footer {
   margin-top: var(--section-gap);
   border-top: 1px solid var(--line);
-  padding: clamp(64px, 10vh, 120px) 0 48px;
+  padding-block: clamp(64px, 10vh, 120px) 48px;
 }
 .footer-head {
   display: flex;
