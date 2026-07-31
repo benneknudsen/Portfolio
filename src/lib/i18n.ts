@@ -96,6 +96,26 @@ export const copy = {
         { value: "0", label: "linjer kode skrevet af orchestratoren" },
       ],
     },
+    experience: {
+      kicker: "03 — Erfaring",
+      rows: [
+        {
+          period: "2024 — nu",
+          role: "Frontend-udvikler",
+          company: "Minetilbud (Dayli)",
+          note: "Kom med i teamet, da Minetilbud opkøbte AVIOU. Bygger og vedligeholder Dayli Publisher — skabeloner, komponentbibliotek og løbende UX-forbedringer i React, TypeScript og Storybook.",
+        },
+        {
+          period: "2022 — 2024",
+          role: "Frontend-udvikler",
+          company: "AVIOU",
+          note: "Online katalogplatform i React og TypeScript — nye funktioner og forbedrede UI-komponenter, der optimerede kundernes arbejdsflow. Derudover webdesign og frontend-løsninger for en række kunder.",
+        },
+        { period: "2021", role: "Frontend-udvikler, praktik", company: "Web2Media" },
+        { period: "2021", role: "PBA i webudvikling", company: "Erhvervsakademi Aarhus" },
+        { period: "2020", role: "Multimediedesigner", company: "Erhvervsakademi Aarhus" },
+      ],
+    },
   },
   en: {
     nav: {
@@ -174,6 +194,26 @@ export const copy = {
         { value: "0", label: "lines of code written by the orchestrator" },
       ],
     },
+    experience: {
+      kicker: "03 — Experience",
+      rows: [
+        {
+          period: "2024 — now",
+          role: "Frontend developer",
+          company: "Minetilbud (Dayli)",
+          note: "Joined the team when Minetilbud acquired AVIOU. Building and maintaining Dayli Publisher — templates, component library and ongoing UX improvements in React, TypeScript and Storybook.",
+        },
+        {
+          period: "2022 — 2024",
+          role: "Frontend developer",
+          company: "AVIOU",
+          note: "Online catalogue platform in React and TypeScript — new features and improved UI components that streamlined customers' workflows. Plus web design and frontend work for a range of clients.",
+        },
+        { period: "Aug — Oct 2021", role: "Frontend developer, intern", company: "Web2Media" },
+        { period: "2021", role: "B.Sc. in web development", company: "Business Academy Aarhus" },
+        { period: "2020", role: "Multimedia designer", company: "Business Academy Aarhus" },
+      ],
+    },
   },
 } as const;
 
@@ -214,6 +254,20 @@ export const methodH2: Record<Lang, HeroToken[]> = {
   en: [
     { w: "I" }, { w: "direct." }, { br: true },
     { w: "The" }, { w: "agents" }, { w: "deliver", em: true, tail: "." },
+  ],
+};
+
+/**
+ * Experience `h2`, tokenised per language for the word-reveal (A2). Same shape
+ * as {@link methodH2}: the `em` word renders serif italic accent and `tail`
+ * carries the trailing period inside the same word mask.
+ */
+export const experienceH2: Record<Lang, HeroToken[]> = {
+  da: [
+    { w: "Hvor" }, { w: "jeg" }, { w: "har" }, { w: "arbejdet", em: true, tail: "." },
+  ],
+  en: [
+    { w: "Where" }, { w: "I've" }, { w: "worked", em: true, tail: "." },
   ],
 };
 
