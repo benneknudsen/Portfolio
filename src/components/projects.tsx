@@ -16,7 +16,7 @@ export function Projects() {
     <section id="projects" className="projects container">
       <WordReveal className="projects-title" text={t.projects.sectionTitle} />
       <div className="prow-list">
-        <ProjectRow index="01" id="stride" peekSrc="/stride-preview.webp" />
+        <ProjectRow index="01" id="stride" peekSrc="/stride-preview.webp" href="https://stride-run.club" />
       </div>
     </section>
   );

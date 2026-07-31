@@ -48,6 +48,7 @@ export const copy = {
     },
     projects: {
       sectionTitle: "Projekter",
+      tapAgain: "Tryk igen for at åbne siden",
       stride: {
         title: "Stride",
         desc: "AI-drevet løbetræner bygget i Next.js 16. Forbinder til Strava, og AI'en svarer ikke med tekst men med rigtige React-komponenter — grafer, anbefalinger og indsigter, renderet direkte i dashboardet.",
@@ -157,6 +158,7 @@ export const copy = {
     },
     projects: {
       sectionTitle: "Projects",
+      tapAgain: "Tap again to visit",
       stride: {
         title: "Stride",
         desc: "AI-powered running coach built in Next.js 16. Connects to Strava, and the AI responds not with text but with real React components — charts, recommendations and insights rendered straight into the dashboard.",

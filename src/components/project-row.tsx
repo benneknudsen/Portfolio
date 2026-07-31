@@ -1,5 +1,6 @@
 "use client";
 
+import { useCallback, useRef, useState, type MouseEvent } from "react";
 import { useLang } from "@/lib/i18n";
 import { Reveal } from "@/components/reveal";
 
@@ -24,12 +25,42 @@ type ProjectRowProps = {
  * fills to solid ink, the arrow drifts up-right and the marquee fades in — all
  * in globals.css so reduced-motion disables them in one place.
  *
- * `data-peek` / `data-peek-label` are read by <CursorPeek>; the whole entrance
- * reuses the shared <Reveal> (A1).
+ * On mobile (no hover): first tap expands the row to show details + a "tap
+ * again" hint; second tap navigates to the href. On desktop the row is a
+ * direct link (hover previews via CursorPeek).
  */
 export function ProjectRow({ index, id, peekSrc, href }: ProjectRowProps) {
   const { t } = useLang();
   const p = t.projects[id];
+  const [expanded, setExpanded] = useState(false);
+  const isTouch = useRef(false);
+
+  /** On touch devices: first tap expands, second tap navigates. */
+  const handleClick = useCallback(
+    (e: MouseEvent<HTMLElement>) => {
+      if (!href) return;
+
+      // Detect touch on first interaction
+      if (e.nativeEvent instanceof PointerEvent && e.nativeEvent.pointerType === "touch") {
+        isTouch.current = true;
+      }
+
+      // Desktop (mouse) — navigate directly
+      if (!isTouch.current) {
+        window.open(href, "_blank", "noreferrer");
+        return;
+      }
+
+      // Touch: first tap → expand, second tap → navigate
+      if (!expanded) {
+        e.preventDefault();
+        setExpanded(true);
+      } else {
+        window.open(href, "_blank", "noreferrer");
+      }
+    },
+    [href, expanded],
+  );
 
   const body = (
     <>
@@ -37,12 +68,17 @@ export function ProjectRow({ index, id, peekSrc, href }: ProjectRowProps) {
         {index}
       </span>
       <div className="prow-main">
-        <h3 className="prow-title">
+        <h3 className={["prow-title", expanded && "prow-title--expanded"].filter(Boolean).join(" ")}>
           {p.title}
           <span className="prow-arrow" aria-hidden>
             {"↗\uFE0E"}
           </span>
         </h3>
+        {expanded && href && (
+          <span className="prow-hint">
+            {t.projects.tapAgain ?? "Tryk igen for at åbne"}
+          </span>
+        )}
         <ul className="prow-facts">
           {p.facts.map((fact) => (
             <li key={fact}>{fact}</li>
@@ -59,28 +95,19 @@ export function ProjectRow({ index, id, peekSrc, href }: ProjectRowProps) {
   );
 
   return (
-    <Reveal as="article" className="prow">
-      {href ? (
-        <a
-          className="prow-inner"
-          href={href}
-          target="_blank"
-          rel="noreferrer"
-          aria-label={p.peekLabel}
-          data-peek={peekSrc}
-          data-peek-label={p.peekLabel}
-        >
-          {body}
-        </a>
-      ) : (
-        <div
-          className="prow-inner"
-          data-peek={peekSrc}
-          data-peek-label={p.peekLabel}
-        >
-          {body}
-        </div>
-      )}
+    <Reveal as="article" className={["prow", expanded && "prow--expanded"].filter(Boolean).join(" ")}>
+      <div
+        className="prow-inner"
+        data-peek={peekSrc}
+        data-peek-label={p.peekLabel}
+        role={href ? "link" : undefined}
+        tabIndex={href ? 0 : undefined}
+        onClick={handleClick}
+        onKeyDown={href ? (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); handleClick(e as unknown as MouseEvent<HTMLElement>); }} : undefined}
+        aria-label={href ? p.peekLabel : undefined}
+      >
+        {body}
+      </div>
     </Reveal>
   );
 }
