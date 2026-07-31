@@ -56,13 +56,12 @@ export function ProjectRow({ index, id, peekSrc, href }: ProjectRowProps) {
     };
   }, [expanded]);
 
-  const isTouch =
-    typeof window !== "undefined" &&
-    window.matchMedia("(hover: none)").matches;
-
   const handleClick = useCallback(
     (e: MouseEvent<HTMLElement>) => {
-      // Desktop (has hover) — let the native <a> open the link.
+      // Desktop (has hover) — let the native <a> open the link. The
+      // matchMedia check runs here (not on every render) so it only fires
+      // on an actual click, when `window` is guaranteed to exist.
+      const isTouch = window.matchMedia("(hover: none)").matches;
       if (!href || !isTouch) return;
 
       // Touch: first tap → expand (block navigation); second tap → let
@@ -72,7 +71,7 @@ export function ProjectRow({ index, id, peekSrc, href }: ProjectRowProps) {
         setExpanded(true);
       }
     },
-    [href, expanded, isTouch],
+    [href, expanded],
   );
 
   const body = (

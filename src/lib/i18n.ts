@@ -6,6 +6,7 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useMemo,
   useState,
   type ReactNode,
 } from "react";
@@ -391,7 +392,10 @@ export function LangProvider({ children }: { children: ReactNode }) {
     });
   }, []);
 
-  const value: LangContextValue = { lang, setLang, toggleLang, t: copy[lang] };
+  const value = useMemo<LangContextValue>(
+    () => ({ lang, setLang, toggleLang, t: copy[lang] }),
+    [lang, setLang, toggleLang],
+  );
   return createElement(LangContext.Provider, { value }, children);
 }
 
