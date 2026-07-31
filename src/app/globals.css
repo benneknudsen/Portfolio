@@ -458,12 +458,12 @@ a:hover {
 
 /* Panel — fixed below the 68px nav, opaque so the page never shows through.
    Portalled to <body> (a backdrop-filter ancestor would otherwise become the
-   containing block for this fixed element). Sits under the nav (z-19 < z-50)
+   containing block for this fixed element). Sits under the nav (z-30 < z-50)
    so the burger + toggles stay tappable above it. */
 #msheet {
   position: fixed;
   inset: 68px 0 0;
-  z-index: 19;
+  z-index: 30;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -536,6 +536,11 @@ a:hover {
    under reduced motion Lenis never initialises, so lock the body directly. */
 body.menu-open {
   overflow: hidden;
+}
+
+/* Prevent horizontal scroll from hero blob overflow (right: -4%). */
+html, body {
+  overflow-x: clip;
 }
 
 /* The panel only exists below the burger breakpoint. */
