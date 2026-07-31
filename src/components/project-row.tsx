@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useState, type MouseEvent } from "react";
+import { useCallback, useEffect, useRef, useState, type MouseEvent } from "react";
 import { useLang } from "@/lib/i18n";
 import { Reveal } from "@/components/reveal";
 
@@ -30,6 +30,24 @@ export function ProjectRow({ index, id, peekSrc, href }: ProjectRowProps) {
   const { t } = useLang();
   const p = t.projects[id];
   const [expanded, setExpanded] = useState(false);
+  const rowRef = useRef<HTMLDivElement>(null);
+
+  // Collapse when tapping outside the row or scrolling
+  useEffect(() => {
+    if (!expanded) return;
+    const collapse = () => setExpanded(false);
+    const onPointerDown = (e: PointerEvent) => {
+      if (rowRef.current && !rowRef.current.contains(e.target as Node)) {
+        collapse();
+      }
+    };
+    document.addEventListener("pointerdown", onPointerDown);
+    window.addEventListener("scroll", collapse, { passive: true });
+    return () => {
+      document.removeEventListener("pointerdown", onPointerDown);
+      window.removeEventListener("scroll", collapse);
+    };
+  }, [expanded]);
 
   const isTouch =
     typeof window !== "undefined" &&
@@ -100,6 +118,7 @@ export function ProjectRow({ index, id, peekSrc, href }: ProjectRowProps) {
         .join(" ")}
     >
       <div
+        ref={rowRef}
         className="prow-inner"
         data-peek={peekSrc}
         data-peek-label={p.peekLabel}
