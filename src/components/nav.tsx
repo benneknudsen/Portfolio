@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, type MouseEvent } from "react";
+import { useEffect, useRef, type MouseEvent } from "react";
 import { useLang } from "@/lib/i18n";
 import { scrollToAnchor } from "@/lib/lenis";
 import { prefersReducedMotion } from "@/lib/animations";
@@ -50,6 +50,9 @@ function NavLink({ label, href }: { label: string; href: string }) {
     if (rafRef.current) cancelAnimationFrame(rafRef.current);
     rafRef.current = 0;
   }
+
+  // Cancel any in-flight scramble frame if the link unmounts mid-decode.
+  useEffect(() => stop, []);
 
   function scramble() {
     const glyph = glyphRef.current;

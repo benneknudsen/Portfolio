@@ -52,10 +52,6 @@ export default {
       },
       maxWidth: {
         container: "1200px",
-        prose46: "46ch",
-        prose56: "56ch",
-        prose60: "60ch",
-        prose62: "62ch",
       },
       spacing: {
         "container-pad": "clamp(20px,4vw,48px)",
@@ -89,7 +85,7 @@ export default {
         blob: "blob 16s ease-in-out infinite alternate",
         marquee: "marquee 16s linear infinite",
       },
-      screens: { sm2: "700px", sm3: "760px", md2: "800px", md3: "820px" },
+      screens: { md3: "820px" },
     },
   },
   plugins: [],

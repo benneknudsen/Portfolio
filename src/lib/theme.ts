@@ -6,6 +6,7 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useMemo,
   useState,
   type ReactNode,
 } from "react";
@@ -73,7 +74,10 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     });
   }, []);
 
-  const value: ThemeContextValue = { theme, setTheme, toggleTheme };
+  const value = useMemo<ThemeContextValue>(
+    () => ({ theme, setTheme, toggleTheme }),
+    [theme, setTheme, toggleTheme],
+  );
   return createElement(ThemeContext.Provider, { value }, children);
 }
 
