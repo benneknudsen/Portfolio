@@ -16,17 +16,6 @@ I use [Hermes Agent](https://hermes-agent.nousresearch.com/) (Nous Research) as 
 
 The design was delivered as a handoff folder with tokens, components, and copy — I didn't design it in Figma, I built it from a spec.
 
-## Development
-
-```bash
-npm run dev        # Dev server
-npm run build      # Production build
-npm run lint       # ESLint
-npm run typecheck  # TypeScript
-```
-
-Quality gate: `build`, `lint`, and `typecheck` must all be green before every commit.
-
 ## Structure
 
 ```
