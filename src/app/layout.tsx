@@ -3,6 +3,7 @@ import { Hanken_Grotesk, Instrument_Serif, JetBrains_Mono } from "next/font/goog
 import "./globals.css";
 import { Providers } from "./providers";
 import { Nav } from "@/components/nav";
+import { SkipLink } from "@/components/skip-link";
 
 // Runs before paint to apply the persisted theme/lang, avoiding a flash of
 // the wrong theme on first load. Keep in sync with the storage keys in
@@ -68,6 +69,7 @@ export default function RootLayout({
       </head>
       <body>
         <Providers>
+          <SkipLink />
           <Nav />
           {children}
         </Providers>

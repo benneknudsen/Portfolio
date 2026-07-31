@@ -115,9 +115,40 @@ a:hover {
   color: var(--accent); 
 }
 
-::selection { 
-  background: var(--ink); 
-  color: var(--bg); 
+::selection {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+/* Global keyboard focus ring for non-Tailwind controls (footer links, email,
+   copy button, etc.). Tailwind components set their own `outline-none` +
+   `focus-visible:outline`, so this only lands on elements that opt in.
+   Outline (not box-shadow) so it never triggers a color transition. */
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+}
+
+/* Skip-to-content — visually hidden until focused, then slides into view at
+   the top-left. Only `transform` transitions (convention #2). */
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: var(--container-pad);
+  z-index: 200;
+  padding: 10px 18px;
+  border: 2px solid var(--ink);
+  border-radius: var(--r-pill);
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 13px;
+  white-space: nowrap;
+  transform: translateY(calc(-100% - 24px));
+  transition: transform .25s var(--ease-out);
+}
+.skip-link:focus {
+  transform: translateY(0);
 }
 
 /* Container utility */
@@ -1091,6 +1122,11 @@ body.menu-open {
   .hero::before,
   .hero h1 em::after {
     animation: none;
+  }
+
+  /* Skip link appears instantly, no slide. */
+  .skip-link {
+    transition: none;
   }
 
   /* Menu switches instantly — no burger morph, no panel/link/footer animation. */
