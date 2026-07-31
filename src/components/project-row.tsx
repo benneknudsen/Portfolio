@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useRef, useState, type MouseEvent } from "react";
+import { useCallback, useState, type MouseEvent } from "react";
 import { useLang } from "@/lib/i18n";
 import { Reveal } from "@/components/reveal";
 
@@ -14,39 +14,33 @@ type ProjectRowProps = {
   id: ProjectId;
   /** Preview image for CursorPeek — a path under `/public`. */
   peekSrc: string;
-  /** Optional live link. When set the row renders as an anchor. */
+  /** Optional live link. */
   href?: string;
 };
 
 /**
  * A10/A11 — a single project row. Index · outline title · fact tags · blurb ·
- * hover marquee, laid out on a two-column grid. The whole row is one hover
- * target: on hover the accent line sweeps in (`::before`), the outline title
- * fills to solid ink, the arrow drifts up-right and the marquee fades in — all
- * in globals.css so reduced-motion disables them in one place.
+ * hover marquee, laid out on a two-column grid.
  *
- * On mobile (no hover): first tap expands the row to show details + a "tap
- * again" hint; second tap navigates to the href. On desktop the row is a
- * direct link (hover previews via CursorPeek).
+ * On touch devices (no hover): first tap expands the row to show details +
+ * a "tap again" hint; second tap navigates to the href. On desktop the row
+ * navigates directly on click; hover previews via CursorPeek still work.
  */
 export function ProjectRow({ index, id, peekSrc, href }: ProjectRowProps) {
   const { t } = useLang();
   const p = t.projects[id];
   const [expanded, setExpanded] = useState(false);
-  const isTouch = useRef(false);
 
-  /** On touch devices: first tap expands, second tap navigates. */
+  const isTouch =
+    typeof window !== "undefined" &&
+    window.matchMedia("(hover: none)").matches;
+
   const handleClick = useCallback(
     (e: MouseEvent<HTMLElement>) => {
       if (!href) return;
 
-      // Detect touch on first interaction
-      if (e.nativeEvent instanceof PointerEvent && e.nativeEvent.pointerType === "touch") {
-        isTouch.current = true;
-      }
-
-      // Desktop (mouse) — navigate directly
-      if (!isTouch.current) {
+      // Desktop (has hover) — navigate directly
+      if (!isTouch) {
         window.open(href, "_blank", "noreferrer");
         return;
       }
@@ -59,7 +53,7 @@ export function ProjectRow({ index, id, peekSrc, href }: ProjectRowProps) {
         window.open(href, "_blank", "noreferrer");
       }
     },
-    [href, expanded],
+    [href, expanded, isTouch],
   );
 
   const body = (
@@ -68,7 +62,11 @@ export function ProjectRow({ index, id, peekSrc, href }: ProjectRowProps) {
         {index}
       </span>
       <div className="prow-main">
-        <h3 className={["prow-title", expanded && "prow-title--expanded"].filter(Boolean).join(" ")}>
+        <h3
+          className={["prow-title", expanded && "prow-title--expanded"]
+            .filter(Boolean)
+            .join(" ")}
+        >
           {p.title}
           <span className="prow-arrow" aria-hidden>
             {"↗\uFE0E"}
@@ -95,7 +93,12 @@ export function ProjectRow({ index, id, peekSrc, href }: ProjectRowProps) {
   );
 
   return (
-    <Reveal as="article" className={["prow", expanded && "prow--expanded"].filter(Boolean).join(" ")}>
+    <Reveal
+      as="article"
+      className={["prow", expanded && "prow--expanded"]
+        .filter(Boolean)
+        .join(" ")}
+    >
       <div
         className="prow-inner"
         data-peek={peekSrc}
@@ -103,7 +106,18 @@ export function ProjectRow({ index, id, peekSrc, href }: ProjectRowProps) {
         role={href ? "link" : undefined}
         tabIndex={href ? 0 : undefined}
         onClick={handleClick}
-        onKeyDown={href ? (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); handleClick(e as unknown as MouseEvent<HTMLElement>); }} : undefined}
+        onKeyDown={
+          href
+            ? (e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  handleClick(
+                    e as unknown as MouseEvent<HTMLElement>,
+                  );
+                }
+              }
+            : undefined
+        }
         aria-label={href ? p.peekLabel : undefined}
       >
         {body}
