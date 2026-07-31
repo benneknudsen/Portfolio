@@ -1,6 +1,13 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState, type MouseEvent } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type MouseEvent,
+  type Ref,
+} from "react";
 import { useLang } from "@/lib/i18n";
 import { Reveal } from "@/components/reveal";
 
@@ -30,7 +37,7 @@ export function ProjectRow({ index, id, peekSrc, href }: ProjectRowProps) {
   const { t } = useLang();
   const p = t.projects[id];
   const [expanded, setExpanded] = useState(false);
-  const rowRef = useRef<HTMLDivElement>(null);
+  const rowRef = useRef<HTMLElement | null>(null);
 
   // Collapse when tapping outside the row or scrolling
   useEffect(() => {
@@ -55,20 +62,14 @@ export function ProjectRow({ index, id, peekSrc, href }: ProjectRowProps) {
 
   const handleClick = useCallback(
     (e: MouseEvent<HTMLElement>) => {
-      if (!href) return;
+      // Desktop (has hover) — let the native <a> open the link.
+      if (!href || !isTouch) return;
 
-      // Desktop (has hover) — navigate directly
-      if (!isTouch) {
-        window.open(href, "_blank", "noreferrer");
-        return;
-      }
-
-      // Touch: first tap → expand, second tap → navigate
+      // Touch: first tap → expand (block navigation); second tap → let
+      // the native <a> navigate.
       if (!expanded) {
         e.preventDefault();
         setExpanded(true);
-      } else {
-        window.open(href, "_blank", "noreferrer");
       }
     },
     [href, expanded, isTouch],
@@ -117,30 +118,30 @@ export function ProjectRow({ index, id, peekSrc, href }: ProjectRowProps) {
         .filter(Boolean)
         .join(" ")}
     >
-      <div
-        ref={rowRef}
-        className="prow-inner"
-        data-peek={peekSrc}
-        data-peek-label={p.peekLabel}
-        role={href ? "link" : undefined}
-        tabIndex={href ? 0 : undefined}
-        onClick={handleClick}
-        onKeyDown={
-          href
-            ? (e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  handleClick(
-                    e as unknown as MouseEvent<HTMLElement>,
-                  );
-                }
-              }
-            : undefined
-        }
-        aria-label={href ? p.peekLabel : undefined}
-      >
-        {body}
-      </div>
+      {href ? (
+        <a
+          ref={rowRef as Ref<HTMLAnchorElement>}
+          className="prow-inner"
+          data-peek={peekSrc}
+          data-peek-label={p.peekLabel}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={handleClick}
+          aria-label={p.peekLabel}
+        >
+          {body}
+        </a>
+      ) : (
+        <div
+          ref={rowRef as Ref<HTMLDivElement>}
+          className="prow-inner"
+          data-peek={peekSrc}
+          data-peek-label={p.peekLabel}
+        >
+          {body}
+        </div>
+      )}
     </Reveal>
   );
 }
