@@ -38,6 +38,7 @@ export function MobileMenu() {
   const [mounted, setMounted] = useState(false);
   const burgerRef = useRef<HTMLButtonElement>(null);
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
+  const sheetRef = useRef<HTMLDivElement>(null);
 
   // Portals need the DOM — render the panel only after mount.
   useEffect(() => {
@@ -68,7 +69,31 @@ export function MobileMenu() {
       if (mq.matches) close();
     };
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") closeToBurger();
+      if (e.key === "Escape") {
+        closeToBurger();
+        return;
+      }
+      // Focus trap: keep Tab / Shift+Tab cycling inside the opaque panel so
+      // focus never walks into the obscured header/main behind it (#20).
+      if (e.key !== "Tab") return;
+      const sheet = sheetRef.current;
+      if (!sheet) return;
+      const focusable = sheet.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      );
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      const active = document.activeElement;
+      if (e.shiftKey) {
+        if (active === first || !sheet.contains(active)) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else if (active === last || !sheet.contains(active)) {
+        e.preventDefault();
+        first.focus();
+      }
     };
     mq.addEventListener("change", onViewport);
     document.addEventListener("keydown", onKey);
@@ -93,7 +118,12 @@ export function MobileMenu() {
   }
 
   const panel = (
-    <div id="msheet" className={open ? "open" : undefined} aria-hidden={!open}>
+    <div
+      id="msheet"
+      ref={sheetRef}
+      className={open ? "open" : undefined}
+      aria-hidden={!open}
+    >
       <nav aria-label="Menu" className="msheet-nav">
         {NAV_LINKS.map((link, i) => (
           <a
