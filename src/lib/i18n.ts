@@ -57,6 +57,14 @@ export const copy = {
           "AI-coach · Generativ UI · Strava-sync · Recharts · Drizzle ORM",
         peekLabel: "Stride — AI løbetræner",
       },
+      portfolio: {
+        title: "Portfolio",
+        desc: "Denne side — bygget fra bunden af AI-agenter. Hermes orkestrerer, Claude Code skriver koden, og Vercel deployer. Designet er overleveret som en håndoff-mappe med tokens, komponenter og kopitekst.",
+        facts: ["Next.js 16", "TypeScript", "Tailwind CSS", "Vercel", "AI-agenter"],
+        marquee:
+          "AI-drevet · Design handoff · Claude Code · Hermes Agent · Vercel",
+        peekLabel: "Portfolio — bygget af agenter",
+      },
     },
     method: {
       kicker: "02 — Arbejdsmetode",
@@ -166,6 +174,14 @@ export const copy = {
         marquee:
           "AI coach · Generative UI · Strava sync · Recharts · Drizzle ORM",
         peekLabel: "Stride — AI running coach",
+      },
+      portfolio: {
+        title: "Portfolio",
+        desc: "This site — built from scratch by AI agents. Hermes orchestrates, Claude Code writes the code, and Vercel deploys. The design was delivered as a handoff folder with tokens, components and copy.",
+        facts: ["Next.js 16", "TypeScript", "Tailwind CSS", "Vercel", "AI agents"],
+        marquee:
+          "AI-driven · Design handoff · Claude Code · Hermes Agent · Vercel",
+        peekLabel: "Portfolio — built by agents",
       },
     },
     method: {
