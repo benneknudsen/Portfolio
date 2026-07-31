@@ -856,6 +856,82 @@ body.menu-open {
   }
 }
 
+/* ============================================================
+   Experience (#03 — Erfaring) — head (kicker + word-reveal h2) above a list of
+   rows. Each row is its own <Reveal>; the hover background snaps with no
+   transition (a background transition would animate on every theme switch —
+   convention #2).
+   ============================================================ */
+
+.experience {
+  margin-top: var(--section-gap);
+}
+.experience-head {
+  display: flex;
+  flex-direction: column;
+}
+.experience-h2 {
+  margin: 14px 0 0;
+  font-size: clamp(34px, 5vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -.025em;
+  font-weight: 700;
+  color: var(--ink);
+}
+/* Em word: serif italic accent (matches the method heading, hero-only underline
+   excepted). */
+.experience-h2 em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--accent);
+}
+
+.xp {
+  border-top: 1px solid var(--line);
+  margin-top: clamp(32px, 5vh, 48px);
+}
+.xp-row {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 20px;
+  padding: 22px 8px;
+  border-bottom: 1px solid var(--line);
+  align-items: baseline;
+}
+/* No transition on the hover background (convention #2). */
+.xp-row:hover {
+  background: var(--accent-soft);
+}
+.xp-period {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--dim);
+}
+.xp-role {
+  font-weight: 600;
+  color: var(--ink);
+}
+.xp-company {
+  color: var(--dim);
+}
+.xp-note {
+  display: block;
+  max-width: 60ch;
+  margin-top: 2px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--body);
+  text-wrap: pretty;
+}
+@media (max-width: 700px) {
+  .xp-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+
 /* A12 — CursorPeek. The outer element is positioned every frame by rAF (no
    transition there — it would lag the follow); the inner card handles the
    scale/rotate pop. Sits under the nav (z-40 < z-50) and never intercepts
