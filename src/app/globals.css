@@ -991,6 +991,88 @@ body.menu-open {
   }
 }
 
+/* ============================================================
+   Footer (#04 — Kontakt) — kicker + word-reveal h2 (A2), large mailto link
+   with copy-to-clipboard (A16), and a mono meta row. Section spacing is
+   margin (convention #3); only transform animates so the theme switch stays
+   safe (convention #2 — no colour/border transitions on the email link).
+   ============================================================ */
+
+.footer {
+  margin-top: var(--section-gap);
+  border-top: 1px solid var(--line);
+  padding: clamp(64px, 10vh, 120px) 0 48px;
+}
+.footer-head {
+  display: flex;
+  flex-direction: column;
+}
+.footer-h2 {
+  margin: 14px 0 0;
+  font-size: clamp(44px, 8vw, 104px);
+  line-height: 1.02;
+  letter-spacing: -.03em;
+  font-weight: 700;
+  color: var(--ink);
+}
+/* Em word: serif italic accent (matches the other section headings). */
+.footer-h2 em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--accent);
+}
+
+.footer-contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  margin-top: 28px;
+}
+.footer-email {
+  display: inline-block;
+  font-size: clamp(20px, 3vw, 32px);
+  font-weight: 600;
+  color: var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 4px;
+}
+/* No colour/border transition (convention #2) — the state swaps instantly. */
+.footer-email:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+.footer-copy {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--dim);
+  white-space: nowrap;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: none;
+  cursor: pointer;
+}
+.footer-copy:hover {
+  color: var(--ink);
+}
+
+.footer-meta {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 72px;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--dim);
+}
+.footer-meta a:hover {
+  color: var(--ink);
+}
+
 /* Reduced motion: everything visible, no transitions. */
 @media (prefers-reduced-motion: reduce) {
   .rv,

@@ -2,6 +2,7 @@ import { Hero } from "@/components/hero";
 import { Projects } from "@/components/projects";
 import { Method } from "@/components/method";
 import { Experience } from "@/components/experience";
+import { Footer } from "@/components/footer";
 import { CursorPeek } from "@/components/cursor-peek";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       <Projects />
       <Method />
       <Experience />
+      <Footer />
       {/* Mounted once — follows the cursor over any [data-peek] row. */}
       <CursorPeek />
     </main>
