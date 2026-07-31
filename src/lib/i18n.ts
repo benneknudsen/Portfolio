@@ -59,7 +59,7 @@ export const copy = {
       },
       portfolio: {
         title: "Portfolio",
-        desc: "Denne side — bygget fra bunden af AI-agenter. Hermes orkestrerer, Claude Code skriver koden, og Vercel deployer. Designet er overleveret som en håndoff-mappe med tokens, komponenter og kopitekst.",
+        desc: "Denne side er bygget med AI som makker — Claude Code skriver koden, Hermes orkestrerer, og Vercel deployer. Du kigger allerede på resultatet.",
         facts: ["Next.js 16", "TypeScript", "Tailwind CSS", "Vercel", "AI-agenter"],
         marquee:
           "AI-drevet · Design handoff · Claude Code · Hermes Agent · Vercel",
@@ -177,7 +177,7 @@ export const copy = {
       },
       portfolio: {
         title: "Portfolio",
-        desc: "This site — built from scratch by AI agents. Hermes orchestrates, Claude Code writes the code, and Vercel deploys. The design was delivered as a handoff folder with tokens, components and copy.",
+        desc: "This site was built with AI as my coding partner — Claude Code writes the code, Hermes orchestrates, and Vercel deploys. You're already looking at the result.",
         facts: ["Next.js 16", "TypeScript", "Tailwind CSS", "Vercel", "AI agents"],
         marquee:
           "AI-driven · Design handoff · Claude Code · Hermes Agent · Vercel",
