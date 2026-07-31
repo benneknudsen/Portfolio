@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 /** How strongly the card eases toward the cursor each frame (A12). */
-const LERP = 0.12;
+const LERP = 0.18;
 /** Gap between the cursor and the card, and the viewport-clamp inset. */
 const GAP = 24;
 

@@ -972,7 +972,7 @@ body.menu-open {
   top: 0;
   left: 0;
   z-index: 40;
-  width: 260px;
+  width: clamp(260px, 26vw, 400px);
   pointer-events: none;
   will-change: transform;
 }
