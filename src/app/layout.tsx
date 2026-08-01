@@ -43,7 +43,6 @@ export const metadata: Metadata = {
     siteName: "Benjamin Schou Knudsen",
     locale: "da_DK",
     type: "website",
-    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -57,7 +56,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Benjamin Schou Knudsen — Frontend-udvikler",
     description: "Frontend-udvikler med baggrund som multimediedesigner.",
-    images: ["/og-image.png"],
   },
 };
 
