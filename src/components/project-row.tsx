@@ -90,9 +90,9 @@ export function ProjectRow({ index, id, peekSrc, href }: ProjectRowProps) {
             {"↗\uFE0E"}
           </span>
         </h3>
-        {expanded && href && (
+        {href && (
           <span className="prow-hint">
-            {t.projects.tapAgain ?? "Tryk igen for at åbne"}
+            <span>{t.projects.tapAgain ?? "Tryk igen for at åbne"}</span>
           </span>
         )}
         <ul className="prow-facts">
