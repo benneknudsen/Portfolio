@@ -81,7 +81,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="footer container">
+    <footer id="contact" className="footer container">
       <Reveal className="footer-head">
         <span className="kicker">{f.kicker}</span>
         <FooterHeading />
