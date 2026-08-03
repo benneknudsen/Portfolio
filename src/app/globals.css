@@ -61,9 +61,12 @@ html[data-theme="dark"] {
   --nav:         rgba(19, 18, 17, .92);
 }
 
-html { 
-  color-scheme: light; 
+html {
+  color-scheme: light;
   scroll-behavior: auto;
+  /* Anchored sections stop below the fixed 68px nav on native scroll (reduced
+     motion / pre-Lenis fallback). Lenis uses ANCHOR_OFFSET for its own path. */
+  scroll-padding-top: var(--nav-h);
   --font-hanken: 'Hanken Grotesk', sans-serif;
   --font-instrument: 'Instrument Serif', serif;
   --font-jetbrains: 'JetBrains Mono', monospace;
@@ -461,19 +464,23 @@ a:hover {
   transform: translateY(-5.5px) rotate(-45deg);
 }
 
-/* Panel — fixed below the 68px nav, opaque so the page never shows through.
-   Portalled to <body> (a backdrop-filter ancestor would otherwise become the
-   containing block for this fixed element). Sits under the nav (z-30 < z-50)
-   so the burger + toggles stay tappable above it. */
+/* Panel — fixed over the FULL viewport, opaque so the page never shows through.
+   It spans behind the 68px nav too: the nav is translucent (`--nav` ≈ 8%
+   transparent), so the panel's opaque `--bg` sitting behind it turns the top
+   strip opaque instead of leaking the scrolled page (issue #26). Portalled to
+   <body> (a backdrop-filter ancestor would otherwise become the containing
+   block for this fixed element). Sits under the nav (z-30 < z-50) so the burger
+   + toggles stay tappable above it; content is padded below the nav so it never
+   hides behind the header. */
 #msheet {
   position: fixed;
-  inset: 68px 0 0;
+  inset: 0;
   z-index: 30;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 32px;
-  padding: clamp(28px, 8vh, 64px) var(--container-pad) calc(var(--container-pad) + env(safe-area-inset-bottom));
+  padding: calc(var(--nav-h) + clamp(28px, 8vh, 64px)) var(--container-pad) calc(var(--container-pad) + env(safe-area-inset-bottom));
   background: var(--bg);
   overflow-y: auto;
   overscroll-behavior: contain;

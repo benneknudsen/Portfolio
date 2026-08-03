@@ -29,8 +29,8 @@ const BURGER_MQ = "(min-width: 820px)";
  * Opening stops Lenis (plain `overflow: hidden` does not — AGENTS.md #0) and
  * locks the body; closing restores both. Escape and a viewport crossing the
  * burger breakpoint both close the panel; Escape also returns focus to the
- * burger. A link closes the panel, then drives the anchor scroll (Lenis
- * `scrollTo` is forced so it still animates during the close).
+ * burger. A link closes the panel, then drives the anchor scroll on the next
+ * macrotask — after the close cleanup has restarted Lenis and unlocked scroll.
  */
 export function MobileMenu() {
   const { t } = useLang();
@@ -114,7 +114,11 @@ export function MobileMenu() {
   function handleLink(e: MouseEvent<HTMLAnchorElement>, href: string) {
     e.preventDefault();
     close();
-    scrollToAnchor(href);
+    // Defer to a macrotask so the close effect's cleanup runs first — it
+    // restarts Lenis and drops `menu-open`/`lenis-stopped` (both `overflow:
+    // hidden`). Scrolling in the same tick fires against a stopped instance and
+    // a locked scroll container, so the section never comes into view (#26).
+    setTimeout(() => scrollToAnchor(href), 0);
   }
 
   const panel = (
