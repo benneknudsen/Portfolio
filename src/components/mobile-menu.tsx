@@ -128,6 +128,31 @@ export function MobileMenu() {
       className={open ? "open" : undefined}
       aria-hidden={!open}
     >
+      {/* Explicit close affordance inside the panel — closing never depends on
+          recognising the header's burger→X morph (#26 follow-up). Returns focus
+          to the burger like Escape (closeToBurger). */}
+      <button
+        type="button"
+        onClick={closeToBurger}
+        aria-label={t.aria.menuClose}
+        tabIndex={open ? 0 : -1}
+        className="msheet-close tap-44 rounded-full text-dim outline-none hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
+      >
+        <svg
+          aria-hidden
+          width="22"
+          height="22"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.75"
+          strokeLinecap="round"
+        >
+          <line x1="6" y1="6" x2="18" y2="18" />
+          <line x1="18" y1="6" x2="6" y2="18" />
+        </svg>
+      </button>
+
       <nav aria-label="Menu" className="msheet-nav">
         {NAV_LINKS.map((link, i) => (
           <a
