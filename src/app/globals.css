@@ -1063,6 +1063,48 @@ html, body {
   }
 }
 
+/* ============================================================
+   About (#04 — Om mig) — a compact personal aside: kicker + word-reveal h2
+   (A2) + a short lead. Deliberately lighter than Projects/Experience (smaller
+   heading) so it never competes with them. Section spacing is margin
+   (convention #3); only transform/opacity animate (convention #2). The whole
+   head is a <Reveal>, so the A1 entrance + reduced-motion handling live on the
+   shared `.rv` / `.word` rules.
+   ============================================================ */
+
+.about {
+  margin-top: var(--section-gap);
+}
+.about-head {
+  display: flex;
+  flex-direction: column;
+}
+.about-h2 {
+  margin: 14px 0 0;
+  font-size: clamp(26px, 3.6vw, 42px);
+  line-height: 1.05;
+  letter-spacing: -.02em;
+  font-weight: 700;
+  color: var(--ink);
+}
+/* Em word: serif italic accent (matches the method/experience headings). */
+.about-h2 em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--accent);
+}
+.about-lead {
+  margin: clamp(18px, 3vh, 28px) 0 0;
+  max-width: 62ch;
+  color: var(--body);
+  font-size: clamp(15px, 1.4vw, 17px);
+  line-height: 1.6;
+  text-wrap: pretty;
+  overflow-wrap: break-word;
+}
+
 /* A12 — CursorPeek. The outer element is positioned every frame by rAF (no
    transition there — it would lag the follow); the inner card handles the
    scale/rotate pop. Sits under the nav (z-40 < z-50) and never intercepts

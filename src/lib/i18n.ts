@@ -133,8 +133,12 @@ export const copy = {
         { period: "2020", role: "Multimediedesigner", company: "Erhvervsakademi Aarhus" },
       ],
     },
+    about: {
+      kicker: "04 — Om mig",
+      lead: "Når jeg ikke bygger digitale løsninger, spiller jeg helst spil, der gør livet lidt sværere, end det behøver at være — Dark Souls, Elden Ring, Sekiro og senest Silksong er alle klaret. Ellers følger jeg fodbold og ser stadig Manchester United, efterhånden mest af ren stædighed.",
+    },
     footer: {
-      kicker: "04 — Kontakt",
+      kicker: "05 — Kontakt",
       email: "benjaschou12@icloud.com",
       copied: "Kopieret ✓",
       copyAria: "Kopiér e-mailadresse",
@@ -257,8 +261,12 @@ export const copy = {
         { period: "2020", role: "Multimedia designer", company: "Business Academy Aarhus" },
       ],
     },
+    about: {
+      kicker: "04 — About",
+      lead: "When I'm not building digital solutions, I play games that make life harder than it needs to be — Dark Souls, Elden Ring, Sekiro and, most recently, Silksong are all done. Otherwise I follow football and still watch Manchester United, these days mostly out of stubbornness.",
+    },
     footer: {
-      kicker: "04 — Contact",
+      kicker: "05 — Contact",
       email: "benjaschou12@icloud.com",
       copied: "Copied ✓",
       copyAria: "Copy email address",
@@ -321,6 +329,21 @@ export const experienceH2: Record<Lang, HeroToken[]> = {
   ],
   en: [
     { w: "Where" }, { w: "I've" }, { w: "worked", em: true, tail: "." },
+  ],
+};
+
+/**
+ * About `h2`, tokenised per language for the word-reveal (A2). Same shape as
+ * {@link experienceH2}: the `em` word renders serif italic accent and `tail`
+ * carries the trailing period inside the same word mask. Source copy is
+ * `"Når jeg ikke <em>koder</em>."` / `"When I'm not <em>coding</em>."`.
+ */
+export const aboutH2: Record<Lang, HeroToken[]> = {
+  da: [
+    { w: "Når" }, { w: "jeg" }, { w: "ikke" }, { w: "koder", em: true, tail: "." },
+  ],
+  en: [
+    { w: "When" }, { w: "I'm" }, { w: "not" }, { w: "coding", em: true, tail: "." },
   ],
 };
 
