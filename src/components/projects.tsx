@@ -18,6 +18,7 @@ export function Projects() {
       <div className="prow-list">
         <ProjectRow index="01" id="stride" peekSrc="/stride-preview.webp" href="https://stride-run.club" />
         <ProjectRow index="02" id="portfolio" peekSrc="/portfolio-preview.webp" href="https://benjaminschou.dk" />
+        <ProjectRow index="03" id="flagvagten" href="https://github.com/benneknudsen/flagvagten" peekSrc="/flagvagten-preview.webp" />
       </div>
     </section>
   );
