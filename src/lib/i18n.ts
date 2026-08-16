@@ -66,6 +66,14 @@ export const copy = {
           "AI-drevet · Design handoff · Claude Code · Hermes Agent · Vercel",
         peekLabel: "Portfolio — bygget af agenter",
       },
+      flagvagten: {
+        title: "Flagvagten",
+        desc: "Dansk flag-app til iOS, der husker at hejse og fire Dannebrog efter solopgang og solnedgang på din lokation. Kender flagdagene, halv stang og de grønlandske og færøske flag — med live-status via widget og Live Activity på iPhone.",
+        facts: ["React Native", "Expo SDK 57", "TypeScript", "NativeWind", "EAS"],
+        marquee:
+          "Dannebrog · Solopgang/solnedgang · Flagdage · Halv stang · Live Activity · Expo · Skia",
+        peekLabel: "Flagvagten — dansk flag-app",
+      },
     },
     method: {
       kicker: "02 — Arbejdsmetode",
@@ -189,6 +197,14 @@ export const copy = {
         marquee:
           "AI-driven · Design handoff · Claude Code · Hermes Agent · Vercel",
         peekLabel: "Portfolio — built by agents",
+      },
+      flagvagten: {
+        title: "Flagvagten",
+        desc: "Danish flag app for iOS that remembers to raise and lower the Dannebrog at sunrise and sunset for your location. It knows the flag days, half-mast and the Greenlandic and Faroese flags — with live status via a widget and Live Activity on iPhone.",
+        facts: ["React Native", "Expo SDK 57", "TypeScript", "NativeWind", "EAS"],
+        marquee:
+          "Dannebrog · Sunrise/sunset · Flag days · Half-mast · Live Activity · Expo · Skia",
+        peekLabel: "Flagvagten — Danish flag app",
       },
     },
     method: {

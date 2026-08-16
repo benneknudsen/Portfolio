@@ -12,15 +12,19 @@ import { useLang } from "@/lib/i18n";
 import { Reveal } from "@/components/reveal";
 
 /** Keys of `t.projects` that hold an actual project (not the section title). */
-type ProjectId = "stride" | "portfolio";
+type ProjectId = "stride" | "portfolio" | "flagvagten";
 
 type ProjectRowProps = {
   /** Ordinal shown at the row's left edge, e.g. "01". */
   index: string;
   /** Which project's copy to render (key into `t.projects`). */
   id: ProjectId;
-  /** Preview image for CursorPeek — a path under `/public`. */
-  peekSrc: string;
+  /**
+   * Preview image for CursorPeek — a path under `/public`. Optional: when
+   * omitted, `data-peek` is left off and CursorPeek's `onEnter` bails, so the
+   * row simply has no hover preview (no broken card).
+   */
+  peekSrc?: string;
   /** Optional live link. */
   href?: string;
 };
