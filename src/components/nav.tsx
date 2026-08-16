@@ -27,6 +27,7 @@ export const NAV_LINKS = [
   { key: "projects", href: "#projects" },
   { key: "method", href: "#method" },
   { key: "xp", href: "#experience" },
+  { key: "about", href: "#about" },
   { key: "contact", href: "#contact" },
 ] as const;
 
