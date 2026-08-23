@@ -144,6 +144,7 @@ export const copy = {
     about: {
       kicker: "04 — Om mig",
       lead: "Når jeg ikke bygger digitale løsninger, spiller jeg helst spil, der gør livet lidt sværere, end det behøver at være — Dark Souls, Elden Ring, Sekiro og senest Silksong er alle klaret. Ellers følger jeg fodbold og ser stadig Manchester United, efterhånden mest af ren stædighed.",
+      badges: ["4 Souls-spil klaret", "Manchester United-fan", "Giver ikke op"],
     },
     footer: {
       kicker: "05 — Kontakt",
@@ -280,6 +281,7 @@ export const copy = {
     about: {
       kicker: "04 — About",
       lead: "When I'm not building digital solutions, I play games that make life harder than it needs to be — Dark Souls, Elden Ring, Sekiro and, most recently, Silksong are all done. Otherwise I follow football and still watch Manchester United, these days mostly out of stubbornness.",
+      badges: ["4 Souls games cleared", "Manchester United fan", "Never gives up"],
     },
     footer: {
       kicker: "05 — Contact",

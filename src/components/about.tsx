@@ -47,10 +47,17 @@ function AboutHeading() {
 
 /**
  * About section (#04 — Om mig). A compact personal aside: kicker, word-reveal
- * heading and a short lead paragraph — deliberately lighter than Projects and
- * Experience (smaller heading) so it never competes with them. All copy comes
- * from i18n. `margin-top: var(--section-gap)` spaces it from Experience
- * (convention #3: section spacing is margin, not padding).
+ * heading, a short lead paragraph and a badge row — deliberately lighter than
+ * Projects and Experience (smaller heading) so it never competes with them.
+ * All copy comes from i18n. `margin-top: var(--section-gap)` spaces it from
+ * Experience (convention #3: section spacing is margin, not padding).
+ *
+ * The badges are small pills mirroring the existing `.method-step-pill` look,
+ * expressed as token-mapped Tailwind utilities (text-pill / rounded-pill /
+ * border-line / text-dim) so no new CSS values are invented. Pills keep
+ * `whitespace-nowrap` (convention #4) and carry NO background/color
+ * transitions (convention #2) — they recolor instantly via the CSS variables
+ * on theme switch.
  */
 export function About() {
   const { t } = useLang();
@@ -62,6 +69,16 @@ export function About() {
         <span className="kicker">{a.kicker}</span>
         <AboutHeading />
         <p className="about-lead">{a.lead}</p>
+        <ul className="mt-3.5 flex flex-wrap gap-2">
+          {a.badges.map((badge) => (
+            <li
+              key={badge}
+              className="inline-block whitespace-nowrap rounded-pill border border-line px-[11px] py-[5px] font-mono text-pill text-dim"
+            >
+              {badge}
+            </li>
+          ))}
+        </ul>
       </Reveal>
     </section>
   );
