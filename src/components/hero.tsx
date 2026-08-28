@@ -1,15 +1,8 @@
 "use client";
 
-import {
-  Fragment,
-  useEffect,
-  useRef,
-  useState,
-  type CSSProperties,
-} from "react";
+import { useEffect, useRef, useState } from "react";
 import { heroH1, useLang } from "@/lib/i18n";
-import { WORD_STAGGER_MS } from "@/lib/animations";
-import { Reveal } from "@/components/reveal";
+import { Reveal, TokenReveal } from "@/components/reveal";
 import { Avatar } from "@/components/avatar";
 import { Button } from "@/components/button";
 import { GlyphStrip } from "@/components/glyph-strip";
@@ -44,54 +37,16 @@ function Clock() {
 }
 
 /**
- * A2 — hero `h1` word reveal. Each word rises out of an overflow-hidden mask;
- * the block-level `.top` <Reveal> is the trigger, so `.rv.visible .word` drives
- * the rise. `em` words render serif italic with the animated underline (A8),
- * `br` tokens force the two-line break. Keying by `lang` remounts the spans on
- * a language switch so they re-split cleanly (the CSS then keeps them visible).
- */
-function HeroHeading() {
-  const { lang } = useLang();
-  const tokens = heroH1[lang];
-
-  return (
-    <h1>
-      {tokens.map((tok, i) => {
-        if ("br" in tok) return <br key={`${lang}-${i}`} />;
-
-        // Stagger index counts words only (skipping the br) — computed from the
-        // preceding tokens so nothing is reassigned during render.
-        const wordIndex = tokens.slice(0, i).filter((tk) => !("br" in tk)).length;
-        const prev = tokens[i - 1];
-        const space = prev && !("br" in prev) ? " " : null;
-
-        return (
-          <Fragment key={`${lang}-${i}`}>
-            {space}
-            <span className="word-line">
-              <span
-                className="word"
-                style={{ "--d": `${wordIndex * WORD_STAGGER_MS}ms` } as CSSProperties}
-              >
-                {tok.em ? <em>{tok.w}</em> : tok.w}
-              </span>
-            </span>
-          </Fragment>
-        );
-      })}
-    </h1>
-  );
-}
-
-/**
  * Hero section — meta line (role · location · clock · glyph strip), the
  * word-reveal headline beside the levitating avatar, an intro paragraph, and
  * the two contact buttons. The blob backdrop, headline underline and avatar
  * motion all live in globals.css so reduced-motion can disable them in one
- * place; the section entrance reuses the shared <Reveal> (A1).
+ * place; the section entrance reuses the shared <Reveal> (A1). The h1 uses
+ * the shared token reveal — hero tokens never set `tail`, so the shared loop
+ * is behaviourally identical here.
  */
 export function Hero() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const [copied, setCopied] = useState(false);
   const copyTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
 
@@ -119,7 +74,7 @@ export function Hero() {
       </Reveal>
 
       <Reveal className="top">
-        <HeroHeading />
+        <TokenReveal as="h1" tokens={heroH1[lang]} />
         <Avatar />
       </Reveal>
 
