@@ -113,7 +113,9 @@ export function MobileMenu() {
 
   function handleLink(e: MouseEvent<HTMLAnchorElement>, href: string) {
     e.preventDefault();
-    close();
+    // #44: closeToBurger returns focus to the burger before the panel gets
+    // aria-hidden, so focus never rests on a link inside the hidden panel.
+    closeToBurger();
     // Defer to a macrotask so the close effect's cleanup runs first — it
     // restarts Lenis and drops `menu-open`/`lenis-stopped` (both `overflow:
     // hidden`). Scrolling in the same tick fires against a stopped instance and
