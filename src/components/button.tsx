@@ -18,7 +18,7 @@ const BASE = [
 ].join(" ");
 
 const VARIANTS = {
-  primary: "bg-ink text-bg hover:border-accent hover:bg-accent hover:text-white",
+  primary: "bg-ink text-bg hover:border-accent hover:bg-accent hover:text-bg",
   ghost: "bg-transparent text-ink hover:bg-ink hover:text-bg",
 } as const;
 
