@@ -782,6 +782,12 @@ html, body {
   color: var(--dim);
   white-space: nowrap;
   animation: marquee 16s linear infinite;
+  /* Paused unless the row is hovered — three invisible rows would otherwise
+     run keyframes constantly. */
+  animation-play-state: paused;
+}
+.prow:hover .prow-marquee span {
+  animation-play-state: running;
 }
 
 /* Convention #5 — outline titles are invisible on touch; below 760px render the
