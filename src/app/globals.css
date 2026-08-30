@@ -363,7 +363,6 @@ a:hover {
   width: clamp(110px, 12vw, 170px);
   height: clamp(110px, 12vw, 170px);
   flex-shrink: 0;
-  cursor: pointer;
 }
 .avatar::after {
   content: "";
