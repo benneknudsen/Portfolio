@@ -8,7 +8,7 @@ import { Reveal, TokenReveal } from "@/components/reveal";
 const COPIED_MS = 1500;
 
 /**
- * Footer (#04 — Kontakt). A head that pairs the kicker with the word-reveal
+ * Footer (#05 — Kontakt). A head that pairs the kicker with the word-reveal
  * heading (shared <TokenReveal>: `em` words render serif italic accent and
  * `tail` rides the trailing period inside the same mask; the enclosing
  * `.footer-head` <Reveal> is the trigger, `.rv.visible .word`), a large mailto

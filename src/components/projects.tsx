@@ -6,7 +6,7 @@ import { ProjectRow } from "@/components/project-row";
 
 /**
  * Projects section — the section heading (word-reveal, A2) above the list of
- * ProjectRows. Currently only Stride. `margin-top: var(--section-gap)` spaces it
+ * ProjectRows. Three rows: Stride, Portfolio, Flagvagten. `margin-top: var(--section-gap)` spaces it
  * from the hero (convention #3: section spacing is margin, not padding).
  */
 export function Projects() {
