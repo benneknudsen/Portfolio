@@ -96,7 +96,7 @@ export function ProjectRow({ index, id, peekSrc, href }: ProjectRowProps) {
         </h3>
         {href && (
           <span className="prow-hint">
-            <span>{t.projects.tapAgain ?? "Tryk igen for at åbne"}</span>
+            <span>{t.projects.tapAgain}</span>
           </span>
         )}
         <ul className="prow-facts">

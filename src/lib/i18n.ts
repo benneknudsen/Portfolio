@@ -22,7 +22,6 @@ const STORAGE_KEY = "bk-lang";
 export const copy = {
   da: {
     nav: {
-      work: "Erfaring",
       projects: "Projekter",
       method: "Arbejdsmetode",
       xp: "Erfaring",
@@ -158,7 +157,6 @@ export const copy = {
   },
   en: {
     nav: {
-      work: "Experience",
       projects: "Projects",
       method: "Method",
       xp: "Experience",
