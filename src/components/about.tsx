@@ -23,6 +23,13 @@ export function About() {
         <span className="kicker">{a.kicker}</span>
         <TokenReveal as="h2" className="about-h2" tokens={aboutH2[lang]} />
         <p className="about-lead">{a.lead}</p>
+        <ul className="about-badges">
+          {a.badges.map((badge) => (
+            <li key={badge} className="about-badge">
+              {badge}
+            </li>
+          ))}
+        </ul>
       </Reveal>
     </section>
   );

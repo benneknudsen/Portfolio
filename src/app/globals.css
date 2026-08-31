@@ -1110,6 +1110,27 @@ html, body {
   text-wrap: pretty;
   overflow-wrap: break-word;
 }
+/* Issue #31 — compact badge row under the lead. Mirrors the method-step pill
+   styling (tokens only); no background/color transitions (#2) and
+   white-space: nowrap (#4) on each badge. */
+.about-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.about-badge {
+  display: inline-block;
+  white-space: nowrap;
+  padding: 5px 11px;
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--dim);
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+}
 
 /* A12 — CursorPeek. The outer element is positioned every frame by rAF (no
    transition there — it would lag the follow); the inner card handles the
