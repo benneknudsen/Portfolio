@@ -93,7 +93,12 @@ function NavLink({ label, href }: { label: string; href: string }) {
 
   function restore() {
     stop();
-    if (glyphRef.current) glyphRef.current.textContent = label;
+    if (glyphRef.current) {
+      glyphRef.current.textContent = label;
+      // Release the width lock so a language swap can re-measure freely
+      // (scramble re-locks it on the next hover).
+      glyphRef.current.style.minWidth = "";
+    }
   }
 
   function handleClick(e: MouseEvent<HTMLAnchorElement>) {
