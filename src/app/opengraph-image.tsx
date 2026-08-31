@@ -19,33 +19,26 @@ const ACCENT = "#2d4a3e";
 const ACCENT_SOFT = "#eef1ee";
 const BLOB = "rgba(45, 74, 62, .09)";
 
-// Satori needs ttf/otf/woff (not woff2). Google Fonts serves truetype to
-// unrecognised User-Agents (Node's fetch), so the format('truetype') branch
-// matches. See the css2 request below.
+// Satori needs ttf/otf/woff (not woff2). The TTFs are committed locally
+// (src/assets/fonts) so the build has no network dependency — same pattern
+// as public/memoji.png below.
 type FontWeight = 400 | 500 | 700;
 
 async function loadFont(
-  family: string,
+  file: string,
   name: string,
   weight: FontWeight,
   style: "normal" | "italic" = "normal",
 ) {
-  const css = await (
-    await fetch(`https://fonts.googleapis.com/css2?family=${family}&display=swap`)
-  ).text();
-  const fontUrl = css.match(
-    /src: url\(([^)]+)\) format\('(opentype|truetype)'\)/,
-  )?.[1];
-  if (!fontUrl) throw new Error(`font url not found for ${family}`);
-  const data = await (await fetch(fontUrl)).arrayBuffer();
+  const data = await readFile(join(process.cwd(), "src", "assets", "fonts", file));
   return { name, data, weight, style };
 }
 
 export default async function Image() {
   const [hanken400, hanken700, mono500, memoji] = await Promise.all([
-    loadFont("Hanken+Grotesk:wght@400", "Hanken Grotesk", 400),
-    loadFont("Hanken+Grotesk:wght@700", "Hanken Grotesk", 700),
-    loadFont("JetBrains+Mono:wght@500", "JetBrains Mono", 500),
+    loadFont("hanken-grotesk-400.ttf", "Hanken Grotesk", 400),
+    loadFont("hanken-grotesk-700.ttf", "Hanken Grotesk", 700),
+    loadFont("jetbrains-mono-500.ttf", "JetBrains Mono", 500),
     readFile(join(process.cwd(), "public", "memoji.png")),
   ]);
 
