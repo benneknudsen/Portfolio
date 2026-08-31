@@ -26,11 +26,12 @@ export function Footer() {
   useEffect(() => () => clearTimeout(copyTimer.current), []);
 
   async function copyEmail() {
-    try {
-      await navigator.clipboard?.writeText(f.email);
-    } catch {
-      /* clipboard blocked — the mailto link still works */
-    }
+    /* false when clipboard API is missing or writeText is blocked — no feedback */
+    const ok = await navigator.clipboard?.writeText(f.email).then(
+      () => true,
+      () => false,
+    );
+    if (!ok) return;
     setCopied(true);
     clearTimeout(copyTimer.current);
     copyTimer.current = setTimeout(() => setCopied(false), COPIED_MS);

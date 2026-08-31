@@ -53,11 +53,12 @@ export function Hero() {
   useEffect(() => () => clearTimeout(copyTimer.current), []);
 
   async function copyEmail() {
-    try {
-      await navigator.clipboard?.writeText(EMAIL);
-    } catch {
-      /* clipboard blocked — the mailto CTA still works */
-    }
+    /* false when clipboard API is missing or writeText is blocked — no feedback */
+    const ok = await navigator.clipboard?.writeText(EMAIL).then(
+      () => true,
+      () => false,
+    );
+    if (!ok) return;
     setCopied(true);
     clearTimeout(copyTimer.current);
     copyTimer.current = setTimeout(() => setCopied(false), COPIED_MS);
