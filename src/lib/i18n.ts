@@ -422,12 +422,8 @@ export function LangProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const toggleLang = useCallback(() => {
-    setLangState((prev) => {
-      const next: Lang = prev === "da" ? "en" : "da";
-      persist(next);
-      return next;
-    });
-  }, []);
+    setLang(lang === "da" ? "en" : "da");
+  }, [lang, setLang]);
 
   const value = useMemo<LangContextValue>(
     () => ({ lang, setLang, toggleLang, t: copy[lang] }),
