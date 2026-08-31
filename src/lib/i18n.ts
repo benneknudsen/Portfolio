@@ -39,12 +39,17 @@ export const copy = {
       glyphLabel: "Open to work",
     },
     aria: {
+      nav: "Primær",
       langGroup: "Vælg sprog",
       themeToDark: "Skift til mørkt tema",
       themeToLight: "Skift til lyst tema",
       menuOpen: "Åbn menu",
       menuClose: "Luk menu",
       skip: "Spring til indhold",
+    },
+    notFound: {
+      message: "Siden blev ikke fundet. Den er måske flyttet eller aldrig eksisteret.",
+      back: "Tilbage til forsiden",
     },
     projects: {
       sectionTitle: "Projekter",
@@ -174,12 +179,17 @@ export const copy = {
       glyphLabel: "Open to work",
     },
     aria: {
+      nav: "Primary",
       langGroup: "Select language",
       themeToDark: "Switch to dark theme",
       themeToLight: "Switch to light theme",
       menuOpen: "Open menu",
       menuClose: "Close menu",
       skip: "Skip to content",
+    },
+    notFound: {
+      message: "Page not found. It may have been moved or never existed.",
+      back: "Back to the front page",
     },
     projects: {
       sectionTitle: "Projects",

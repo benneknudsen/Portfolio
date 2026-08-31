@@ -19,10 +19,13 @@ const COPIED_MS = 1500;
  * first tick fills it in immediately after.
  */
 function Clock() {
+  const { lang } = useLang();
   const [time, setTime] = useState("");
 
   useEffect(() => {
-    const fmt = new Intl.DateTimeFormat("da-DK", {
+    // en-GB keeps the 24-hour clock of the Danish format; en-US would
+    // switch to 12-hour AM/PM and break the meta line's tone.
+    const fmt = new Intl.DateTimeFormat(lang === "en" ? "en-GB" : "da-DK", {
       hour: "2-digit",
       minute: "2-digit",
       timeZone: "Europe/Copenhagen",
@@ -31,7 +34,7 @@ function Clock() {
     tick();
     const id = setInterval(tick, 20_000);
     return () => clearInterval(id);
-  }, []);
+  }, [lang]);
 
   return <span>{time}</span>;
 }

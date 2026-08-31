@@ -1,6 +1,11 @@
+"use client";
+
 import Link from "next/link";
+import { useLang } from "@/lib/i18n";
 
 export default function NotFound() {
+  const { t } = useLang();
+
   return (
     <main
       style={{
@@ -32,7 +37,7 @@ export default function NotFound() {
           maxWidth: "40ch",
         }}
       >
-        Siden blev ikke fundet. Den er måske flyttet eller aldrig eksisteret.
+        {t.notFound.message}
       </p>
       <Link
         href="/"
@@ -50,7 +55,7 @@ export default function NotFound() {
           whiteSpace: "nowrap",
         }}
       >
-        Tilbage til forsiden
+        {t.notFound.back}
       </Link>
     </main>
   );

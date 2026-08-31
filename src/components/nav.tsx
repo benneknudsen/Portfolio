@@ -154,7 +154,7 @@ export function Nav() {
           Benjamin Knudsen
         </a>
 
-        <nav aria-label="Primær" className="hidden items-center gap-7 md3:flex">
+        <nav aria-label={t.aria.nav} className="hidden items-center gap-7 md3:flex">
           {NAV_LINKS.map((link) => (
             <NavLink key={link.key} href={link.href} label={t.nav[link.key]} />
           ))}
