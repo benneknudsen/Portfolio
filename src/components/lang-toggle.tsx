@@ -6,6 +6,12 @@ const LANGS: Lang[] = ["da", "en"];
 
 /**
  * DA/EN pill group. Active language is filled with `--ink`.
+ *
+ * The active locale is read from the route (via `useLang`). Clicking the
+ * active pill is a no-op — already there, no need to reload. Clicking the
+ * inactive pill navigates to that locale's route (`/` for DA, `/en` for EN)
+ * as a full page load, keeping any `#hash` so deep links survive the switch.
+ *
  * No color/background transitions (those break the theme switch) —
  * only transform animates, and even that is dropped under reduced motion.
  */

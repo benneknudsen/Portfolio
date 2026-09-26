@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useLang } from "@/lib/i18n";
 
 export default function NotFound() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
 
   return (
     <main
@@ -40,7 +40,7 @@ export default function NotFound() {
         {t.notFound.message}
       </p>
       <Link
-        href="/"
+        href={lang === "en" ? "/en" : "/"}
         style={{
           marginTop: "2rem",
           display: "inline-block",
