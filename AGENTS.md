@@ -49,9 +49,14 @@ Design tokens are CSS custom properties in `src/app/globals.css` (light default,
 
 ```
 src/
-├── app/              # App Router (layout, page, globals.css)
+├── app/
+│   ├── [locale]/     # Root layout (html lang, fonts, theme script) + page, not-found, not-found-page, og image
+│   ├── providers.tsx # Client bridge: initialLang + theme + Lenis
+│   ├── robots.ts     # robots.txt
+│   └── sitemap.ts    # both locales + hreflang alternates
+├── proxy.ts          # rewrites / -> /da; unmatched paths -> branded [locale] 404; skips static assets
 ├── components/       # React components (nav, hero, footer, etc.)
-├── lib/              # Utilities (i18n, lenis, animations)
+├── lib/              # Utilities (copy.ts data, i18n provider, lenis, animations)
 └── hooks/            # Custom React hooks
 public/
 ├── memoji.png        # Avatar
@@ -61,9 +66,12 @@ public/
 
 ## Language & Theme State
 
-- DA is default language, EN via toggle → `localStorage['bk-lang']`
-- Light is default theme, dark via toggle → `localStorage['bk-theme']`
-- On language change: headings with word-reveal must **re-split AND set `transform: none`** (otherwise words stay hidden below baseline).
+- Language is **route-determined**: `/` = DA (proxy rewrites it to `/da`), `/en` = EN. `src/app/[locale]/layout.tsx` sets `<html lang>` and passes the locale to `<Providers initialLang={locale}>`, so the server HTML contains the right copy — no pre-paint language script and no flash.
+- `LangProvider` takes `initialLang` from the server and **never overwrites it after mount**. `LangToggle`/`setLang`/`toggleLang` navigate to the other locale's URL (full page load) and keep the current `#hash`; clicking the active locale is a no-op.
+- `localStorage['bk-lang']` is only a persistence hint written on switch (e.g. for prefetch). It is **never** a rendering source.
+- 404: `src/proxy.ts` rewrites every unmatched URL (`/foo`, `/da/nope`) to `/[locale]/not-found-page`, which renders the branded `[locale]/not-found.tsx` boundary with a 404 status. The proxy matcher skips static assets (`_next`, `public/` files, `robots.txt`, `sitemap.xml`), so those are served as-is.
+- Light is default theme, dark via toggle → `localStorage['bk-theme']`, applied pre-paint by the inline head script in `[locale]/layout.tsx` (theme only).
+- On language change (a navigation), word-reveal headings re-split on the fresh load. The in-place re-split + `transform: none` logic in `WordReveal` stays as a safety net for any future client-side language change.
 
 ## Animationer (A1–A18)
 
@@ -79,7 +87,7 @@ A18 (MobileMenu ind/ud): panel `opacity 0→1` `.35s`, `translateY(-8px)→0` `.
 
 | State | Default | Persistens | Effekt |
 |---|---|---|---|
-| `lang` | `'da'` | `localStorage['bk-lang']` | `<html lang>`, swapper copy |
+| `lang` | ruten (`da` på `/`, `en` på `/en`) | `localStorage['bk-lang']` (kun hint) | `<html lang>`, copy, LangToggle-navigation |
 | `theme` | `'light'` | `localStorage['bk-theme']` | `<html data-theme="dark">` |
 | `copied` | `false` | — | Knap-label i 1.5s |
 | `peek` | `{visible, src, label, x, y}` | — | CursorPeek |

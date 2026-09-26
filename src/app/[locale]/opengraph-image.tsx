@@ -1,14 +1,38 @@
 import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
+import { copy, type Lang } from "@/lib/copy";
 
-// File-based OG image. Next 16 wires this into both `og:image` and
-// `twitter:image` (summary_large_image). Light theme only — matches the
-// brand default and the hero. Tokens mirror src/app/globals.css.
+// File-based OG image, one per locale. `generateImageMetadata` supplies the
+// locale-specific alt text; the default export renders the locale-specific
+// subtitle. Next 16 wires this into both `og:image` and `twitter:image`
+// (summary_large_image). Light theme only — matches the brand default and the
+// hero. Tokens mirror src/app/globals.css.
 export const runtime = "nodejs";
-export const alt = "Benjamin Schou Knudsen — Frontend-udvikler";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+
+const OG_ID = "og";
+
+function toLang(value: string): Lang {
+  return value === "en" ? "en" : "da";
+}
+
+export function generateImageMetadata({
+  params,
+}: {
+  params: { locale: string };
+}) {
+  const locale = toLang(params.locale);
+  return [
+    {
+      id: OG_ID,
+      alt: copy[locale].meta.title,
+      size,
+      contentType,
+    },
+  ];
+}
 
 // Design tokens (light theme) — do NOT invent; keep in sync with globals.css.
 const BG = "#f7f5f1";
@@ -34,7 +58,13 @@ async function loadFont(
   return { name, data, weight, style };
 }
 
-export default async function Image() {
+export default async function Image({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale: rawLocale } = await params;
+  const locale = toLang(rawLocale);
   const [hanken400, hanken700, mono500, memoji] = await Promise.all([
     loadFont("hanken-grotesk-400.ttf", "Hanken Grotesk", 400),
     loadFont("hanken-grotesk-700.ttf", "Hanken Grotesk", 700),
@@ -121,7 +151,7 @@ export default async function Image() {
 
             {/* Subtitle */}
             <div style={{ marginTop: 22, fontSize: 30, color: BODY }}>
-              Frontend-udvikler · React &amp; TypeScript
+              {copy[locale].hero.metaRole}
             </div>
 
             {/* Signature sage rule */}
@@ -181,7 +211,7 @@ export default async function Image() {
               color: DIM,
             }}
           >
-            Silkeborg, Danmark
+            {copy[locale].hero.metaLoc}
           </div>
           <div style={{ width: 5, height: 5, borderRadius: 999, background: DIM, display: "flex" }} />
           <div
