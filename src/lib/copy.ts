@@ -109,8 +109,8 @@ export const copy = {
           label: "#3 Verificer",
           title: "Intet slipper igennem uden grønt",
           paragraph:
-            "Efter hver opgave kører min QA-gate: build → lint → typecheck → alle 1000+ tests. Kun ændringer, der består hele kæden, bliver committet. Den regel har jeg bygget ind i flowet. Ingen undtagelser.",
-          pills: ["build", "lint", "typecheck", "1000+ tests"],
+            "Efter hver opgave kører min QA-gate: build → lint → typecheck → tests, hvor projektet har dem. Kun ændringer, der består hele kæden, bliver committet. Den regel har jeg bygget ind i flowet. Ingen undtagelser.",
+          pills: ["build", "lint", "typecheck", "tests"],
         },
         {
           label: "#4 Lever",
@@ -123,7 +123,7 @@ export const copy = {
       stats: [
         { value: "24/7", label: "kører på Mac Mini M4" },
         { value: "200+", label: "issues lukket i flowet" },
-        { value: "1000+", label: "tests i QA-gaten" },
+        { value: "grønt", label: "ved hver commit" },
         { value: "100%", label: "TypeScript strict" },
       ],
     },
@@ -142,7 +142,7 @@ export const copy = {
           company: "AVIOU",
           note: "Online katalogplatform i React og TypeScript. Byggede nye funktioner og forbedrede UI-komponenter, der gjorde kundernes arbejdsflow hurtigere. Derudover webdesign og frontend-løsninger for en række kunder.",
         },
-        { period: "2021", role: "Frontend-udvikler, praktik", company: "Web2Media" },
+        { period: "aug. — okt. 2021", role: "Frontend-udvikler, praktik", company: "Web2Media" },
         { period: "2021", role: "PBA i webudvikling", company: "Erhvervsakademi Aarhus" },
         { period: "2020", role: "Multimediedesigner", company: "Erhvervsakademi Aarhus" },
       ],
@@ -256,8 +256,8 @@ export const copy = {
           label: "#3 Verify",
           title: "Nothing ships without green",
           paragraph:
-            "After every task my QA gate runs: build → lint → typecheck → all 1000+ tests. Only changes that pass the whole chain get committed. I built that rule into the flow. No exceptions.",
-          pills: ["build", "lint", "typecheck", "1000+ tests"],
+            "After every task my QA gate runs: build → lint → typecheck → tests, where the project has them. Only changes that pass the whole chain get committed. I built that rule into the flow. No exceptions.",
+          pills: ["build", "lint", "typecheck", "tests"],
         },
         {
           label: "#4 Ship",
@@ -270,7 +270,7 @@ export const copy = {
       stats: [
         { value: "24/7", label: "running on a Mac Mini M4" },
         { value: "200+", label: "issues closed in the flow" },
-        { value: "1000+", label: "tests in the QA gate" },
+        { value: "green", label: "on every commit" },
         { value: "100%", label: "TypeScript strict" },
       ],
     },
