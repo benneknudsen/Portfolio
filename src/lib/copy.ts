@@ -58,11 +58,11 @@ export const copy = {
       tapAgain: "Tryk igen for at åbne siden",
       stride: {
         title: "Stride",
-        desc: "AI-drevet løbetræner bygget i Next.js 16. Forbinder til Strava, og AI'en svarer ikke med tekst men med React-komponenter: grafer, anbefalinger og indsigter, renderet direkte i dashboardet.",
-        facts: ["Next.js 16", "TypeScript", "Generativ UI", "Strava", "Neon Postgres"],
+        desc: "Løbetræneren forbinder til Strava og bygger sine anbefalinger på en deterministisk regelmotor — samme data giver samme råd, og ingen model ser dine ture. Anbefalingerne leveres som typede blokke, der renderer rigtige React-komponenter: grafer, kort og indsigter direkte i dashboardet.",
+        facts: ["Next.js 16", "TypeScript", "Drizzle ORM", "Neon Postgres", "Strava"],
         marquee:
-          "AI-coach · Generativ UI · Strava-sync · Recharts · Drizzle ORM",
-        peekLabel: "Stride — AI løbetræner",
+          "Regelmotor · Typede blokke · Strava-sync · Recharts · Drizzle ORM",
+        peekLabel: "Stride — regelbaseret løbetræner",
       },
       portfolio: {
         title: "Portfolio",
@@ -205,11 +205,11 @@ export const copy = {
       tapAgain: "Tap again to visit",
       stride: {
         title: "Stride",
-        desc: "AI-powered running coach built in Next.js 16. Connects to Strava, and the AI answers not in text but in React components: charts, recommendations and insights rendered straight into the dashboard.",
-        facts: ["Next.js 16", "TypeScript", "Generative UI", "Strava", "Neon Postgres"],
+        desc: "Stride connects to Strava and builds its recommendations from a deterministic rules engine: same data in, same advice out, and no model ever sees your runs. Recommendations arrive as typed blocks that render real React components — charts, cards and insights straight into the dashboard.",
+        facts: ["Next.js 16", "TypeScript", "Drizzle ORM", "Neon Postgres", "Strava"],
         marquee:
-          "AI coach · Generative UI · Strava sync · Recharts · Drizzle ORM",
-        peekLabel: "Stride — AI running coach",
+          "Rules engine · Typed blocks · Strava sync · Recharts · Drizzle ORM",
+        peekLabel: "Stride — rule-based running coach",
       },
       portfolio: {
         title: "Portfolio",
