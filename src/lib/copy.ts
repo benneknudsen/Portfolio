@@ -66,10 +66,10 @@ export const copy = {
       },
       portfolio: {
         title: "Portfolio",
-        desc: "Jeg har bygget denne side med AI som makker. Claude Code skriver koden, Hermes orkestrerer, Vercel deployer. Du kigger allerede på resultatet.",
+        desc: "Jeg har bygget denne side med AI som makker. En kodende model skriver koden, Hermes orkestrerer, Vercel deployer. Du kigger allerede på resultatet.",
         facts: ["Next.js 16", "TypeScript", "Tailwind CSS", "Vercel", "AI-agenter"],
         marquee:
-          "AI-drevet · Design handoff · Claude Code · Hermes Agent · Vercel",
+          "AI-drevet · Design handoff · OpenCode · Hermes Agent · Vercel",
         peekLabel: "Portfolio — bygget af agenter",
       },
       flagvagten: {
@@ -88,7 +88,7 @@ export const copy = {
         linkHref: "https://hermes-agent.nousresearch.com/",
         linkText: "Hermes Agent ↗︎",
         after:
-          ", Nous Researchs open source-agent, som jeg har sat op og tunet til mit workflow på en Mac Mini M4. Den kører 24/7 via Telegram; Claude Code skriver koden, og Hermes orkestrerer hele flowet fra issue til deploy. Jeg har bygget denne portfolio med den.",
+          ", Nous Researchs open source-agent, som jeg har sat op og tunet til mit workflow på en Mac Mini M4. Den kører 24/7 via Telegram; en kodende model skriver koden, og Hermes orkestrerer hele flowet fra issue til deploy. Jeg har bygget denne portfolio med den.",
       },
       steps: [
         {
@@ -102,21 +102,21 @@ export const copy = {
           label: "#2 Deleger",
           title: "Koden skrives aldrig af chefen",
           paragraph:
-            "Jeg lader aldrig orchestratoren skrive kode selv. Claude Code implementerer alt i isolerede sessioner med hvert sit git-worktree. Sådan har jeg sat flowet op, så flere opgaver kører parallelt uden konflikter.",
-          pills: ["Claude Code", "isolerede sessioner", "worktree per opgave"],
+            "Jeg lader aldrig orchestratoren skrive kode selv. Den læser issuet, skriver briefen og delegerer til en kodende model, der implementerer i sit eget git-worktree per opgave. Sådan har jeg sat flowet op: flere opgaver kører parallelt uden at røre hinanden.",
+          pills: ["kodende model", "isolerede sessioner", "worktree per opgave"],
         },
         {
           label: "#3 Verificer",
           title: "Intet slipper igennem uden grønt",
           paragraph:
-            "Efter hver opgave kører min QA-gate: build → lint → typecheck → tests, hvor projektet har dem. Kun ændringer, der består hele kæden, bliver committet. Den regel har jeg bygget ind i flowet. Ingen undtagelser.",
+            "Efter hver opgave kører min QA-gate: build → lint → typecheck → tests, hvor projektet har dem. Derudover læser en uafhængig model — aldrig den samme som skrev koden — diffen read-only og giver APPROVE eller REJECT. Den, der har skrevet fejlen, er den dårligste til at se den. Kun ændringer, der består hele kæden, bliver committet. Den regel har jeg bygget ind i flowet. Ingen undtagelser.",
           pills: ["build", "lint", "typecheck", "tests"],
         },
         {
           label: "#4 Lever",
           title: "Fra issue til produktion",
           paragraph:
-            "Fra issue til produktion på minutter, ikke dage. Hele flowet (læs, brief, deleger, QA, commit, deploy) er automatiseret. Min rolle er arkitekt og sidste godkender.",
+            "Fra issue til produktion på minutter, ikke dage. Hele flowet (læs, brief, deleger, QA, commit, merge, deploy) er automatiseret, og jeg tjekker resultatet på det, serveren faktisk udleverer — ikke på et grønt build. Min rolle er at bestemme og godkende.",
           pills: ["GitHub issues", "conventional commits", "auto-deploy"],
         },
       ],
@@ -213,10 +213,10 @@ export const copy = {
       },
       portfolio: {
         title: "Portfolio",
-        desc: "I built this site with AI as my coding partner. Claude Code writes the code, Hermes orchestrates, Vercel deploys. You're already looking at the result.",
+        desc: "I built this site with AI as my coding partner. A coding model writes the code, Hermes orchestrates, Vercel deploys. You're already looking at the result.",
         facts: ["Next.js 16", "TypeScript", "Tailwind CSS", "Vercel", "AI agents"],
         marquee:
-          "AI-driven · Design handoff · Claude Code · Hermes Agent · Vercel",
+          "AI-driven · Design handoff · OpenCode · Hermes Agent · Vercel",
         peekLabel: "Portfolio — built by agents",
       },
       flagvagten: {
@@ -235,7 +235,7 @@ export const copy = {
         linkHref: "https://hermes-agent.nousresearch.com/",
         linkText: "Hermes Agent ↗︎",
         after:
-          ", Nous Research's open source agent, which I've set up and tuned to my workflow on a Mac Mini M4. It runs 24/7 via Telegram; Claude Code writes the code and Hermes orchestrates everything from issue to deploy. I built this portfolio with it.",
+          ", Nous Research's open source agent, which I've set up and tuned to my workflow on a Mac Mini M4. It runs 24/7 via Telegram; a coding model writes the code and Hermes orchestrates everything from issue to deploy. I built this portfolio with it.",
       },
       steps: [
         {
@@ -249,21 +249,21 @@ export const copy = {
           label: "#2 Delegate",
           title: "The boss never writes the code",
           paragraph:
-            "I never let the orchestrator write code itself. Claude Code implements everything in isolated sessions, each with its own git worktree. That's how I set up the flow, so several tasks run in parallel without conflicts.",
-          pills: ["Claude Code", "isolated sessions", "worktree per task"],
+            "I never let the orchestrator write code itself. It reads the issue, writes the brief and delegates to a coding model that implements each task in its own git worktree. That's how I set up the flow: several tasks run in parallel without touching each other.",
+          pills: ["coding model", "isolated sessions", "worktree per task"],
         },
         {
           label: "#3 Verify",
           title: "Nothing ships without green",
           paragraph:
-            "After every task my QA gate runs: build → lint → typecheck → tests, where the project has them. Only changes that pass the whole chain get committed. I built that rule into the flow. No exceptions.",
+            "After every task my QA gate runs: build → lint → typecheck → tests, where the project has them. On top of that, an independent model — never the one that wrote the code — reads the diff read-only and gives APPROVE or REJECT. The one who wrote the bug is the worst at spotting it. Only changes that pass the whole chain get committed. I built that rule into the flow. No exceptions.",
           pills: ["build", "lint", "typecheck", "tests"],
         },
         {
           label: "#4 Ship",
           title: "From issue to production",
           paragraph:
-            "From issue to production in minutes, not days. The whole flow (read, brief, delegate, QA, commit, deploy) is automated. My role is architect and final approver.",
+            "From issue to production in minutes, not days. The whole flow (read, brief, delegate, QA, commit, merge, deploy) is automated, and I check the result against what the server actually serves — not on a green build. My role is to decide and approve.",
           pills: ["GitHub issues", "conventional commits", "auto-deploy"],
         },
       ],
