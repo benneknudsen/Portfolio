@@ -9,9 +9,9 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import { copy, type Lang } from "./copy";
+import type { Copy, Lang } from "./copy";
 
-export { copy, heroH1, methodH2, experienceH2, aboutH2, footerH2 } from "./copy";
+export { heroH1, methodH2, experienceH2, aboutH2, footerH2 } from "./copy";
 export type { Lang, HeroToken } from "./copy";
 
 const STORAGE_KEY = "bk-lang";
@@ -21,7 +21,7 @@ type LangContextValue = {
   setLang: (lang: Lang) => void;
   toggleLang: () => void;
   /** Copy for the currently active language. */
-  t: (typeof copy)[Lang];
+  t: Copy;
 };
 
 const LangContext = createContext<LangContextValue | null>(null);
@@ -47,13 +47,19 @@ function persist(lang: Lang) {
  * a navigation, not a state swap — the only client-side state is the server's
  * locale, frozen for the lifetime of the page. `localStorage['bk-lang']` is
  * written on switch as a persistence hint, never read for rendering.
+ *
+ * The active locale's copy arrives as the `t` prop from the server layout, so
+ * the `copy` object is tree-shaken out of the client bundle — only the active
+ * locale's copy reaches the browser.
  */
 export function LangProvider({
   children,
   initialLang,
+  t,
 }: {
   children: ReactNode;
   initialLang: Lang;
+  t: Copy;
 }) {
   const [lang] = useState<Lang>(initialLang);
 
@@ -73,8 +79,8 @@ export function LangProvider({
   }, [lang, setLang]);
 
   const value = useMemo<LangContextValue>(
-    () => ({ lang, setLang, toggleLang, t: copy[lang] }),
-    [lang, setLang, toggleLang],
+    () => ({ lang, setLang, toggleLang, t }),
+    [lang, setLang, toggleLang, t],
   );
   return createElement(LangContext.Provider, { value }, children);
 }
