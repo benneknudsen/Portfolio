@@ -14,12 +14,14 @@ import { scrollToAnchor } from "@/lib/lenis";
 import { LangToggle } from "@/components/lang-toggle";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { NAV_LINKS } from "@/components/nav";
+import { BURGER_BREAKPOINT_PX } from "@/lib/breakpoints";
 
 /** Below this width the burger replaces the inline nav (matches `md3`). */
-const BURGER_MQ = "(min-width: 820px)";
+const BURGER_MQ = `(min-width: ${BURGER_BREAKPOINT_PX}px)`;
 
 /**
- * Burger button + full-screen anchor panel for viewports < 820px.
+ * Burger button + full-screen anchor panel for viewports below
+ * `BURGER_BREAKPOINT_PX`.
  *
  * The burger lives inline in the nav's right group; the panel (`#msheet`) is
  * portalled to `<body>` because the nav's `backdrop-filter` would otherwise
@@ -65,7 +67,8 @@ export function MobileMenu() {
 
     const mq = window.matchMedia(BURGER_MQ);
     const onViewport = () => {
-      // Burger is gone at ≥820px — close silently, don't chase focus.
+      // Burger is gone at or above `BURGER_BREAKPOINT_PX` — close silently,
+      // don't chase focus.
       if (mq.matches) close();
     };
     const onKey = (e: KeyboardEvent) => {
