@@ -3,8 +3,9 @@
  *
  * No `"use client"` directive on purpose — server components (the root
  * layout's `generateMetadata` and the per-locale OG image) import this module
- * directly. Client components keep importing it through `@/lib/i18n`, which
- * re-exports everything here.
+ * directly. Clients get their copy through the `useLang` hook (`t`) and the
+ * word-reveal tokens through `@/lib/i18n`, which re-exports only the tokens
+ * and types from this module — never the `copy` object.
  */
 
 export const LOCALES = ["da", "en"] as const;
@@ -327,6 +328,9 @@ export const copy = {
     },
   },
 } as const;
+
+/** Shape of one locale's copy — the type of what server passes to the client. */
+export type Copy = (typeof copy)[Lang];
 
 /** A single token of a word-reveal heading. `em` words render serif italic
  *  (with the animated underline on the hero, A8); a `br` token forces a line

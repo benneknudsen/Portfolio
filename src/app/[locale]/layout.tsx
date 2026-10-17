@@ -119,7 +119,7 @@ export default async function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
       <body>
-        <Providers initialLang={locale}>
+        <Providers initialLang={locale} t={copy[locale]}>
           <SkipLink />
           <Nav />
           {children}
