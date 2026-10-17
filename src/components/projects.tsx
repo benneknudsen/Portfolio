@@ -10,14 +10,14 @@ import { ProjectRow } from "@/components/project-row";
  * from the hero (convention #3: section spacing is margin, not padding).
  */
 export function Projects() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
 
   return (
     <section id="projects" className="projects container">
       <WordReveal className="projects-title" text={t.projects.sectionTitle} />
       <div className="prow-list">
         <ProjectRow index="01" id="stride" peekSrc="/stride-preview.webp" href="https://stride-run.club" />
-        <ProjectRow index="02" id="portfolio" peekSrc="/portfolio-preview.webp" href="https://benjaminschou.dk" />
+        <ProjectRow index="02" id="portfolio" peekSrc="/portfolio-preview.webp" href={lang === "en" ? "/en" : "/"} external={false} />
         <ProjectRow index="03" id="flagvagten" href="https://github.com/benneknudsen/flagvagten" peekSrc="/flagvagten-preview.webp" />
       </div>
     </section>

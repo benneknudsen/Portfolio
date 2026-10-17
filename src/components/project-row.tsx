@@ -27,6 +27,8 @@ type ProjectRowProps = {
   peekSrc?: string;
   /** Optional live link. */
   href?: string;
+  /** Åbn linket i et nyt tab. Default true; sæt false for links der peger på dette site. */
+  external?: boolean;
 };
 
 /**
@@ -37,7 +39,7 @@ type ProjectRowProps = {
  * a "tap again" hint; second tap navigates to the href. On desktop the row
  * navigates directly on click; hover previews via CursorPeek still work.
  */
-export function ProjectRow({ index, id, peekSrc, href }: ProjectRowProps) {
+export function ProjectRow({ index, id, peekSrc, href, external = true }: ProjectRowProps) {
   const { t } = useLang();
   const p = t.projects[id];
   const [expanded, setExpanded] = useState(false);
@@ -128,8 +130,8 @@ export function ProjectRow({ index, id, peekSrc, href }: ProjectRowProps) {
           data-peek={peekSrc}
           data-peek-label={p.peekLabel}
           href={href}
-          target="_blank"
-          rel="noopener noreferrer"
+          target={external ? "_blank" : undefined}
+          rel={external ? "noopener noreferrer" : undefined}
           onClick={handleClick}
         >
           {body}
