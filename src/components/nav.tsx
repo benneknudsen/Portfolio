@@ -3,6 +3,12 @@
 import { useEffect, useRef, type MouseEvent } from "react";
 import { useLang } from "@/lib/i18n";
 import { scrollToAnchor } from "@/lib/lenis";
+import {
+  homeAnchorUrl,
+  homePath,
+  isHomePath,
+  localeFromPath,
+} from "@/lib/routes";
 import { prefersReducedMotion } from "@/lib/animations";
 import { LangToggle } from "@/components/lang-toggle";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -103,6 +109,11 @@ function NavLink({ label, href }: { label: string; href: string }) {
 
   function handleClick(e: MouseEvent<HTMLAnchorElement>) {
     e.preventDefault();
+    const { pathname } = window.location;
+    if (!isHomePath(pathname)) {
+      window.location.assign(homeAnchorUrl(href, localeFromPath(pathname)));
+      return;
+    }
     scrollToAnchor(href);
   }
 
@@ -140,6 +151,11 @@ export function Nav() {
 
   function handleHome(e: MouseEvent<HTMLAnchorElement>) {
     e.preventDefault();
+    const { pathname } = window.location;
+    if (!isHomePath(pathname)) {
+      window.location.assign(homePath(localeFromPath(pathname)));
+      return;
+    }
     scrollToAnchor(0);
   }
 
