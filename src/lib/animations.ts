@@ -5,7 +5,7 @@
  */
 
 /** IntersectionObserver threshold for section reveals (A1). */
-export const REVEAL_THRESHOLD = 0.12;
+const REVEAL_THRESHOLD = 0.12;
 
 /** Per-word stagger delay in milliseconds (A2). */
 export const WORD_STAGGER_MS = 50;
