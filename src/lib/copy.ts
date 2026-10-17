@@ -54,6 +54,13 @@ export const copy = {
       message: "Siden blev ikke fundet. Den er måske flyttet eller aldrig eksisteret.",
       back: "Tilbage til forsiden",
     },
+    error: {
+      title: "Noget gik galt",
+      message:
+        "Siden kunne ikke hentes. Prøv igen — hvis fejlen fortsætter, kan du gå tilbage til forsiden.",
+      retry: "Prøv igen",
+      back: "Tilbage til forsiden",
+    },
     projects: {
       sectionTitle: "Projekter",
       tapAgain: "Tryk igen for at åbne siden",
@@ -200,6 +207,13 @@ export const copy = {
     },
     notFound: {
       message: "Page not found. It may have been moved or never existed.",
+      back: "Back to the front page",
+    },
+    error: {
+      title: "Something went wrong",
+      message:
+        "The page could not be loaded. Try again — if the error persists, go back to the front page.",
+      retry: "Try again",
       back: "Back to the front page",
     },
     projects: {
