@@ -22,12 +22,13 @@ The design was delivered as a handoff folder with tokens, components, and copy �
 src/
 ├── app/          # Layout, page, globals.css, metadata
 ├── components/   # React components (nav, hero, footer, etc.)
-├── lib/          # i18n, Lenis, animations
-└── hooks/        # Custom hooks
+├── lib/          # copy (DA+EN), i18n provider, Lenis, theme, animations
+├── assets/fonts/ # Local TTFs for the OG image
+└── proxy.ts      # Locale rewrite + 404 routing
 public/           # Images, favicon, logos
 ```
 
-All user-facing copy lives in `src/lib/i18n.ts` (DA + EN). Design tokens are CSS custom properties in `globals.css` mirrored in `tailwind.config.ts`.
+All user-facing copy lives in `src/lib/copy.ts` (DA + EN); `src/lib/i18n.ts` is the language provider and re-export. Design tokens are CSS custom properties in `globals.css` mirrored in `tailwind.config.ts`.
 
 ## License
 

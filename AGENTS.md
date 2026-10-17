@@ -56,8 +56,8 @@ src/
 │   └── sitemap.ts    # both locales + hreflang alternates
 ├── proxy.ts          # rewrites / -> /da; unmatched paths -> branded [locale] 404; skips static assets
 ├── components/       # React components (nav, hero, footer, etc.)
-├── lib/              # Utilities (copy.ts data, i18n provider, lenis, animations)
-└── hooks/            # Custom React hooks
+├── lib/              # Utilities (copy.ts data, i18n provider, lenis, theme, animations)
+└── assets/fonts/     # Local TTFs for the OG image
 public/
 ├── memoji.png        # Avatar
 ├── stride-preview.png # Project preview for CursorPeek

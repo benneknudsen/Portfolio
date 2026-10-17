@@ -50,7 +50,7 @@ export function Method() {
             label={step.label}
             title={step.title}
             paragraph={step.paragraph}
-            pills={[...step.pills]}
+            pills={step.pills}
             style={{ "--d": STEP_STAGGER[i] } as CSSProperties}
           />
         ))}

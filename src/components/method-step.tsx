@@ -11,7 +11,7 @@ type MethodStepProps = {
   /** Body copy. May contain `<b>` — styled to solid ink. */
   paragraph: string;
   /** Mono tech pills. */
-  pills: string[];
+  pills: readonly string[];
   /** Passed to the Reveal wrapper to carry the `--d` stagger delay. */
   style?: CSSProperties;
 };
