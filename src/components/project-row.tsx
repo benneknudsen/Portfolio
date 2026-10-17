@@ -95,7 +95,7 @@ export function ProjectRow({ index, id, peekSrc, href }: ProjectRowProps) {
           </span>
         </h3>
         {href && (
-          <span className="prow-hint">
+          <span className="prow-hint" aria-hidden="true">
             <span>{t.projects.tapAgain}</span>
           </span>
         )}
@@ -131,7 +131,6 @@ export function ProjectRow({ index, id, peekSrc, href }: ProjectRowProps) {
           target="_blank"
           rel="noopener noreferrer"
           onClick={handleClick}
-          aria-label={p.peekLabel}
         >
           {body}
         </a>
