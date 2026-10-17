@@ -12,7 +12,7 @@ import {
 import { useLang, type HeroToken } from "@/lib/i18n";
 import {
   WORD_STAGGER_MS,
-  createRevealObserver,
+  observeReveal,
   splitWords,
 } from "@/lib/animations";
 
@@ -27,9 +27,7 @@ function useRevealOnScroll(ref: React.RefObject<HTMLElement | null>): boolean {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const observer = createRevealObserver(() => setVisible(true));
-    observer.observe(el);
-    return () => observer.disconnect();
+    return observeReveal(el, () => setVisible(true));
   }, [ref]);
 
   return visible;

@@ -29,24 +29,42 @@ export function splitWords(text: string): string[] {
   return text.split(/\s+/).filter(Boolean);
 }
 
-/**
- * Create an IntersectionObserver that calls `onReveal(element)` the first time
- * an observed element crosses {@link REVEAL_THRESHOLD}, then unobserves it so
- * it never fires twice (the reveal is a one-shot entrance).
- */
-export function createRevealObserver(
-  onReveal: (el: Element) => void,
-  options?: IntersectionObserverInit,
-): IntersectionObserver {
-  return new IntersectionObserver(
-    (entries, observer) => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          onReveal(entry.target);
+/** Pending reveal callbacks, keyed by the element they belong to. */
+const revealCallbacks = new Map<Element, () => void>();
+
+let revealObserver: IntersectionObserver | null = null;
+
+/** Lazily create the shared observer so SSR never touches `window`. */
+function getRevealObserver(): IntersectionObserver {
+  if (!revealObserver) {
+    revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        for (const entry of entries) {
+          if (!entry.isIntersecting) continue;
+          const onReveal = revealCallbacks.get(entry.target);
+          if (!onReveal) continue;
+          onReveal();
+          revealCallbacks.delete(entry.target);
           observer.unobserve(entry.target);
         }
-      }
-    },
-    { threshold: REVEAL_THRESHOLD, ...options },
-  );
+      },
+      { threshold: REVEAL_THRESHOLD },
+    );
+  }
+  return revealObserver;
+}
+
+/** Observe `el` once; `onReveal` fires the first time it enters the viewport.
+ *  Returns an unsubscribe that also removes it from the shared observer. */
+export function observeReveal(el: Element, onReveal: () => void): () => void {
+  if (typeof window === "undefined" || typeof IntersectionObserver === "undefined") {
+    return () => {};
+  }
+  const observer = getRevealObserver();
+  revealCallbacks.set(el, onReveal);
+  observer.observe(el);
+  return () => {
+    revealCallbacks.delete(el);
+    revealObserver?.unobserve(el);
+  };
 }
