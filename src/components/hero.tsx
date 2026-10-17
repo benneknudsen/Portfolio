@@ -73,7 +73,7 @@ export function Hero() {
         <span>{t.hero.metaRole}</span>
         <span>
           <span>{t.hero.metaLoc}</span> · <Clock /> ·{" "}
-          <GlyphStrip label={t.hero.glyphLabel} />
+          <GlyphStrip label={t.hero.glyphLabel} msg={t.hero.glyphMsg} />
         </span>
       </Reveal>
 

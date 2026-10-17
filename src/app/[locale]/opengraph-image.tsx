@@ -131,7 +131,7 @@ export default async function Image({
                   color: ACCENT,
                 }}
               >
-                OPEN TO WORK
+                {copy[locale].hero.glyphMsg}
               </div>
             </div>
 

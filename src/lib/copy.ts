@@ -39,6 +39,7 @@ export const copy = {
       btnCopy: "Kopiér e-mail",
       copied: "Kopieret ✓",
       glyphLabel: "Open to work",
+      glyphMsg: "ÅBEN FOR JOB",
     },
     aria: {
       nav: "Primær",
@@ -186,6 +187,7 @@ export const copy = {
       btnCopy: "Copy email",
       copied: "Copied ✓",
       glyphLabel: "Open to work",
+      glyphMsg: "OPEN TO WORK",
     },
     aria: {
       nav: "Primary",
