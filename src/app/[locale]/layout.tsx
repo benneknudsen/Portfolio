@@ -46,6 +46,33 @@ function localeUrl(lang: Lang): string {
   return lang === "en" ? `${SITE_URL}/en` : `${SITE_URL}/`;
 }
 
+/** Person structured data — locality and country only, no personal details. */
+function personJsonLd(lang: Lang) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Benjamin Schou Knudsen",
+    url: localeUrl(lang),
+    jobTitle: copy[lang].hero.metaRole,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Silkeborg",
+      addressCountry: "DK",
+    },
+    sameAs: [
+      "https://github.com/benneknudsen",
+      "https://www.linkedin.com/in/benjamin-schou-knudsen-b8b685178/",
+    ],
+    knowsAbout: [
+      "React",
+      "TypeScript",
+      "Next.js",
+      "Storybook",
+      "AI-assisted development",
+    ],
+  };
+}
+
 // Both locales are prerendered at build time; any other value 404s.
 export const dynamicParams = false;
 
@@ -117,6 +144,10 @@ export default async function RootLayout({
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd(locale)) }}
+        />
       </head>
       <body>
         <Providers initialLang={locale} t={copy[locale]}>
