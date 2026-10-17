@@ -170,6 +170,10 @@ export const copy = {
       linkedin: "LinkedIn",
       linkedinUrl:
         "https://www.linkedin.com/in/benjamin-schou-knudsen-b8b685178/",
+      github: "GitHub",
+      githubUrl: "https://github.com/benneknudsen",
+      availability:
+        "Åben for frontend- og AI-udviklerroller i Silkeborg og Aarhus — også gerne remote.",
     },
   },
   en: {
@@ -325,6 +329,10 @@ export const copy = {
       linkedin: "LinkedIn",
       linkedinUrl:
         "https://www.linkedin.com/in/benjamin-schou-knudsen-b8b685178/",
+      github: "GitHub",
+      githubUrl: "https://github.com/benneknudsen",
+      availability:
+        "Open to frontend and AI developer roles in the Silkeborg and Aarhus area — remote works too.",
     },
   },
 } as const;

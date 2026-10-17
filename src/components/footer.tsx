@@ -12,10 +12,10 @@ const COPIED_MS = 1500;
  * heading (shared <TokenReveal>: `em` words render serif italic accent and
  * `tail` rides the trailing period inside the same mask; the enclosing
  * `.footer-head` <Reveal> is the trigger, `.rv.visible .word`), a large mailto
- * link with a copy-to-clipboard button (A16), and a meta row (copyright ·
- * LinkedIn). All copy comes from i18n. Spacing from Experience is
- * `margin-top: var(--section-gap)` (convention #3: margin, not padding). The
- * copy confirmation ("Kopieret ✓" / "Copied ✓") holds for 1.5s.
+ * link with a copy-to-clipboard button (A16), an availability line, and a meta
+ * row (copyright · LinkedIn · GitHub). All copy comes from i18n. Spacing from
+ * Experience is `margin-top: var(--section-gap)` (convention #3: margin, not
+ * padding). The copy confirmation ("Kopieret ✓" / "Copied ✓") holds for 1.5s.
  */
 export function Footer() {
   const { t, lang } = useLang();
@@ -56,12 +56,27 @@ export function Footer() {
         >
           {copied ? f.copied : t.hero.btnCopy}
         </button>
+        <p
+          style={{
+            flexBasis: "100%",
+            maxWidth: "52ch",
+            margin: 0,
+            fontFamily: "var(--mono)",
+            fontSize: "13px",
+            color: "var(--dim)",
+          }}
+        >
+          {f.availability}
+        </p>
       </div>
 
       <div className="footer-meta">
         <span>{f.copyright}</span>
         <a href={f.linkedinUrl} target="_blank" rel="noopener noreferrer">
           {f.linkedin} <span aria-hidden="true">{"↗\uFE0E"}</span>
+        </a>
+        <a href={f.githubUrl} target="_blank" rel="noopener noreferrer">
+          {f.github} <span aria-hidden="true">{"↗\uFE0E"}</span>
         </a>
       </div>
     </footer>
