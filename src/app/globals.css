@@ -385,10 +385,14 @@ a:hover {
   object-fit: contain;
   filter: drop-shadow(var(--shadow-avatar));
   animation: levitate 9s ease-in-out infinite;
-  transition: transform .5s var(--ease-spring);
+  /* scale/rotate longhands, not `transform`: the running `levitate`
+     animation animates `transform` and outranks a plain transform
+     declaration, so a transform-based hover pop would never apply. */
+  transition: scale .5s var(--ease-spring), rotate .5s var(--ease-spring);
 }
 .avatar:hover img {
-  transform: scale(1.07) rotate(-3deg);
+  scale: 1.07;
+  rotate: -3deg;
 }
 
 /* A5 — GlyphStrip. Fixed 12ch width + vertical-align bottom prevent layout
@@ -1290,6 +1294,11 @@ html, body {
   .hero::before,
   .hero h1 em::after {
     animation: none;
+  }
+
+  /* Avatar hover pop appears instantly, no scale/rotate transition. */
+  .avatar img {
+    transition: none;
   }
 
   /* Skip link appears instantly, no slide. */
