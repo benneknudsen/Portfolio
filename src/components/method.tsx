@@ -56,6 +56,11 @@ export function Method() {
         ))}
       </div>
 
+      <Reveal as="div" className="method-self-note">
+        <strong>{m.selfNote.label}</strong>
+        <p>{m.selfNote.body}</p>
+      </Reveal>
+
       <StatsStrip stats={m.stats} />
     </section>
   );

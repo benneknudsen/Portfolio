@@ -129,6 +129,10 @@ export const copy = {
           pills: ["GitHub issues", "conventional commits", "auto-deploy"],
         },
       ],
+      selfNote: {
+        label: "Hvad der stadig er mit",
+        body: "Jeg vælger trade-offs, læser hver diff og bestemmer om den er god nok. Agenten foreslår, jeg afviser. Den vigtigste regel har jeg selv sat: den model, der skriver koden, må aldrig bedømme den. En anden model læser diffen read-only og svarer APPROVE eller REJECT, og bliver den afvist, går indvendingerne ordret tilbage til den, der skrev koden. Reglen findes, fordi den, der har skrevet fejlen, er den dårligste til at se den — og fordi et grønt build ikke er det samme som rigtig kode. Det er en beslutning om tillid, ikke om teknik.",
+      },
       stats: [
         { value: "24/7", label: "kører på Mac Mini M4" },
         { value: "200+", label: "issues lukket i flowet" },
@@ -288,6 +292,10 @@ export const copy = {
           pills: ["GitHub issues", "conventional commits", "auto-deploy"],
         },
       ],
+      selfNote: {
+        label: "What stays mine",
+        body: "I choose the trade-offs, read every diff and decide whether it is good enough. The agent proposes, I reject. The most important rule is one I set myself: the model that writes the code must never judge it. A different model reads the diff read-only and answers APPROVE or REJECT, and on a reject the objections go back verbatim to whoever wrote the code. The rule exists because the author of a mistake is the worst person to spot it — and because a green build is not the same as correct code. That is a decision about trust, not about technique.",
+      },
       stats: [
         { value: "24/7", label: "running on a Mac Mini M4" },
         { value: "200+", label: "issues closed in the flow" },
