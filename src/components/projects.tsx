@@ -16,8 +16,14 @@ export function Projects() {
     <section id="projects" className="projects container">
       <WordReveal className="projects-title" text={t.projects.sectionTitle} />
       <div className="prow-list">
-        <ProjectRow index="01" id="stride" peekSrc="/stride-preview.webp" href="https://stride-run.club" />
-        <ProjectRow index="02" id="portfolio" peekSrc="/portfolio-preview.webp" href={lang === "en" ? "/en" : "/"} external={false} />
+        <ProjectRow
+          index="01"
+          id="stride"
+          peekSrc="/stride-preview.webp"
+          href={lang === "en" ? "/en/case/stride" : "/case/stride"}
+          external={false}
+        />
+        <ProjectRow index="02" id="portfolio" peekSrc="/portfolio-preview.webp" href="https://github.com/benneknudsen/Portfolio" />
         <ProjectRow index="03" id="flagvagten" href="https://github.com/benneknudsen/flagvagten" peekSrc="/flagvagten-preview.webp" />
       </div>
     </section>

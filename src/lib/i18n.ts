@@ -10,6 +10,7 @@ import {
   type ReactNode,
 } from "react";
 import type { Copy, Lang } from "./copy";
+import { localeSwitchUrl } from "./routes";
 
 export { heroH1, methodH2, experienceH2, aboutH2, footerH2 } from "./copy";
 export type { Lang, HeroToken } from "./copy";
@@ -25,12 +26,6 @@ type LangContextValue = {
 };
 
 const LangContext = createContext<LangContextValue | null>(null);
-
-/** Route for each locale. `/` is the canonical Danish URL (middleware rewrites
- *  it to `/da` internally); EN lives on its own subpath. */
-function localePath(lang: Lang): string {
-  return lang === "en" ? "/en" : "/";
-}
 
 function persist(lang: Lang) {
   try {
@@ -67,9 +62,12 @@ export function LangProvider({
     (next: Lang) => {
       if (next === lang) return;
       persist(next);
-      // Full navigation so the server renders the other locale's HTML. Keep any
-      // `#hash` so a deep link (e.g. #projects) survives the language switch.
-      window.location.assign(localePath(next) + window.location.hash);
+      // Full navigation so the server renders the other locale's HTML. Keep the
+      // current page when it exists in both locales, and any `#hash` so a deep
+      // link (e.g. #projects) survives the language switch.
+      window.location.assign(
+        localeSwitchUrl(next, window.location.pathname, window.location.hash),
+      );
     },
     [lang],
   );

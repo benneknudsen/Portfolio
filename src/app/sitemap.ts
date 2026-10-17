@@ -14,6 +14,11 @@ const languages = {
   en: `${BASE_URL}/en`,
 };
 
+const caseLanguages = {
+  da: `${BASE_URL}/case/stride`,
+  en: `${BASE_URL}/en/case/stride`,
+};
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
@@ -29,6 +34,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.8,
       alternates: { languages },
+    },
+    {
+      url: caseLanguages.da,
+      lastModified: LAST_MODIFIED,
+      changeFrequency: "yearly",
+      priority: 0.6,
+      alternates: { languages: caseLanguages },
+    },
+    {
+      url: caseLanguages.en,
+      lastModified: LAST_MODIFIED,
+      changeFrequency: "yearly",
+      priority: 0.6,
+      alternates: { languages: caseLanguages },
     },
   ];
 }

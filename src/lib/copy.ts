@@ -62,6 +62,52 @@ export const copy = {
       retry: "Prøv igen",
       back: "Tilbage til forsiden",
     },
+    caseStride: {
+      kicker: "Case — Stride",
+      title: "Stride",
+      lead: "En løbetræner der regner rådene ud i stedet for at gætte dem.",
+      back: "Tilbage til projekter",
+      live: "Se Stride live",
+      liveUrl: "https://stride-run.club",
+      problemTitle: "Problemet",
+      problem:
+        "Jeg ville have en coach til mit eget løb, ikke endnu et panel med de samme tal som Strava. Kravet var enkelt: en anbefaling skal kunne forklares. Siger den \"rolig tur\", skal den kunne vise hvilke data der pegede den vej.",
+      constraintsTitle: "Begrænsninger",
+      constraints: [
+        {
+          title: "Data bliver i Strava",
+          body: "Stride henter aktiviteter via Strava-API'et. Stravas vilkår forbyder at dele data med AI-udbydere, så løbeturene må ikke ende i et kontekstvindue hos en model. Det er en begrænsning der former arkitekturen, ikke en detalje.",
+        },
+        {
+          title: "Rådene skal kunne gentages",
+          body: "Samme data ind skal give samme råd ud. Derfor beregnes anbefalingerne af en regelmotor, ikke af en model. Det gør dem forklarlige, testbare og sammenlignelige over tid.",
+        },
+        {
+          title: "Én bruger: mig",
+          body: "Jeg tester på min egen telefon og mit eget træningsforløb. Hver ændring bliver vurderet mod et rigtigt løb, ikke mod demodata.",
+        },
+      ],
+      decisionsTitle: "Beslutninger",
+      decisions: [
+        {
+          title: "Regler frem for prompts",
+          body: "Belastning, restitution og træningstype er regler med navn og rækkefølge. Når rådet er forkert, kan jeg pege på den regel der er forkert — i stedet for at gætte på om prompten var dårligt formuleret.",
+        },
+        {
+          title: "Readiness som glidende gennemsnit",
+          body: "Parathed beregnes som et vægtet, glidende gennemsnit frem for et dagsbillede. En enkelt hård tur skal kunne mærkes uden at vælte tallet, og en langsom omstilling skal kunne ses.",
+        },
+        {
+          title: "Anbefalinger som komponenter",
+          body: "Råd leveres som typede blokke der renderes som rigtige React-komponenter — kort, grafer og indsigter — i stedet for en tekstblob. Så kan et råd indeholde en graf uden at nogen skal klippe og lime tekst.",
+        },
+      ],
+      stackTitle: "Stack",
+      stack: ["Next.js 16", "TypeScript", "Drizzle ORM", "Neon Postgres", "Recharts", "Strava API"],
+      learningTitle: "Hvad jeg tog med mig",
+      learning:
+        "At bygge mod en regelmotor tvinger beslutningerne frem: hver regel skal kunne forsvares, og hver undtagelse skal skrives ned. Det er mere arbejde end at kalde en model, og det er derfor rådene kan forklares.",
+    },
     projects: {
       sectionTitle: "Projekter",
       tapAgain: "Tryk igen for at åbne siden",
@@ -224,6 +270,52 @@ export const copy = {
         "The page could not be loaded. Try again — if the error persists, go back to the front page.",
       retry: "Try again",
       back: "Back to the front page",
+    },
+    caseStride: {
+      kicker: "Case — Stride",
+      title: "Stride",
+      lead: "A running coach that works the advice out instead of guessing at it.",
+      back: "Back to projects",
+      live: "See Stride live",
+      liveUrl: "https://stride-run.club",
+      problemTitle: "The problem",
+      problem:
+        "I wanted a coach for my own running, not another panel with the same numbers Strava already shows. The requirement was simple: a recommendation has to be explainable. If it says \"easy run\", it should be able to show which data pointed that way.",
+      constraintsTitle: "Constraints",
+      constraints: [
+        {
+          title: "Data stays in Strava",
+          body: "Stride pulls activities in through the Strava API. Strava's terms forbid sharing that data with AI providers, so runs must never end up in a model's context window. That is a constraint that shapes the architecture, not a detail.",
+        },
+        {
+          title: "Advice has to be repeatable",
+          body: "Same data in has to give the same advice out. That is why the recommendations are computed by a rules engine, not a model. It makes them explainable, testable and comparable over time.",
+        },
+        {
+          title: "One user: me",
+          body: "I test on my own phone and my own training. Every change gets judged against a real training block, not demo data.",
+        },
+      ],
+      decisionsTitle: "Decisions",
+      decisions: [
+        {
+          title: "Rules instead of prompts",
+          body: "Load, recovery and session type are rules with names and an order. When the advice is wrong I can point at the rule that is wrong, instead of guessing whether the prompt was badly worded.",
+        },
+        {
+          title: "Readiness as a moving average",
+          body: "Readiness is a weighted moving average rather than a picture of the day. One hard session should register without collapsing the number, and a slow shift should be visible.",
+        },
+        {
+          title: "Advice as components",
+          body: "Recommendations arrive as typed blocks that render real React components — cards, charts and insights — instead of a text blob. A piece of advice can contain a chart without anyone cutting and pasting text.",
+        },
+      ],
+      stackTitle: "Stack",
+      stack: ["Next.js 16", "TypeScript", "Drizzle ORM", "Neon Postgres", "Recharts", "Strava API"],
+      learningTitle: "What I took away",
+      learning:
+        "Building against a rules engine forces the decisions into the open: every rule has to be defensible and every exception has to be written down. It is more work than calling a model, and it is why the advice can be explained.",
     },
     projects: {
       sectionTitle: "Projects",

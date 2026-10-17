@@ -11,6 +11,11 @@ import {
 import { createPortal } from "react-dom";
 import { useLang } from "@/lib/i18n";
 import { scrollToAnchor } from "@/lib/lenis";
+import {
+  homeAnchorUrl,
+  isHomePath,
+  localeFromPath,
+} from "@/lib/routes";
 import { LangToggle } from "@/components/lang-toggle";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { NAV_LINKS } from "@/components/nav";
@@ -119,6 +124,11 @@ export function MobileMenu() {
     // #44: closeToBurger returns focus to the burger before the panel gets
     // aria-hidden, so focus never rests on a link inside the hidden panel.
     closeToBurger();
+    const { pathname } = window.location;
+    if (!isHomePath(pathname)) {
+      window.location.assign(homeAnchorUrl(href, localeFromPath(pathname)));
+      return;
+    }
     // Defer to a macrotask so the close effect's cleanup runs first — it
     // restarts Lenis and drops `menu-open`/`lenis-stopped` (both `overflow:
     // hidden`). Scrolling in the same tick fires against a stopped instance and
