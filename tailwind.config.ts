@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { BURGER_BREAKPOINT_PX } from "./src/lib/breakpoints";
 
 /**
  * Portfolio design tokens as Tailwind theme.
@@ -34,7 +35,7 @@ export default {
         pill: ["11.5px", { lineHeight: "1.4" }],
       },
       borderRadius: {
-        pill: "99px",
+        pill: "var(--r-pill)",
       },
       maxWidth: {
         container: "1200px",
@@ -46,7 +47,7 @@ export default {
       transitionTimingFunction: {
         out: "cubic-bezier(.2,.8,.2,1)",
       },
-      screens: { md3: "820px" },
+      screens: { md3: `${BURGER_BREAKPOINT_PX}px` },
     },
   },
   plugins: [],

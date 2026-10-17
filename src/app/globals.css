@@ -46,6 +46,7 @@
   --container-pad: clamp(20px, 4vw, 48px);
   --section-gap:   clamp(96px, 15vh, 180px);
   --nav-h:         68px;
+  --anchor-offset: 80px;
 
   /* easing */
   --ease-out:    cubic-bezier(.2, .8, .2, 1);
@@ -67,9 +68,9 @@ html[data-theme="dark"] {
 html {
   color-scheme: light;
   scroll-behavior: auto;
-  /* Anchored sections stop below the fixed 68px nav on native scroll (reduced
-     motion / pre-Lenis fallback). Lenis uses ANCHOR_OFFSET for its own path. */
-  scroll-padding-top: var(--nav-h);
+  /* Anchored sections stop below the fixed nav on native scroll (reduced
+     motion / pre-Lenis fallback). Lenis reads the same token for its own path. */
+  scroll-padding-top: var(--anchor-offset);
   --font-hanken: 'Hanken Grotesk', sans-serif;
   --font-instrument: 'Instrument Serif', serif;
   --font-jetbrains: 'JetBrains Mono', monospace;
@@ -322,7 +323,7 @@ a:hover {
   bottom: .02em;
   height: .07em;
   background: var(--accent);
-  border-radius: 99px;
+  border-radius: var(--r-pill);
   transform: scaleX(0);
   transform-origin: left;
   animation: underline 7s cubic-bezier(.6, 0, .2, 1) infinite 1.4s;
@@ -415,7 +416,7 @@ a:hover {
 }
 
 /* ============================================================
-   MobileMenu (#18) — burger (A17) + panel (A18). Shown < 820px.
+   MobileMenu (#18) — burger (A17) + panel (A18). Shown below `md3`.
    Only transform/opacity animate — never color/background (convention #2).
    ============================================================ */
 
@@ -587,7 +588,7 @@ html, body {
 }
 
 /* The panel only exists below the burger breakpoint. */
-@media (min-width: 820px) {
+@media (min-width: theme(screens.md3)) {
   #msheet {
     display: none;
   }
@@ -949,7 +950,7 @@ html, body {
   font-size: 11.5px;
   color: var(--dim);
   border: 1px solid var(--line);
-  border-radius: 99px;
+  border-radius: var(--r-pill);
 }
 @media (max-width: 760px) {
   .method-step {
@@ -1254,7 +1255,7 @@ html, body {
   white-space: nowrap;
   padding: 8px 14px;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: var(--r-pill);
   background: none;
   cursor: pointer;
 }

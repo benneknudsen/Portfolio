@@ -132,8 +132,8 @@ function NavLink({ label, href }: { label: string; href: string }) {
  * Sticky top navigation (A4). 68px tall with an 8px backdrop blur over the
  * translucent `--nav` surface and a hairline bottom border. Holds the name,
  * four anchor links (scramble on hover, Lenis smooth-scroll on click) and the
- * language + theme toggles. Links collapse above the burger breakpoint
- * (≤820px) where the MobileMenu (#18) takes over.
+ * language + theme toggles. Links collapse below the burger breakpoint
+ * (`md3`) where the MobileMenu (#18) takes over.
  */
 export function Nav() {
   const { t } = useLang();

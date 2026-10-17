@@ -14,10 +14,32 @@ declare global {
 
 const REDUCED_MOTION = "(prefers-reduced-motion: reduce)";
 
-/** Anchor scroll offset — clears the fixed nav (in px). */
-const ANCHOR_OFFSET = -80;
+/** Fallback anchor offset in px when the CSS token cannot be read. */
+const ANCHOR_OFFSET_FALLBACK = 80;
 /** Anchor scroll animation length (in seconds). */
 const ANCHOR_DURATION = 1.4;
+
+/**
+ * Read the anchor offset from the `--anchor-offset` token so the Lenis path and
+ * the native `scroll-padding-top` path always clear the nav by the same amount.
+ * Returns a negative offset, or the fallback if the token cannot be parsed.
+ */
+function getAnchorOffset(): number {
+  let offset = ANCHOR_OFFSET_FALLBACK;
+  if (typeof document !== "undefined") {
+    try {
+      const parsed = Number.parseFloat(
+        getComputedStyle(document.documentElement).getPropertyValue(
+          "--anchor-offset",
+        ),
+      );
+      if (Number.isFinite(parsed)) offset = Math.abs(parsed);
+    } catch {
+      // Token unavailable — keep the fallback.
+    }
+  }
+  return -offset;
+}
 
 /**
  * Smoothly scroll to an anchor target (id selector, e.g. `"#work"`, an element,
@@ -31,7 +53,7 @@ export function scrollToAnchor(target: string | HTMLElement | number): void {
     // Lenis) and drive the scroll in the same tick — without it, scrollTo
     // against a stopped instance is a no-op.
     lenis.scrollTo(target, {
-      offset: ANCHOR_OFFSET,
+      offset: getAnchorOffset(),
       duration: ANCHOR_DURATION,
       force: true,
     });

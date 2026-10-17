@@ -50,7 +50,7 @@ export default function NotFound() {
           color: "var(--bg)",
           background: "var(--ink)",
           border: "1px solid var(--ink)",
-          borderRadius: "99px",
+          borderRadius: "var(--r-pill)",
           textDecoration: "none",
           whiteSpace: "nowrap",
         }}

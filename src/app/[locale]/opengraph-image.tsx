@@ -34,14 +34,36 @@ export function generateImageMetadata({
   ];
 }
 
-// Design tokens (light theme) — do NOT invent; keep in sync with globals.css.
-const BG = "#f7f5f1";
-const INK = "#141310";
-const BODY = "#41403c";
-const DIM = "#6e6b63";
-const ACCENT = "#2d4a3e";
-const ACCENT_SOFT = "#eef1ee";
-const BLOB = "rgba(45, 74, 62, .09)";
+// Design tokens (light theme) are read from the :root block in globals.css at
+// build time, so the OG image can never drift from the site palette.
+async function readLightPalette() {
+  const css = await readFile(
+    join(process.cwd(), "src", "app", "globals.css"),
+    "utf8",
+  );
+  const root = css.match(/:root\s*\{([^}]*)\}/);
+  if (!root) {
+    throw new Error("Could not find the :root block in src/app/globals.css");
+  }
+  const readVar = (name: string) => {
+    const match = root[1].match(new RegExp(`--${name}\\s*:\\s*([^;]+);`));
+    if (!match) {
+      throw new Error(
+        `Missing --${name} in the :root block of src/app/globals.css`,
+      );
+    }
+    return match[1].trim();
+  };
+  return {
+    BG: readVar("bg"),
+    INK: readVar("ink"),
+    BODY: readVar("body"),
+    DIM: readVar("dim"),
+    ACCENT: readVar("accent"),
+    ACCENT_SOFT: readVar("accent-soft"),
+    BLOB: readVar("blob"),
+  };
+}
 
 // Satori needs ttf/otf/woff (not woff2). The TTFs are committed locally
 // (src/assets/fonts) so the build has no network dependency — same pattern
@@ -65,6 +87,8 @@ export default async function Image({
 }) {
   const { locale: rawLocale } = await params;
   const locale = toLang(rawLocale);
+  const { BG, INK, BODY, DIM, ACCENT, ACCENT_SOFT, BLOB } =
+    await readLightPalette();
   const [hanken400, hanken700, mono500, memoji] = await Promise.all([
     loadFont("hanken-grotesk-400.ttf", "Hanken Grotesk", 400),
     loadFont("hanken-grotesk-700.ttf", "Hanken Grotesk", 700),
