@@ -128,6 +128,11 @@ export function MobileMenu() {
       id="msheet"
       ref={sheetRef}
       className={open ? "open" : undefined}
+      // `inert` removes the whole subtree — including LangToggle/ThemeToggle —
+      // from the tab order and accessibility tree in the same tick as close,
+      // while the panel is still visible during the 0.45s visibility
+      // transition. `aria-hidden` alone did not stop focus.
+      inert={!open}
       aria-hidden={!open}
     >
       {/* Explicit close affordance inside the panel — closing never depends on
