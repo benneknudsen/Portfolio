@@ -12,7 +12,12 @@ import { useLang } from "@/lib/i18n";
 import { Reveal } from "@/components/reveal";
 
 /** Keys of `t.projects` that hold an actual project (not the section title). */
-type ProjectId = "stride" | "portfolio" | "flagvagten";
+type ProjectId =
+  | "stride"
+  | "portfolio"
+  | "flagvagten"
+  | "futSquadLab"
+  | "stravaDigest";
 
 type ProjectRowProps = {
   /** Ordinal shown at the row's left edge, e.g. "01". */
@@ -86,16 +91,19 @@ export function ProjectRow({ index, id, peekSrc, href, external = true }: Projec
         {index}
       </span>
       <div className="prow-main">
-        <h3
-          className={["prow-title", expanded && "prow-title--expanded"]
-            .filter(Boolean)
-            .join(" ")}
-        >
-          {p.title}
-          <span className="prow-arrow" aria-hidden>
-            {"↗\uFE0E"}
-          </span>
-        </h3>
+        <div className="prow-head">
+          <h3
+            className={["prow-title", expanded && "prow-title--expanded"]
+              .filter(Boolean)
+              .join(" ")}
+          >
+            {p.title}
+            <span className="prow-arrow" aria-hidden>
+              {"↗\uFE0E"}
+            </span>
+          </h3>
+          <span className="prow-status">{p.status}</span>
+        </div>
         {href && (
           <span className="prow-hint" aria-hidden="true">
             <span>{t.projects.tapAgain}</span>

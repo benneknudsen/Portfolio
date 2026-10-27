@@ -665,6 +665,28 @@ html, body {
   min-width: 0;
 }
 
+/* Title and its status pill share one line. The pill wraps below the title on
+   narrow viewports instead of squeezing the heading. */
+.prow-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px clamp(10px, 1.5vw, 18px);
+}
+.prow-status {
+  align-self: flex-start;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--dim);
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  padding: 2px 9px;
+  white-space: nowrap;
+}
+
 /* A10 — outline title fills to solid ink on hover without a color transition.
    Convention #2 forbids color transitions: a theme switch would animate
    between two --ink values and go dark-on-dark. The un-hovered baseline is

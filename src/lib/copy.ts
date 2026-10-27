@@ -118,6 +118,7 @@ export const copy = {
         marquee:
           "Regelmotor · Typede blokke · Strava-sync · Recharts · Drizzle ORM",
         peekLabel: "Stride — regelbaseret løbetræner",
+        status: "live",
       },
       portfolio: {
         title: "Portfolio",
@@ -126,6 +127,7 @@ export const copy = {
         marquee:
           "AI-drevet · Design handoff · OpenCode · Hermes Agent · Vercel",
         peekLabel: "Portfolio — bygget af agenter",
+        status: "live",
       },
       flagvagten: {
         title: "Flagvagten",
@@ -134,6 +136,25 @@ export const copy = {
         marquee:
           "Dannebrog · Solopgang/solnedgang · Flagdage · Halv stang · Live Activity · Expo · Skia",
         peekLabel: "Flagvagten — dansk flag-app",
+        status: "på hold",
+      },
+      futSquadLab: {
+        title: "Fut Squad Lab",
+        desc: "Et værktøj jeg byggede til mig selv for at spare tid, når jeg spiller FIFA. Det løser Squad Building Challenges ud fra det lager, jeg allerede har i klubben — én challenge ad gangen, og det sender intet selv. Alt kører lokalt i browseren, og koden er åben under MIT.",
+        facts: ["JavaScript", "Chrome Extension", "MIT", "Vitest"],
+        marquee:
+          "SBC-solver · Eget klub-lager · Ingen backend · Kører offline · MIT",
+        peekLabel: "Fut Squad Lab — SBC-solver til FIFA",
+        status: "alpha",
+      },
+      stravaDigest: {
+        title: "strava-digest",
+        desc: "Et lille CLI-værktøj jeg byggede til mig selv: det omdanner en Strava-eksport på 22 MB GPS-data til én kompakt træningsrapport — splits, pulsdrift, zoner og tendenser — som en agent kan læse på cirka 14.000 tokens. Det er 454× mindre på mit eget eksport med 196 løb.",
+        facts: ["TypeScript", "Node 22", "CLI", "Ingen backend"],
+        marquee:
+          "Strava-eksport · Kompakt digest · Splits · HR-drift · Zoner · CLI",
+        peekLabel: "strava-digest — kompakt træningsdigest",
+        status: "v1.0.3",
       },
     },
     method: {
@@ -327,6 +348,7 @@ export const copy = {
         marquee:
           "Rules engine · Typed blocks · Strava sync · Recharts · Drizzle ORM",
         peekLabel: "Stride — rule-based running coach",
+        status: "live",
       },
       portfolio: {
         title: "Portfolio",
@@ -335,6 +357,7 @@ export const copy = {
         marquee:
           "AI-driven · Design handoff · OpenCode · Hermes Agent · Vercel",
         peekLabel: "Portfolio — built by agents",
+        status: "live",
       },
       flagvagten: {
         title: "Flagvagten",
@@ -343,6 +366,25 @@ export const copy = {
         marquee:
           "Dannebrog · Sunrise/sunset · Flag days · Half-mast · Live Activity · Expo · Skia",
         peekLabel: "Flagvagten — Danish flag app",
+        status: "on hold",
+      },
+      futSquadLab: {
+        title: "Fut Squad Lab",
+        desc: "A tool I built for myself to save time when I play FIFA. It solves Squad Building Challenges from the club I already have — one challenge at a time, and it never submits anything on its own. Everything runs locally in the browser, and the code is open under MIT.",
+        facts: ["JavaScript", "Chrome Extension", "MIT", "Vitest"],
+        marquee:
+          "SBC solver · Your own club · No backend · Runs offline · MIT",
+        peekLabel: "Fut Squad Lab — SBC solver for FIFA",
+        status: "alpha",
+      },
+      stravaDigest: {
+        title: "strava-digest",
+        desc: "A small CLI tool I built for myself: it turns a 22 MB Strava GPS export into one compact training report — splits, heart-rate drift, zones and trends — that an agent can read in about 14,000 tokens. That is 454× smaller on my own 196-run export.",
+        facts: ["TypeScript", "Node 22", "CLI", "No backend"],
+        marquee:
+          "Strava export · Compact digest · Splits · HR drift · Zones · CLI",
+        peekLabel: "strava-digest — compact training digest",
+        status: "v1.0.3",
       },
     },
     method: {
