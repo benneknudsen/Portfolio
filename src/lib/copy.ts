@@ -164,15 +164,15 @@ export const copy = {
         linkHref: "https://hermes-agent.nousresearch.com/",
         linkText: "Hermes Agent ↗︎",
         after:
-          ", Nous Researchs open source-agent, som jeg har sat op og tunet til mit workflow på en Mac Mini M4. Den kører 24/7 via Telegram; en kodende model skriver koden, og Hermes orkestrerer hele flowet fra issue til deploy. Jeg har bygget denne portfolio med den.",
+          ", Nous Researchs open source-agent, som jeg har sat op og tunet til mit workflow på en Mac Mini M4. Den kører 24/7, og jeg styrer den fra Discord — ofte fra telefonen — med Telegram ved siden af. Jeg kører to profiler, en til udvikling og en til privat, så skills, hukommelse og cron ikke blander sig. En kodende model skriver koden, og Hermes orkestrerer hele flowet fra issue til deploy. Jeg har bygget denne portfolio med den.",
       },
       steps: [
         {
           label: "#1 Husk",
           title: "Persistent memory",
           paragraph:
-            "Hermes husker alt via mem0, med vector-søgning på tværs af sessioner, så den kender mine projekter, præferencer og tidligere løsninger. Jeg starter aldrig forfra.",
-          pills: ["mem0", "vector-søgning", "tværs af sessioner"],
+            "Hermes husker på tværs af sessioner via mem0 og vector-søgning, så den kender mine projekter, præferencer og tidligere løsninger. Hukommelsen ligger pr. profil — en til udvikling, en til privat — så konteksten ikke flyder sammen, og jeg aldrig starter forfra.",
+          pills: ["mem0", "vector-søgning", "profil pr. kontekst"],
         },
         {
           label: "#2 Deleger",
@@ -394,15 +394,15 @@ export const copy = {
         linkHref: "https://hermes-agent.nousresearch.com/",
         linkText: "Hermes Agent ↗︎",
         after:
-          ", Nous Research's open source agent, which I've set up and tuned to my workflow on a Mac Mini M4. It runs 24/7 via Telegram; a coding model writes the code and Hermes orchestrates everything from issue to deploy. I built this portfolio with it.",
+          ", Nous Research's open source agent, which I've set up and tuned to my workflow on a Mac Mini M4. It runs 24/7, and I steer it from Discord — often from my phone — with Telegram alongside. I run two profiles, one for development and one for personal use, so skills, memory and cron don't bleed into each other. A coding model writes the code and Hermes orchestrates everything from issue to deploy. I built this portfolio with it.",
       },
       steps: [
         {
           label: "#1 Remember",
           title: "Persistent memory",
           paragraph:
-            "Hermes remembers everything via mem0, with vector search across sessions, so it knows my projects, preferences and past solutions. I never start from scratch.",
-          pills: ["mem0", "vector search", "cross-session"],
+            "Hermes remembers across sessions via mem0 and vector search, so it knows my projects, preferences and past solutions. Memory lives per profile — one for development, one for personal — so context doesn't bleed, and I never start from scratch.",
+          pills: ["mem0", "vector search", "profile per context"],
         },
         {
           label: "#2 Delegate",
