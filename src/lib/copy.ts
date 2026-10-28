@@ -176,7 +176,7 @@ export const copy = {
         },
         {
           label: "#2 Deleger",
-          title: "Koden skrives aldrig af chefen",
+          title: "Alt starter med en brief",
           paragraph:
             "Jeg lader aldrig orchestratoren skrive kode selv. Den læser issuet, skriver briefen og delegerer til en kodende model, der implementerer i sit eget git-worktree per opgave. Sådan har jeg sat flowet op: flere opgaver kører parallelt uden at røre hinanden.",
           pills: ["kodende model", "isolerede sessioner", "worktree per opgave"],
@@ -406,7 +406,7 @@ export const copy = {
         },
         {
           label: "#2 Delegate",
-          title: "The boss never writes the code",
+          title: "Everything starts with a brief",
           paragraph:
             "I never let the orchestrator write code itself. It reads the issue, writes the brief and delegates to a coding model that implements each task in its own git worktree. That's how I set up the flow: several tasks run in parallel without touching each other.",
           pills: ["coding model", "isolated sessions", "worktree per task"],
