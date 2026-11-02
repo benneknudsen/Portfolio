@@ -10,9 +10,8 @@ import {
   localeFromPath,
 } from "@/lib/routes";
 import { prefersReducedMotion } from "@/lib/animations";
-import { LangToggle } from "@/components/lang-toggle";
-import { ThemeToggle } from "@/components/theme-toggle";
-import { MobileMenu } from "@/components/mobile-menu";
+import { NAV_LINKS } from "@/lib/nav-links";
+import { NavActions } from "@/components/nav-actions";
 
 /** Glyphs a character flickers through before it decodes (A4). */
 const SCRAMBLE_CHARS = "/\\-_=+|<>~:*";
@@ -24,18 +23,6 @@ const SCRAMBLE_DURATION_MS = 360;
 function randomGlyph(): string {
   return SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)];
 }
-
-/**
- * Nav anchor links, in order. `label` resolves through i18n at render.
- * Shared with {@link MobileMenu} so the burger panel stays in sync.
- */
-export const NAV_LINKS = [
-  { key: "projects", href: "#projects" },
-  { key: "method", href: "#method" },
-  { key: "xp", href: "#experience" },
-  { key: "about", href: "#about" },
-  { key: "contact", href: "#contact" },
-] as const;
 
 /**
  * A single nav link with the A4 scramble-on-hover effect.
@@ -176,11 +163,7 @@ export function Nav() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2.5">
-          <LangToggle />
-          <ThemeToggle />
-          <MobileMenu />
-        </div>
+        <NavActions />
       </div>
     </header>
   );
