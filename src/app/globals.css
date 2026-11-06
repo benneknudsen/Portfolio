@@ -1253,6 +1253,14 @@ html, body {
 .case-section > .case-p {
   margin-top: 0;
 }
+.case-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.case-body > .case-p {
+  margin-top: 0;
+}
 .case-learning {
   max-width: 54ch;
   color: var(--ink);

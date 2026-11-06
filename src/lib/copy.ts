@@ -101,9 +101,79 @@ export const copy = {
           title: "Anbefalinger som komponenter",
           body: "Råd leveres som typede blokke der renderes som rigtige React-komponenter — kort, grafer og indsigter — i stedet for en tekstblob. Så kan et råd indeholde en graf uden at nogen skal klippe og lime tekst.",
         },
+        {
+          title: "Typede blokke gennem zod",
+          body: "Anbefalingerne forlader regelmotoren som NDJSON, og hver blok valideres med zod ved grænsen, før den når React. Er blokken ugyldig, rendres den ikke — jeg får en fejl i stedet for et halvt kort på skærmen.",
+        },
       ],
+      decisionsLink: {
+        label: "Typed block-stream",
+        href: "https://github.com/benneknudsen/stride/blob/main/docs/case/typed-block-stream.md",
+      },
+      measurementsTitle: "Målinger",
+      measurementsIntro:
+        "Alle tal i denne case er lab-målinger, kørt med Lighthouse CI 0.16 / Lighthouse 13.6 (5 kørsler, median) og axe 4.14 på en lokal produktionsbuild. Kommandoerne ligger i repoet.",
+      measurements: [
+        {
+          title: "Performance",
+          body: "Landing og demo havde den laveste score (0,69/0,75), fordi de arbejder på main-threaden i browseren. De øvrige sider ligger omkring 1,0. På /login faldt LCP fra 4,45 s til 0,60 s efter fixet, og Performance gik fra 0,85 til 1,00.",
+        },
+        {
+          title: "Tilgængelighed",
+          body: "axe, WCAG A/AA: color-contrast (serious) gik fra 4–31 noder pr. side til 0 på alle sider. Én er tilbage på /login — Strava-brandknappen — og den har jeg accepteret. Tokens --color-red-ink og --color-strava-deep blev indført; brandfarverne er uændrede.",
+        },
+        {
+          title: "Test",
+          body: "1462 unit-tests (Vitest) og 22 e2e-tests (Playwright), målt i kørsel 6. november 2026.",
+        },
+      ],
+      measurementsNote:
+        "Tallene er fra laboratoriet, ikke feltdata. Jeg har endnu ikke målt rigtige brugeres Core Web Vitals, så de siger noget om builden og intet om netværket hos den enkelte løber.",
+      measurementsLink: {
+        label: "Målingslog",
+        href: "https://github.com/benneknudsen/stride/blob/main/docs/performance/changes.md",
+      },
+      testTitle: "Teststrategi",
+      testIntro: "Jeg tester i to lag, fordi de fanger hver sin slags fejl.",
+      testLayers: [
+        {
+          title: "Vitest — enhedskontrakten",
+          body: "Det første lag kører på enheder: reglerne, beregningerne og kontrakten for de typede blokke. Givet de samme aktiviteter skal anbefalingen stadig være den samme, og en blok der ikke validerer, skal afvises.",
+        },
+        {
+          title: "Playwright — flows gennem serveren",
+          body: "Det andet lag driver den rigtige app gennem serveren: log ind, se dashboardet og få en anbefaling renderet som blokke. Det fanger sammensætningen, som enhedstestene ikke kan se.",
+        },
+      ],
+      testNotTested:
+        "Jeg tester bevidst ikke Strava-OAuth mod det rigtige API, prod-sync eller hvordan motion ser ud. Det første kræver et live login, det andet en produktionsdatabase, og det tredje er en visuel vurdering, som en assertion ikke fanger.",
+      testLink: {
+        label: "Teststrategien i detaljer",
+        href: "https://github.com/benneknudsen/stride/blob/main/docs/case/test-strategy.md",
+      },
+      a11yTitle: "Tilgængelighed i praksis",
+      a11yItems: [
+        {
+          title: "Tastatur og fokus",
+          body: "Jeg har gennemgået flows med tastaturet: fokus er synligt, og ingen funktion afhænger af hover for at virke.",
+        },
+        {
+          title: "FlipText",
+          body: "FlipText beholder en sr-only kopi af teksten og markerer de animerede bogstaver som aria-hidden. Animationen er dekoration; teksten bliver læst én gang, normalt.",
+        },
+        {
+          title: "Reduceret bevægelse",
+          body: "Med prefers-reduced-motion stopper animationerne, og indholdet skifter med det samme i stedet for at glide ind.",
+        },
+      ],
+      a11yLimit:
+        "Én begrænsning står tilbage: Strava-knappen på /login har en kontrast på 3,4:1. Jeg har beholdt Stravas brandfarve i stedet for at opfinde en godkendt variant; knappen har stadig synlig tekst og tastaturfokus, og det er det eneste axe-fund, der er tilbage.",
+      a11yLink: {
+        label: "Tilgængelighedsnoter",
+        href: "https://github.com/benneknudsen/stride/blob/main/docs/case/accessibility.md",
+      },
       stackTitle: "Stack",
-      stack: ["Next.js 16", "TypeScript", "Drizzle ORM", "Neon Postgres", "Recharts", "Strava API"],
+      stack: ["Next.js 16", "TypeScript", "Drizzle ORM", "Neon Postgres", "Recharts", "Strava API", "Vitest", "Playwright", "axe"],
       learningTitle: "Hvad jeg tog med mig",
       learning:
         "At bygge mod en regelmotor tvinger beslutningerne frem: hver regel skal kunne forsvares, og hver undtagelse skal skrives ned. Det er mere arbejde end at kalde en model, og det er derfor rådene kan forklares.",
@@ -331,9 +401,79 @@ export const copy = {
           title: "Advice as components",
           body: "Recommendations arrive as typed blocks that render real React components — cards, charts and insights — instead of a text blob. A piece of advice can contain a chart without anyone cutting and pasting text.",
         },
+        {
+          title: "Typed blocks through zod",
+          body: "Recommendations leave the rules engine as NDJSON, and every block is validated with zod at the boundary before it reaches React. If the block is invalid, it is not rendered — I get an error instead of half a card on screen.",
+        },
       ],
+      decisionsLink: {
+        label: "Typed block-stream",
+        href: "https://github.com/benneknudsen/stride/blob/main/docs/case/typed-block-stream.md",
+      },
+      measurementsTitle: "Measurements",
+      measurementsIntro:
+        "Every number in this case is a lab measurement, run with Lighthouse CI 0.16 / Lighthouse 13.6 (five runs, median) and axe 4.14 against a local production build. The commands are in the repository.",
+      measurements: [
+        {
+          title: "Performance",
+          body: "The landing page and demo had the lowest score (0.69/0.75) because they do their work on the client-side main thread. The other pages sit around 1.0. On /login, LCP dropped from 4.45 s to 0.60 s after the fix, and Performance went from 0.85 to 1.00.",
+        },
+        {
+          title: "Accessibility",
+          body: "axe, WCAG A/AA: color-contrast (serious) went from 4–31 nodes per page to 0 on every page. One remains on /login — the Strava brand button — and I accepted it. The --color-red-ink and --color-strava-deep tokens were added; the brand colours themselves are unchanged.",
+        },
+        {
+          title: "Tests",
+          body: "1462 unit tests (Vitest) and 22 end-to-end tests (Playwright), measured in the run on 6 November 2026.",
+        },
+      ],
+      measurementsNote:
+        "These are lab numbers, not field data. I have not measured real users' Core Web Vitals yet, so they describe the build and say nothing about the network of any individual runner.",
+      measurementsLink: {
+        label: "Measurement log",
+        href: "https://github.com/benneknudsen/stride/blob/main/docs/performance/changes.md",
+      },
+      testTitle: "Test strategy",
+      testIntro: "I test in two layers because they catch different kinds of failure.",
+      testLayers: [
+        {
+          title: "Vitest — the unit contract",
+          body: "The first layer runs on units: the rules, the calculations and the contract for the typed blocks. Given the same activities, the advice should still be the same, and a block that does not validate should be rejected.",
+        },
+        {
+          title: "Playwright — flows through the server",
+          body: "The second layer drives the real app through the server: sign in, see the dashboard and get a recommendation rendered as blocks. It catches the wiring that unit tests cannot see.",
+        },
+      ],
+      testNotTested:
+        "I deliberately do not test the live Strava OAuth flow, production sync, or how the motion looks. The first needs a real login, the second a production database, and the third is a visual judgement that an assertion does not capture.",
+      testLink: {
+        label: "The test strategy in detail",
+        href: "https://github.com/benneknudsen/stride/blob/main/docs/case/test-strategy.md",
+      },
+      a11yTitle: "Accessibility in practice",
+      a11yItems: [
+        {
+          title: "Keyboard and focus",
+          body: "I worked through the flows with the keyboard: focus is visible, and nothing depends on hover to work.",
+        },
+        {
+          title: "FlipText",
+          body: "FlipText keeps a screen-reader-only copy of the text and marks the animated letters as aria-hidden. The animation is decoration; the text is read once, normally.",
+        },
+        {
+          title: "Reduced motion",
+          body: "With prefers-reduced-motion, the animations stop and the content switches instantly instead of sliding in.",
+        },
+      ],
+      a11yLimit:
+        "One limitation remains: the Strava button on /login has a contrast ratio of 3.4:1. I kept Strava's brand colour rather than invent an approved variant; the button still has visible text and keyboard focus, and it is the only axe finding left.",
+      a11yLink: {
+        label: "Accessibility notes",
+        href: "https://github.com/benneknudsen/stride/blob/main/docs/case/accessibility.md",
+      },
       stackTitle: "Stack",
-      stack: ["Next.js 16", "TypeScript", "Drizzle ORM", "Neon Postgres", "Recharts", "Strava API"],
+      stack: ["Next.js 16", "TypeScript", "Drizzle ORM", "Neon Postgres", "Recharts", "Strava API", "Vitest", "Playwright", "axe"],
       learningTitle: "What I took away",
       learning:
         "Building against a rules engine forces the decisions into the open: every rule has to be defensible and every exception has to be written down. It is more work than calling a model, and it is why the advice can be explained.",
